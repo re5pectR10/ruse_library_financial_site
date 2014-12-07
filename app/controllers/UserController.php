@@ -10,7 +10,21 @@ class UserController extends BaseController{
 
     public  function signIn()
     {
+        $input = Input::all();
         $user = new User();
-        $user->signIn(Input::get('username'), Input::get('password'));
+        $validate = $user->signIn($input);
+        if ($validate->fails()) {
+            return Redirect::to('/')->withErrors($validate, 'signin')->withInput();
+        }
+    }
+
+    public function logIn()
+    {
+        $input = Input::all();
+        $user = new User();
+        $validate = $user->logIn($input);
+        if ($validate->fails()) {
+            return Redirect::to('/')->withErrors($validate, 'login')->withInput();
+        }
     }
 } 

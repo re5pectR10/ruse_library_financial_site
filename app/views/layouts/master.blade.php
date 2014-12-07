@@ -60,19 +60,7 @@
                     </ul>
                 </div>
             </div>
-            <div class="row">
-                <div class="col-md-offset-10 col-md-1">
-                    <p>Влез</p>
-                    {{ Form::open(array('url' => 'signin')); }}
-                    {{ Form::text('username', Input::old('username'),  array('placeholder'=>'Username')); }}
-                    {{ Form::password('password',  array('placeholder'=>'Password')); }}
-                    {{ Form::submit('Sign In'); }}
-                    {{ Form::close(); }}
-                </div>
-                <div class="col-md-1">
-                    <p>Регистрирай се</p>
-                </div>
-            </div>
+            @yield('user_auth')
         </div>
     </div>
 </header>
@@ -309,21 +297,21 @@
                             <div class="row">
                                 <div class="col-sm-4">
                                     <div class="single-event">
-                                        <img class="img-responsive" src="../../public/images/event/event1.jpg" alt="event-image">
+                                        <img class="img-responsive" src="../../../public/images/event/event1.jpg" alt="event-image">
                                         <h4>Chester Bennington</h4>
                                         <h5>Vocal</h5>
                                     </div>
                                 </div>
                                 <div class="col-sm-4">
                                     <div class="single-event">
-                                        <img class="img-responsive" src="../../public/images/event/event2.jpg" alt="event-image">
+                                        <img class="img-responsive" src="../../../public/images/event/event2.jpg" alt="event-image">
                                         <h4>Mike Shinoda</h4>
                                         <h5>vocals, rhythm guitar</h5>
                                     </div>
                                 </div>
                                 <div class="col-sm-4">
                                     <div class="single-event">
-                                        <img class="img-responsive" src="../../public/images/event/event3.jpg" alt="event-image">
+                                        <img class="img-responsive" src="../../../public/images/event/event3.jpg" alt="event-image">
                                         <h4>Rob Bourdon</h4>
                                         <h5>drums</h5>
                                     </div>
@@ -334,21 +322,21 @@
                             <div class="row">
                                 <div class="col-sm-4">
                                     <div class="single-event">
-                                        <img class="img-responsive" src="../../public/images/event/event1.jpg" alt="event-image">
+                                        <img class="img-responsive" src="../../../public/images/event/event1.jpg" alt="event-image">
                                         <h4>Chester Bennington</h4>
                                         <h5>Vocal</h5>
                                     </div>
                                 </div>
                                 <div class="col-sm-4">
                                     <div class="single-event">
-                                        <img class="img-responsive" src="../../public/images/event/event2.jpg" alt="event-image">
+                                        <img class="img-responsive" src="../../../public/images/event/event2.jpg" alt="event-image">
                                         <h4>Mike Shinoda</h4>
                                         <h5>vocals, rhythm guitar</h5>
                                     </div>
                                 </div>
                                 <div class="col-sm-4">
                                     <div class="single-event">
-                                        <img class="img-responsive" src="../../public/images/event/event3.jpg" alt="event-image">
+                                        <img class="img-responsive" src="../../../public/images/event/event3.jpg" alt="event-image">
                                         <h4>Rob Bourdon</h4>
                                         <h5>drums</h5>
                                     </div>
@@ -359,7 +347,7 @@
                 </div>
             </div>
             <div class="guitar">
-                <img class="img-responsive" src="../../public/images/guitar.png" alt="guitar">
+                <img class="img-responsive" src="../../../public/images/guitar.png" alt="guitar">
             </div>
         </div>
     </div>
@@ -368,7 +356,7 @@
 
 <section id="about">
     <div class="guitar2">
-        <img class="img-responsive" src="../../public/images/guitar2.jpg" alt="guitar">
+        <img class="img-responsive" src="../../../public/images/guitar2.jpg" alt="guitar">
     </div>
     <div class="about-content">
         <h2>About Evento</h2>
@@ -386,25 +374,25 @@
 <section id="twitter">
     <div id="twitter-feed" class="carousel slide" data-interval="false">
         <div class="twit">
-            <img class="img-responsive" src="../../public/images/twit.png" alt="twit">
+            <img class="img-responsive" src="../../../public/images/twit.png" alt="twit">
         </div>
         <div class="row">
             <div class="col-sm-6 col-sm-offset-3">
                 <div class="text-center carousel-inner center-block">
                     <div class="item active">
-                        <img src="../../public/images/twitter/twitter1.png" alt="">
+                        <img src="../../../public/images/twitter/twitter1.png" alt="">
 
                         <p>In hac habitasse platea dictumst. Nam pulvinar, odio sed rhoncus suscipit </p>
                         <a href="#">http://t.co/yY7s1IfrAb 2 days ago</a>
                     </div>
                     <div class="item">
-                        <img src="../../public/images/twitter/twitter2.png" alt="">
+                        <img src="../../../public/images/twitter/twitter2.png" alt="">
 
                         <p>In hac habitasse platea dictumst. Nam pulvinar, odio sed rhoncus suscipit </p>
                         <a href="#">http://t.co/yY7s1IfrAb 2 days ago</a>
                     </div>
                     <div class="item">
-                        <img src="../../public/images/twitter/twitter3.png" alt="">
+                        <img src="../../../public/images/twitter/twitter3.png" alt="">
 
                         <p>In hac habitasse platea dictumst. Nam pulvinar, odio sed rhoncus suscipit </p>
                         <a href="#">http://t.co/yY7s1IfrAb 2 days ago</a>
@@ -433,33 +421,33 @@
                     <div class="carousel-inner">
                         <div class="item active">
                             <ul>
-                                <li><a href="#"><img class="img-responsive" src="../../public/images/sponsor/sponsor1.png"
+                                <li><a href="#"><img class="img-responsive" src="../../../public/images/sponsor/sponsor1.png"
                                                      alt=""></a></li>
-                                <li><a href="#"><img class="img-responsive" src="../../public/images/sponsor/sponsor2.png"
+                                <li><a href="#"><img class="img-responsive" src="../../../public/images/sponsor/sponsor2.png"
                                                      alt=""></a></li>
-                                <li><a href="#"><img class="img-responsive" src="../../public/images/sponsor/sponsor3.png"
+                                <li><a href="#"><img class="img-responsive" src="../../../public/images/sponsor/sponsor3.png"
                                                      alt=""></a></li>
-                                <li><a href="#"><img class="img-responsive" src="../../public/images/sponsor/sponsor4.png"
+                                <li><a href="#"><img class="img-responsive" src="../../../public/images/sponsor/sponsor4.png"
                                                      alt=""></a></li>
-                                <li><a href="#"><img class="img-responsive" src="../../public/images/sponsor/sponsor5.png"
+                                <li><a href="#"><img class="img-responsive" src="../../../public/images/sponsor/sponsor5.png"
                                                      alt=""></a></li>
-                                <li><a href="#"><img class="img-responsive" src="../../public/images/sponsor/sponsor6.png"
+                                <li><a href="#"><img class="img-responsive" src="../../../public/images/sponsor/sponsor6.png"
                                                      alt=""></a></li>
                             </ul>
                         </div>
                         <div class="item">
                             <ul>
-                                <li><a href="#"><img class="img-responsive" src="../../public/images/sponsor/sponsor6.png"
+                                <li><a href="#"><img class="img-responsive" src="../../../public/images/sponsor/sponsor6.png"
                                                      alt=""></a></li>
-                                <li><a href="#"><img class="img-responsive" src="../../public/images/sponsor/sponsor5.png"
+                                <li><a href="#"><img class="img-responsive" src="../../../public/images/sponsor/sponsor5.png"
                                                      alt=""></a></li>
-                                <li><a href="#"><img class="img-responsive" src="../../public/images/sponsor/sponsor4.png"
+                                <li><a href="#"><img class="img-responsive" src="../../../public/images/sponsor/sponsor4.png"
                                                      alt=""></a></li>
-                                <li><a href="#"><img class="img-responsive" src="../../public/images/sponsor/sponsor3.png"
+                                <li><a href="#"><img class="img-responsive" src="../../../public/images/sponsor/sponsor3.png"
                                                      alt=""></a></li>
-                                <li><a href="#"><img class="img-responsive" src="../../public/images/sponsor/sponsor2.png"
+                                <li><a href="#"><img class="img-responsive" src="../../../public/images/sponsor/sponsor2.png"
                                                      alt=""></a></li>
-                                <li><a href="#"><img class="img-responsive" src="../../public/images/sponsor/sponsor1.png"
+                                <li><a href="#"><img class="img-responsive" src="../../../public/images/sponsor/sponsor1.png"
                                                      alt=""></a></li>
                             </ul>
                         </div>
@@ -468,7 +456,7 @@
             </div>
         </div>
         <div class="light">
-            <img class="img-responsive" src="../../public/images/light.png" alt="">
+            <img class="img-responsive" src="../../../public/images/light.png" alt="">
         </div>
     </div>
 </section>
@@ -484,7 +472,7 @@
     <!--/#map-->
     <div class="contact-section">
         <div class="ear-piece">
-            <img class="img-responsive" src="../../public/images/ear-piece.png" alt="">
+            <img class="img-responsive" src="../../../public/images/ear-piece.png" alt="">
         </div>
         <div class="container">
             <div class="row">

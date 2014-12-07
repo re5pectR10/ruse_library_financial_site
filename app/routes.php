@@ -13,7 +13,8 @@
 
 Route::get('/', function()
 {
-	return View::make('index');
+	return View::make('index_guest');
 });
 
 Route::post('/signin', array('before' => 'csrf', 'uses' => 'UserController@signIn'));
+Route::post('/login', array('before' => 'csrf', 'uses' => 'UserController@logIn'));
