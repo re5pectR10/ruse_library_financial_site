@@ -31,6 +31,7 @@
     <div class="main-nav">
         <div class="container">
             <div class="header-top">
+                @yield('user_auth')
                 <div class="pull-right social-icons">
                     <a href="https://www.facebook.com/Library.Ruse" target="_blank"><i class="fa fa-facebook"></i></a>
                     <a href="http://www.youtube.com/user/libruse" target="_blank"><i class="fa fa-youtube"></i></a>
@@ -60,7 +61,6 @@
                     </ul>
                 </div>
             </div>
-            @yield('user_auth')
         </div>
     </div>
 </header>
