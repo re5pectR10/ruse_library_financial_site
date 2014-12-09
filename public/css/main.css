@@ -478,7 +478,10 @@ h2 {
   margin-right: 3px;
 }
 
- 
+#atelieta_left_page {
+    display: none;
+}
+
 
  /*************************
 *******Event CSS******

@@ -13,7 +13,23 @@
 
 Route::get('/', function()
 {
-	return View::make('index_guest');
+    $allAtelieta = Atelieta::orderBy('id', 'DESC')->Paginate(3);
+	return View::make('index_guest',array('atelieta'=>$allAtelieta));
+});
+
+Route::get('/atelieta', function()
+{
+    $allAtelieta = Atelieta::orderBy('id', 'DESC')->Paginate(3);
+    $counter = 0;
+    foreach($allAtelieta as $atelie)
+    {
+        $atelietaToSend[$counter]['title'] = $atelie->title;
+        $atelietaToSend[$counter]['description'] = $atelie->description;
+        $atelietaToSend[$counter]['content'] = $atelie->content;
+        $counter++;
+    }
+
+    echo json_encode($atelietaToSend);
 });
 
 Route::post('/signin', array('before' => 'csrf', 'uses' => 'UserController@signIn'));

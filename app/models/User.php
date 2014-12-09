@@ -25,7 +25,7 @@ class User extends Eloquent implements UserInterface, RemindableInterface {
 
     public  function signIn($input)
     {
-        $rules = array('username' => 'required | max:50 | min:3 | unique:users', 'email' => 'required | email | unique:users');
+        $rules = array('username' => 'required | max:50 | min:3 | unique:users', 'email' => 'required | email | unique:users', 'password' => 'required');
         $validate = Validator::make(array_map('trim', $input), $rules);
         if ($validate->fails()) {
             return $validate;
@@ -42,6 +42,17 @@ class User extends Eloquent implements UserInterface, RemindableInterface {
 
     public function logIn($input)
     {
+        $rules = array('username' => 'required | max:50 | min:3', 'password' => 'required');
+        $validate = Validator::make(array_map('trim', $input), $rules);
+        if ($validate->fails()) {
+            return $validate;
+        }
 
+        $rememberMe = Input::has('remember');
+        if (Auth::attempt(array('username' => $input['user'], 'password' => $input['password']), $rememberMe)) {
+            return Redirect::to('/');
+        } else {
+            return Redirect::to('/')->with('loginError', 'wrong input')->withInput();
+        }
     }
 }

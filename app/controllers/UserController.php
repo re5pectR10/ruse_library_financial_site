@@ -13,8 +13,11 @@ class UserController extends BaseController{
         $input = Input::all();
         $user = new User();
         $validate = $user->signIn($input);
-        if ($validate->fails()) {
+        if ($validate && $validate->fails()) {
             return Redirect::to('/')->withErrors($validate, 'signin')->withInput();
+        } else
+        {
+            return Redirect::to('/');
         }
     }
 
@@ -23,8 +26,11 @@ class UserController extends BaseController{
         $input = Input::all();
         $user = new User();
         $validate = $user->logIn($input);
-        if ($validate->fails()) {
+        if ($validate && $validate->fails()) {
             return Redirect::to('/')->withErrors($validate, 'login')->withInput();
+        } else
+        {
+            return Redirect::to('/');
         }
     }
 } 

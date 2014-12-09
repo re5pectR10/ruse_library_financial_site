@@ -19,9 +19,12 @@
     <![endif]-->
 
     <link rel="shortcut icon" href="{{ URL::asset('images/ico/favicon.ico'); }}">
-    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="{{ URL::asset('images/ico/apple-touch-icon-144-precomposed.png'); }}">
-    <link rel="apple-touch-icon-precomposed" sizes="114x114" href="{{ URL::asset('images/ico/apple-touch-icon-114-precomposed.png'); }}">
-    <link rel="apple-touch-icon-precomposed" sizes="72x72" href="{{ URL::asset('images/ico/apple-touch-icon-72-precomposed.png'); }}">
+    <link rel="apple-touch-icon-precomposed" sizes="144x144"
+          href="{{ URL::asset('images/ico/apple-touch-icon-144-precomposed.png'); }}">
+    <link rel="apple-touch-icon-precomposed" sizes="114x114"
+          href="{{ URL::asset('images/ico/apple-touch-icon-114-precomposed.png'); }}">
+    <link rel="apple-touch-icon-precomposed" sizes="72x72"
+          href="{{ URL::asset('images/ico/apple-touch-icon-72-precomposed.png'); }}">
     <link rel="apple-touch-icon-precomposed" href="{{ URL::asset('images/ico/apple-touch-icon-57-precomposed.png'); }}">
 </head>
 
@@ -108,131 +111,44 @@
 
 <section id="explore">
     <div class="container">
+
         <div class="row ">
             <div class="col-md-1 atelieta">
                 <p>Ателиета</p>
             </div>
-            <div class="toggle-slide toggle-slide-atelieta">
-                <div class="col-md-3 col-md-offset-1 atelieta-info">
-                    <h3>АТЕЛИЕ: „Парите на мама и тати“</h3>
-
-                    <p>откъде идват парите, придобиване нанавици за отговорно отношение към парите и умения да се харчат
-                        разумно.</p>
-
-                    <div class="more-info-button atelie1">
-                        <p>
-                            Прочети повече...
-                        </p>
+            <div class="toggle-slide toggle-slide-atelieta" id="atelietaDescription">
+                <?php
+                $counter = 1;
+                foreach ($atelieta as $atelie): ?>
+                    <div class="col-md-3 <?php if ($counter == 1) echo 'col-md-offset-1'; ?> atelieta-info">
+                        <h3><?php echo $atelie->title; ?></h3>
+                        <p><?php echo $atelie->description; ?></p>
+                        <div class="more-info-button atelie<?php echo $counter ?>">
+                            <p>Прочети повече...</p>
+                        </div>
                     </div>
-                </div>
-                <div class="col-md-3 atelieta-info">
-                    <h3>АТЕЛИЕ: „Времето на парите“</h3>
-
-                    <p>от натуралната размяна до БитКойн –поява, история и развитие на парите.</p>
-
-                    <div class="more-info-button atelie2">
-                        <p>
-                            Прочети повече...
-                        </p>
-                    </div>
-                </div>
-                <div class="col-md-3 atelieta-info">
-                    <h3>АТЕЛИЕ: „Парите – как да се използват“</h3>
-
-                    <p>четирите основни стълба нафинансите – спестяване, харчене, даряване, инвестиране.</p>
-
-                    <div class="more-info-button atelie3">
-                        <p>
-                            Прочети повече...
-                        </p>
-                    </div>
-                </div>
+                    <?php
+                    $counter++;
+                endforeach; ?>
+                <div id="atelieta_left_page">levo</div>
+                <div id="atelieta_right_page">desno</div>
             </div>
         </div>
         <div class="row toggle-slide toggle-slide-atelieta">
-            <div class="col-md-offset-2 col-md-10 atelie1-info toggle-slide">
-                <div class="close-button">
-                    <img  src="{{ URL::asset('images/close_button.png'); }}">
+            <?php
+            $counter = 1;
+            foreach ($atelieta as $atelie): ?>
+                <div class="col-md-offset-2 col-md-10 atelie<?php echo $counter ?>-info toggle-slide atelieta-content">
+                    <div class="close-button">
+                        <img src="{{ URL::asset('images/close_button.png'); }}">
+                    </div>
+                    <h3 class="align-center"><?php echo $atelie->title; ?></h3>
+                    <p><?php echo $atelie->content; ?></p>
                 </div>
-                <h3 class="align-center">„Парите на мама и тати“</h3>
-
-                <p>Децата научават, че парите се получават за положения от хората труд.Участниците се запознават с
-                    професиите чрез игрите
-                    „Кой знае повече професии” и„Познай какъв съм“. Правят разлика между различните професии,
-                    споделятинформация за професиите
-                    на родителите си и мечтите си за своите бъдещи професии.От презентацията „Откъде идват парите“
-                    научават за някои от най-известните
-                    и вечепознати професии, както и за най-интересните и тези на бъдещето.Децата придобиват знания за
-                    същността, източниците и
-                    формирането насемейния бюджет, разграничават понятията приходи и разходи в семейството.Запознават се
-                    с източниците на приходите:
-                    заплата, пенсия, стипендия, наем, награда,рента и др. и разходите: данъци, комунално-битови разходи,
-                    кредити, застраховки,
-                    разходи за образование и здравеопазване и др. След презентация „Нужди и желания“участниците
-                    дискутират за разумното разпределение на
-                    бюджета и разликата междунужда и желание. Наученото прилагат в ролевата игра „Моето семейство”.
-                    Разделени насемейства, децата съставят
-                    семеен бюджет, като описват внимателно своите приходи иразходи. Използвайки компютри и таблети се
-                    запознават с игри и приложения в GooglePlay
-                    за пари и семеен бюджет и игри за различни професии.
-                </p>
-            </div>
-            <div class="col-md-offset-2 col-md-10 atelie2-info toggle-slide">
-                <div class="close-button">
-                    <img src="{{ URL::asset('images/close_button.png'); }}">
-                </div>
-                <h3 class="align-center"> „Времето на парите“</h3>
-
-                <p>Децата се запознават с историята на парите чрез презентацията „Пари. Какво сапарите? За какво
-                    служат?“. Разглеждат днешните български
-                    банкноти и монети изащитните елементи на българския лев: холограмна лента, осигурителна нишка,
-                    водензнак и др. и начините за
-                    разпознаване на фалшиви банкноти. Запознават се с най-красивите и интересни пари по света.
-                    Разглеждат каталози
-                    „Световните пари“ сбанкноти и монети от цял свят. Посещават Регионален исторически музей,
-                    залаАнтичност, където по-специално
-                    внимание се обръща на античните монети, и офис наУниКредит Булбанк – Русе. Служители на банката им
-                    показват интерактивната дъска,интернет
-                    зоната, устройството за заявяване на пореден номер, демонстрират как сепроверяват и разпознават
-                    фалшивите банкноти.Видяното и
-                    чутото им помага да се справят с практическата задача, в коятоизработват свои банкноти и монети.С
-                    компютри, таблети и интерактивна
-                    дъска децата имат възможност да сглобятпъзели с евробанкноти; с различни викторини да проверят
-                    познанията си за страните отЕвропейския съюз
-                    и техните валути.
-                </p>
-            </div>
-            <div class="col-md-offset-2 col-md-10 atelie3-info toggle-slide">
-                <div class="close-button">
-                    <img src="{{ URL::asset('images/close_button.png'); }}">
-                </div>
-                <h3 class="align-center">„Парите – как да се използват“</h3>
-
-                <p>Чрез презентация участниците в групата се запознават с четирите основнистълба на финансите –
-                    спестяване, харчене, даряване,
-                    инвестиране. Децатазатвърждават познанията си за семеен бюджет, приход, разход, заплата, стипендия,
-                    наеми др. Чрез играта „Искам – мога да
-                    си позволя” сами определят своите нужди и своитежелания. Онагледяват ги чрез изобразяването им на
-                    табло. В ролевата игра „Продавачии купувачи”
-                    децата използват изработените от тях пари. Демонстрират разумноотношение към парите, като сравняват
-                    различните цени, за да се вместят
-                    в бюджета си.Чрез събеседване се разяснява понятието дарителство. Целта е изграждане наотношение към
-                    даряването. Децата изработват предмети,
-                    с които организиратдарителска кампания.Във финансовата образователна игра SmartMoney („Умни пари”)
-                    участницитеимат възможност сами да
-                    определят как да изхарчат своите заплати, учат се в игровасреда от своите погрешни решения, и
-                    осъзнават, че ако пестят, ще могат да инвестират
-                    вакции, недвижими имоти и бизнес! Попълват дневници за приходи и разходи. Товазатвърждава уменията
-                    им за разумно харчене и инвестиране.
-                    Целта на провежданите занимания е децата да придобият навици за отговорноотношение към парите и
-                    умения да ги харчат разумно; умения да планират
-                    и спестяватдоходите си; умения за правилен избор на подходящ продукт, отговарящ на личните имнужди;
-                    навици и увереност при ползването на
-                    съвременни технологии и услуги отфинансовия сектор.
-                </p>
-            </div>
+                <?php
+                $counter++;
+            endforeach; ?>
         </div>
-    </div>
     </div>
 </section>
 
@@ -274,9 +190,10 @@
     <i class="fa fa-facebook"></i>
 
     <div id="fbSidebar">
-        <iframe src="//www.facebook.com/plugins/likebox.php?href=https%3A%2F%2Fwww.facebook.com%2FLibrary.Ruse%3Ffref%3Dts&amp;width=200&amp;height=290&amp;colorscheme=light&amp;show_faces=true&amp;header=true&amp;stream=false&amp;show_border=true"
-                scrolling="no" frameborder="0" style="border:none; overflow:hidden; width:200px; height:290px;"
-                allowTransparency="true">
+        <iframe
+            src="//www.facebook.com/plugins/likebox.php?href=https%3A%2F%2Fwww.facebook.com%2FLibrary.Ruse%3Ffref%3Dts&amp;width=200&amp;height=290&amp;colorscheme=light&amp;show_faces=true&amp;header=true&amp;stream=false&amp;show_border=true"
+            scrolling="no" frameborder="0" style="border:none; overflow:hidden; width:200px; height:290px;"
+            allowTransparency="true">
         </iframe>
     </div>
 </div>
@@ -297,21 +214,24 @@
                             <div class="row">
                                 <div class="col-sm-4">
                                     <div class="single-event">
-                                        <img class="img-responsive" src="../../../public/images/event/event1.jpg" alt="event-image">
+                                        <img class="img-responsive" src="../../../public/images/event/event1.jpg"
+                                             alt="event-image">
                                         <h4>Chester Bennington</h4>
                                         <h5>Vocal</h5>
                                     </div>
                                 </div>
                                 <div class="col-sm-4">
                                     <div class="single-event">
-                                        <img class="img-responsive" src="../../../public/images/event/event2.jpg" alt="event-image">
+                                        <img class="img-responsive" src="../../../public/images/event/event2.jpg"
+                                             alt="event-image">
                                         <h4>Mike Shinoda</h4>
                                         <h5>vocals, rhythm guitar</h5>
                                     </div>
                                 </div>
                                 <div class="col-sm-4">
                                     <div class="single-event">
-                                        <img class="img-responsive" src="../../../public/images/event/event3.jpg" alt="event-image">
+                                        <img class="img-responsive" src="../../../public/images/event/event3.jpg"
+                                             alt="event-image">
                                         <h4>Rob Bourdon</h4>
                                         <h5>drums</h5>
                                     </div>
@@ -322,21 +242,24 @@
                             <div class="row">
                                 <div class="col-sm-4">
                                     <div class="single-event">
-                                        <img class="img-responsive" src="../../../public/images/event/event1.jpg" alt="event-image">
+                                        <img class="img-responsive" src="../../../public/images/event/event1.jpg"
+                                             alt="event-image">
                                         <h4>Chester Bennington</h4>
                                         <h5>Vocal</h5>
                                     </div>
                                 </div>
                                 <div class="col-sm-4">
                                     <div class="single-event">
-                                        <img class="img-responsive" src="../../../public/images/event/event2.jpg" alt="event-image">
+                                        <img class="img-responsive" src="../../../public/images/event/event2.jpg"
+                                             alt="event-image">
                                         <h4>Mike Shinoda</h4>
                                         <h5>vocals, rhythm guitar</h5>
                                     </div>
                                 </div>
                                 <div class="col-sm-4">
                                     <div class="single-event">
-                                        <img class="img-responsive" src="../../../public/images/event/event3.jpg" alt="event-image">
+                                        <img class="img-responsive" src="../../../public/images/event/event3.jpg"
+                                             alt="event-image">
                                         <h4>Rob Bourdon</h4>
                                         <h5>drums</h5>
                                     </div>
@@ -421,33 +344,45 @@
                     <div class="carousel-inner">
                         <div class="item active">
                             <ul>
-                                <li><a href="#"><img class="img-responsive" src="../../../public/images/sponsor/sponsor1.png"
+                                <li><a href="#"><img class="img-responsive"
+                                                     src="../../../public/images/sponsor/sponsor1.png"
                                                      alt=""></a></li>
-                                <li><a href="#"><img class="img-responsive" src="../../../public/images/sponsor/sponsor2.png"
+                                <li><a href="#"><img class="img-responsive"
+                                                     src="../../../public/images/sponsor/sponsor2.png"
                                                      alt=""></a></li>
-                                <li><a href="#"><img class="img-responsive" src="../../../public/images/sponsor/sponsor3.png"
+                                <li><a href="#"><img class="img-responsive"
+                                                     src="../../../public/images/sponsor/sponsor3.png"
                                                      alt=""></a></li>
-                                <li><a href="#"><img class="img-responsive" src="../../../public/images/sponsor/sponsor4.png"
+                                <li><a href="#"><img class="img-responsive"
+                                                     src="../../../public/images/sponsor/sponsor4.png"
                                                      alt=""></a></li>
-                                <li><a href="#"><img class="img-responsive" src="../../../public/images/sponsor/sponsor5.png"
+                                <li><a href="#"><img class="img-responsive"
+                                                     src="../../../public/images/sponsor/sponsor5.png"
                                                      alt=""></a></li>
-                                <li><a href="#"><img class="img-responsive" src="../../../public/images/sponsor/sponsor6.png"
+                                <li><a href="#"><img class="img-responsive"
+                                                     src="../../../public/images/sponsor/sponsor6.png"
                                                      alt=""></a></li>
                             </ul>
                         </div>
                         <div class="item">
                             <ul>
-                                <li><a href="#"><img class="img-responsive" src="../../../public/images/sponsor/sponsor6.png"
+                                <li><a href="#"><img class="img-responsive"
+                                                     src="../../../public/images/sponsor/sponsor6.png"
                                                      alt=""></a></li>
-                                <li><a href="#"><img class="img-responsive" src="../../../public/images/sponsor/sponsor5.png"
+                                <li><a href="#"><img class="img-responsive"
+                                                     src="../../../public/images/sponsor/sponsor5.png"
                                                      alt=""></a></li>
-                                <li><a href="#"><img class="img-responsive" src="../../../public/images/sponsor/sponsor4.png"
+                                <li><a href="#"><img class="img-responsive"
+                                                     src="../../../public/images/sponsor/sponsor4.png"
                                                      alt=""></a></li>
-                                <li><a href="#"><img class="img-responsive" src="../../../public/images/sponsor/sponsor3.png"
+                                <li><a href="#"><img class="img-responsive"
+                                                     src="../../../public/images/sponsor/sponsor3.png"
                                                      alt=""></a></li>
-                                <li><a href="#"><img class="img-responsive" src="../../../public/images/sponsor/sponsor2.png"
+                                <li><a href="#"><img class="img-responsive"
+                                                     src="../../../public/images/sponsor/sponsor2.png"
                                                      alt=""></a></li>
-                                <li><a href="#"><img class="img-responsive" src="../../../public/images/sponsor/sponsor1.png"
+                                <li><a href="#"><img class="img-responsive"
+                                                     src="../../../public/images/sponsor/sponsor1.png"
                                                      alt=""></a></li>
                             </ul>
                         </div>
@@ -546,6 +481,11 @@
 {{ HTML::script('js/jquery.scrollTo.js'); }}
 {{ HTML::script('js/main.js'); }}
 {{ HTML::script('js/jquery.nav.js'); }}
+<script type="text/javascript">
+    <?php
+        echo 'var allPagesCount=' . ceil($atelieta->getTotal() / $atelieta->getPerPage()) . ';';
+    ?>
+</script>
 {{ HTML::script('js/additional.js'); }}
 </body>
 </html>

@@ -6,6 +6,8 @@
         {{ Form::open(array('url' => 'login')); }}
         {{ Form::text('username', Input::old('username'),  array('placeholder'=>'Username')); }}<p>{{ $errors->login->first('username'); }}</p>
         {{ Form::password('password',  array('placeholder'=>'Password')); }}<p>{{ $errors->login->first('password'); }}</p>
+        {{ Form::label('remember', 'Remember Me'); }}
+        {{ Form::checkbox('remember', 'true'); }}
         {{ Form::submit('Log In'); }}
         {{ Form::close(); }}
     </div>
