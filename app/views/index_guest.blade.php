@@ -22,3 +22,17 @@
     </div>
 </div>
 @stop
+
+@section('send_message')
+<div class="row">
+    <div class="col-md-offset-10 col-md-1">
+        <p>send a message</p>
+        {{ Form::open(array('url' => 'sendMessage')); }}
+        {{ Form::text('name', Input::old('name'),  array('placeholder'=>'name')); }}<p>{{ $errors->sendMessage->first('name'); }}</p>
+        {{ Form::email('email', Input::old('email'),  array('placeholder'=>'e-mail')); }}<p>{{ $errors->sendMessage->first('email'); }}</p>
+        {{ Form::textarea('message',Input::old('message'),array('placeholder' => 'enter your message here')) }}<p>{{ $errors->sendMessage->first('message'); }}</p>
+        {{ Form::submit('send'); }}
+        {{ Form::close(); }}
+    </div>
+</div>
+@stop

@@ -15,9 +15,22 @@ class HomeController extends BaseController {
 	|
 	*/
 
-	public function showWelcome()
+	public function showIndex()
 	{
-		return View::make('hello');
+        $allAtelieta = Atelieta::orderBy('id', 'DESC')->Paginate(3);
+        if (Auth::check())
+        {
+            if (Auth::user()->user_type == 2)
+            {
+                return View::make('index_user',array('atelieta'=>$allAtelieta));
+            } else
+            {
+                return View::make('index_admin',array('atelieta'=>$allAtelieta));
+            }
+        } else
+        {
+            return View::make('index_guest',array('atelieta'=>$allAtelieta));
+        }
 	}
 
 }

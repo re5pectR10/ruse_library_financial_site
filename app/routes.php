@@ -11,11 +11,7 @@
 |
 */
 
-Route::get('/', function()
-{
-    $allAtelieta = Atelieta::orderBy('id', 'DESC')->Paginate(3);
-	return View::make('index_guest',array('atelieta'=>$allAtelieta));
-});
+Route::get('/', array('uses' => 'HomeController@showIndex'));
 
 Route::get('/atelieta', function()
 {
@@ -34,3 +30,4 @@ Route::get('/atelieta', function()
 
 Route::post('/signin', array('before' => 'csrf', 'uses' => 'UserController@signIn'));
 Route::post('/login', array('before' => 'csrf', 'uses' => 'UserController@logIn'));
+Route::get('/logout', array('uses' => 'UserController@logOut'));

@@ -36,6 +36,7 @@ class User extends Eloquent implements UserInterface, RemindableInterface {
         $user->username = $input['username'];
         $user->password = Hash::make($input['password']);
         $user->email = $input['email'];
+        $user->user_type = 2;
 
         $user->save();
     }
@@ -49,7 +50,7 @@ class User extends Eloquent implements UserInterface, RemindableInterface {
         }
 
         $rememberMe = Input::has('remember');
-        if (Auth::attempt(array('username' => $input['user'], 'password' => $input['password']), $rememberMe)) {
+        if (Auth::attempt(array('username' => $input['username'], 'password' => $input['password']), $rememberMe)) {
             return Redirect::to('/');
         } else {
             return Redirect::to('/')->with('loginError', 'wrong input')->withInput();

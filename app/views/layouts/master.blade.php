@@ -64,6 +64,7 @@
                 </div>
             </div>
             @yield('user_auth')
+            @yield('acc_options')
         </div>
     </div>
 </header>
@@ -432,34 +433,35 @@
                 </div>
                 <div class="col-sm-5">
                     <div id="contact-section">
-                        <h3>Send a message</h3>
+                        @yield('send_message')
+                        <!-- <h3>Send a message</h3>
 
-                        <div class="status alert alert-success" style="display: none"></div>
-                        <form id="main-contact-form" class="contact-form" name="contact-form" method="post"
-                              action="sendemail.php">
-                            <div class="form-group">
-                                <input type="text" name="name" class="form-control" required="required"
-                                       placeholder="Name">
-                            </div>
-                            <div class="form-group">
-                                <input type="email" name="email" class="form-control" required="required"
-                                       placeholder="Email ID">
-                            </div>
-                            <div class="form-group">
-                                <textarea name="message" id="message" required="required" class="form-control" rows="4"
-                                          placeholder="Enter your message"></textarea>
-                            </div>
-                            <div class="form-group">
-                                <button type="submit" class="btn btn-primary pull-right">Send</button>
-                            </div>
-                        </form>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
-<!--/#contact-->
+                         <div class="status alert alert-success" style="display: none"></div>
+                         <form id="main-contact-form" class="contact-form" name="contact-form" method="post"
+                               action="sendemail.php">
+                             <div class="form-group">
+                                 <input type="text" name="name" class="form-control" required="required"
+                                        placeholder="Name">
+                             </div>
+                             <div class="form-group">
+                                 <input type="email" name="email" class="form-control" required="required"
+                                        placeholder="Email ID">
+                             </div>
+                             <div class="form-group">
+                                 <textarea name="message" id="message" required="required" class="form-control" rows="4"
+                                           placeholder="Enter your message"></textarea>
+                             </div>
+                             <div class="form-group">
+                                 <button type="submit" class="btn btn-primary pull-right">Send</button>
+                             </div>
+                         </form>-->
+                     </div>
+                 </div>
+             </div>
+         </div>
+     </div>
+ </section>
+ <!--/#contact-->
 
 <footer id="footer">
     <div class="container">
