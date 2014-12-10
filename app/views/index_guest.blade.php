@@ -9,12 +9,12 @@
 
     <div style="margin-bottom: 25px" class="input-group">
         <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
-        {{ Form::text('username', Input::old('username'),  array('placeholder'=>'Username')); }}<p>{{ $errors->login->first('username'); }}</p>
+        {{ Form::text('username', Input::old('username'),  array('placeholder'=>'Username','class'=>'form-control')); }}<p>{{ $errors->login->first('username'); }}</p>
     </div>
 
     <div style="margin-bottom: 25px" class="input-group">
         <span class="input-group-addon"><i class="glyphicon glyphicon-lock"></i></span>
-        {{ Form::password('password',  array('placeholder'=>'Password')); }}<p>{{ $errors->login->first('password'); }}</p>
+        {{ Form::password('password',  array('placeholder'=>'Password','class'=>'form-control')); }}<p>{{ $errors->login->first('password'); }}</p>
     </div>
 
         {{ Form::submit('Log In'); }}
@@ -28,17 +28,17 @@
 
     <div style="margin-bottom: 25px" class="input-group">
         <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
-        {{ Form::text('username', Input::old('username'),  array('placeholder'=>'Username')); }}<p>{{ $errors->signin->first('username'); }}</p>
+        {{ Form::text('username', Input::old('username'),  array('placeholder'=>'Username','class'=>'form-control')); }}<p>{{ $errors->signin->first('username'); }}</p>
     </div>
 
     <div style="margin-bottom: 25px" class="input-group">
         <span class="input-group-addon"><i class="glyphicon glyphicon-envelope"></i></span>
-        {{ Form::email('email', Input::old('email'),  array('placeholder'=>'e-mail')); }}<p>{{ $errors->signin->first('email'); }}</p>
+        {{ Form::email('email', Input::old('email'),  array('placeholder'=>'e-mail','class'=>'form-control')); }}<p>{{ $errors->signin->first('email'); }}</p>
     </div>
 
     <div style="margin-bottom: 25px" class="input-group">
         <span class="input-group-addon"><i class="glyphicon glyphicon-lock"></i></span>
-        {{ Form::password('password',  array('placeholder'=>'Password')); }}<p>{{ $errors->signin->first('password'); }}</p>
+        {{ Form::password('password',  array('placeholder'=>'Password','class'=>'form-control')); }}<p>{{ $errors->signin->first('password'); }}</p>
     </div>
 
         {{ Form::submit('Sign In'); }}
