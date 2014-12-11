@@ -8,4 +8,4 @@ composer.lock
 .DS_Store
 Thumbs.db
 .idea/workspace.xml
-app\config\database.php
+app/config/database.php
