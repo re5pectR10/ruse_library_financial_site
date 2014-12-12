@@ -15,6 +15,16 @@ $(document).ready(function () {
         $(".toggle-slide-atelieta").slideToggle();
     });
 
+    $(".clicklogin").click(function () {
+        $(this).toggleClass("is-clicked");
+        $(".toggle-slide-login").slideToggle();
+    });
+
+    $(".clicksignin").click(function () {
+        $(this).toggleClass("is-clicked");
+        $(".toggle-slide-signin").slideToggle();
+    });
+
     function resizeSubmenuDivs() {
         $('.atelieta-info').each(function () {
             maxHeight = Math.max(maxHeight, $(this).height());
