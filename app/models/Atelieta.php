@@ -14,4 +14,9 @@ class Atelieta extends Eloquent implements UserInterface, RemindableInterface  {
     use UserTrait, RemindableTrait;
 
     protected $table = 'atelieta';
+
+    public function user()
+    {
+        return $this->belongsTo('User');
+    }
 } 

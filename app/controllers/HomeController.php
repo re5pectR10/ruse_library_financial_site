@@ -20,12 +20,12 @@ class HomeController extends BaseController {
         $allAtelieta = Atelieta::orderBy('id', 'DESC')->Paginate(3);
         if (Auth::check())
         {
-            if (Auth::user()->user_type == 2)
-            {
-                return View::make('index_user',array('atelieta'=>$allAtelieta));
-            } else
+            if (Auth::user()->user_type == 1)
             {
                 return View::make('index_admin',array('atelieta'=>$allAtelieta));
+            } else
+            {
+                return View::make('index_user',array('atelieta'=>$allAtelieta));
             }
         } else
         {

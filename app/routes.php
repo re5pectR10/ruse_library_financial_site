@@ -31,3 +31,13 @@ Route::get('/atelieta', function()
 Route::post('/signin', array('before' => 'csrf', 'uses' => 'UserController@signIn'));
 Route::post('/login', array('before' => 'csrf', 'uses' => 'UserController@logIn'));
 Route::get('/logout', array('uses' => 'UserController@logOut'));
+
+Route::group(array('prefix' => 'admin', 'before' => 'admin'), function()
+{
+    Route::get('/atelieta/edit', array('uses' => 'AdminController@getAtelie'));
+    Route::post('/atelieta/edit', array('uses' => 'AdminController@editAtelie'));
+    Route::get('/atelieta', array('uses' => 'AdminController@getAtelieta'));
+    Route::get('/atelieta/add', array('uses' => 'AdminController@setAtelie'));
+    Route::post('/atelieta/add', array('uses' => 'AdminController@addAtelieta'));
+    Route::get('/atelieta/delete', array('uses' => 'AdminController@deleteAtelie'));
+});

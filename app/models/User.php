@@ -23,6 +23,11 @@ class User extends Eloquent implements UserInterface, RemindableInterface {
 	 */
 	protected $hidden = array('password', 'remember_token');
 
+    public function atelieta()
+    {
+        return $this->hasMany('Atelieta');
+    }
+
     public  function signIn($input)
     {
         $rules = array('username' => 'required | max:50 | min:3 | unique:users', 'email' => 'required | email | unique:users', 'password' => 'required');

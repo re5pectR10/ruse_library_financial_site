@@ -88,3 +88,25 @@ Route::filter('csrf', function()
 		throw new Illuminate\Session\TokenMismatchException;
 	}
 });
+
+/*
+ * ---------------
+ *  admin filter
+ * ---------------
+ *
+ *  Check if the current user is admin. If it's not redirect to index page.
+ *  If it is opens the admin panel.
+ */
+
+Route::filter('admin', function()
+{
+    if (!Auth::check())
+    {
+        return Redirect::to('/');
+    }
+
+    if (Auth::user()->user_type != 1)
+    {
+        return Redirect::to('/');
+    }
+});
