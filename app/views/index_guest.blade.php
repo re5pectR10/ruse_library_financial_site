@@ -43,7 +43,7 @@
                     {{ Form::open(array('url' => 'signin')); }}
                     <div style="margin-bottom: 10px" class="input-group">
                     <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
-                    {{ Form::text('username', Input::old('username'),  array('placeholder'=>'Username','class'=>'form-control')); }}<p>{{ $errors->login->first('username'); }}</p>
+                    {{ Form::text('username', Input::old('username'),  array('placeholder'=>'Username','class'=>'form-control')); }}<p>{{ $errors->signin->first('username'); }}</p>
                 </div>
 
                 <div style="margin-bottom: 10px" class="input-group">
@@ -52,7 +52,7 @@
                 </div>
                 <div style="margin-bottom: 10px" class="input-group">
                  <span class="input-group-addon"><i class="glyphicon glyphicon-lock"></i></span>
-                     {{ Form::password('password',  array('placeholder'=>'Password','class'=>'form-control')); }}<p>{{ $errors->login->first('password'); }}</p>
+                     {{ Form::password('password',  array('placeholder'=>'Password','class'=>'form-control')); }}<p>{{ $errors->signin->first('password'); }}</p>
                 </div>
 
                 {{ Form::submit('Sign In', array('class'=>'btn-sm', 'class'=>'btn-success')); }}
