@@ -407,59 +407,33 @@
     </div>
     <!--/#map-->
     <div class="contact-section">
-        <div class="ear-piece">
-            <img class="img-responsive" src="../../../public/images/ear-piece.png" alt="">
-        </div>
         <div class="container">
             <div class="row">
                 <div class="col-sm-3 col-sm-offset-4">
                     <div class="contact-text">
-                        <h3>Contact</h3>
+                        <h3>Контакти</h3>
                         <address>
-                            E-mail: promo@party.com<br>
-                            Phone: +1 (123) 456 7890<br>
-                            Fax: +1 (123) 456 7891
+                            И-мейл: libruse@libruse.bg<br>
+                            Телефон: (+ 359 82) 820 126<br>
+                            Факс: (+ 359 82) 820 134
                         </address>
                     </div>
                     <div class="contact-address">
-                        <h3>Contact</h3>
+                        <h3>Адрес</h3>
                         <address>
-                            Unit C2, St.Vincent's Trading Est.,<br>
-                            Feeder Road,<br>
-                            Bristol, BS2 0UY<br>
-                            United Kingdom
+                            гр. Русе 7000,<br>
+                            ул. "Дондуков-Корсаков" 1,<br>
+                            РБ "Любен Каравелов"<br>
                         </address>
                     </div>
                 </div>
                 <div class="col-sm-5">
                     <div id="contact-section">
                         @yield('send_message')
-                        <!-- <h3>Send a message</h3>
-
-                         <div class="status alert alert-success" style="display: none"></div>
-                         <form id="main-contact-form" class="contact-form" name="contact-form" method="post"
-                               action="sendemail.php">
-                             <div class="form-group">
-                                 <input type="text" name="name" class="form-control" required="required"
-                                        placeholder="Name">
-                             </div>
-                             <div class="form-group">
-                                 <input type="email" name="email" class="form-control" required="required"
-                                        placeholder="Email ID">
-                             </div>
-                             <div class="form-group">
-                                 <textarea name="message" id="message" required="required" class="form-control" rows="4"
-                                           placeholder="Enter your message"></textarea>
-                             </div>
-                             <div class="form-group">
-                                 <button type="submit" class="btn btn-primary pull-right">Send</button>
-                             </div>
-                         </form>-->
                      </div>
-                 </div>
+                </div>
              </div>
-         </div>
-     </div>
+    </div>
  </section>
  <!--/#contact-->
 
@@ -483,6 +457,8 @@
 {{ HTML::script('js/jquery.scrollTo.js'); }}
 {{ HTML::script('js/main.js'); }}
 {{ HTML::script('js/jquery.nav.js'); }}
+{{ HTML::script('js/jquery.hoverIntent.js'); }}
+
 <script type="text/javascript">
     <?php
         echo 'var allPagesCount=' . ceil($atelieta->getTotal() / $atelieta->getPerPage()) . ';';

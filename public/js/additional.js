@@ -5,7 +5,7 @@ $(document).ready(function () {
     var maxHeight = 0;
     var moreInfoButtonHeight = 0;
 
-    $(".cart").hover(function () {
+    $(".cart").hoverIntent(function () {
         //$("#fbSidebar").slideToggle("slow");
         $("#fbSidebar").toggle('slide');//animate({width:'toggle'}, 200);
     });
@@ -17,12 +17,14 @@ $(document).ready(function () {
 
     $(".clicklogin").click(function () {
         $(this).toggleClass("is-clicked");
-        $(".toggle-slide-login").slideToggle();
+        $(".toggle-slide-signin").slideUp();
+        $(".toggle-slide-login").toggle();
     });
 
     $(".clicksignin").click(function () {
         $(this).toggleClass("is-clicked");
-        $(".toggle-slide-signin").slideToggle();
+        $(".toggle-slide-login").slideUp();
+        $(".toggle-slide-signin").toggle();
     });
 
     function resizeSubmenuDivs() {
