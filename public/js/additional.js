@@ -59,7 +59,7 @@ $(document).ready(function () {
 
     var currentAtelietaPage = 1;
     $('#atelieta_right_page').click(function () {
-        $.ajax({url: 'http://localhost/libproject/laravel/public/atelieta', type: "GET",
+        $.ajax({url: URLPath, type: "GET",
             data: { page: currentAtelietaPage + 1 }, dataType: "json", success: function (result) {
                 currentAtelietaPage++;
                 if (currentAtelietaPage == allPagesCount) {
@@ -102,7 +102,7 @@ $(document).ready(function () {
             return;
         }
 
-        $.ajax({url: 'http://localhost/libproject/laravel/public/atelieta', type: "GET",
+        $.ajax({url: URLPath, type: "GET",
             data: { page: currentAtelietaPage - 1 }, dataType: "json", success: function (result) {
                 currentAtelietaPage--;
                 if (currentAtelietaPage == 1) {

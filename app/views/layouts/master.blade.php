@@ -462,6 +462,7 @@
 <script type="text/javascript">
     <?php
         echo 'var allPagesCount=' . ceil($atelieta->getTotal() / $atelieta->getPerPage()) . ';';
+        echo 'var URLPath="' . URL::current() . '/atelieta";';
     ?>
 </script>
 {{ HTML::script('js/additional.js'); }}

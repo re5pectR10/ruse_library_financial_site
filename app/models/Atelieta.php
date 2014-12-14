@@ -19,4 +19,9 @@ class Atelieta extends Eloquent implements UserInterface, RemindableInterface  {
     {
         return $this->belongsTo('User');
     }
+
+    public function doc()
+    {
+        return $this->hasMany('Doc', 'atelie_id');
+    }
 } 

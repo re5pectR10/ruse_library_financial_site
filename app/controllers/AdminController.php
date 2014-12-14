@@ -44,6 +44,21 @@ class AdminController extends BaseController{
         $atelie->description = Input::get('description');
         $atelie->content = Input::get('content');
         $atelie->save();
+        $files = Input::file('files');
+
+        foreach($files as $file)
+        {
+            $doc = new Doc();
+            $doc->atelie_id = $atelie->id;
+            $doc->name = $file->getClientOriginalName();
+            $doc->extension = $file->getClientOriginalExtension();
+            $doc->save();
+
+            $destinationPath = 'files/'.$atelie->id;
+            $filename = $doc->id;
+            //$extension =$file->getClientOriginalExtension(); //if you need extension of the file
+            $file->move($destinationPath, $filename);
+        }
 
         return Redirect::to('/admin/atelieta');
     }
