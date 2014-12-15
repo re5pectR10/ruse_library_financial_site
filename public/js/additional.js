@@ -5,6 +5,10 @@ $(document).ready(function () {
     var maxHeight = 0;
     var moreInfoButtonHeight = 0;
 
+    if (showErrorForm != "0") {
+        $(showErrorForm).removeClass('toggle-slide');
+    }
+
     $(".cart").hoverIntent(function () {
         //$("#fbSidebar").slideToggle("slow");
         $("#fbSidebar").toggle('slide');//animate({width:'toggle'}, 200);

@@ -145,6 +145,10 @@
                     </div>
                     <h3 class="align-center"><?php echo $atelie->title; ?></h3>
                     <p><?php echo $atelie->content; ?></p>
+                    <?php foreach($atelie->doc as $d)
+                    {
+                        echo '<a href="'.URL::to('/').'/file?id='.$d->id.'.'.$d->extension.'&article_id='.$atelie->id.'">'.$d->name.'</a>';
+                    } ?>
                 </div>
                 <?php
                 $counter++;
@@ -463,6 +467,12 @@
     <?php
         echo 'var allPagesCount=' . ceil($atelieta->getTotal() / $atelieta->getPerPage()) . ';';
         echo 'var URLPath="' . URL::current() . '/atelieta";';
+        echo 'var showErrorForm="';
+        if (Session::has('showForm'))
+            echo '.toggle-slide-' . Session::get('showForm');
+        else
+            echo '0';
+        echo '";';
     ?>
 </script>
 {{ HTML::script('js/additional.js'); }}

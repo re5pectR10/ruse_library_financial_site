@@ -16,9 +16,11 @@
 {{ Form::file('files[]', $attributes = array('multiple' => 'true')); }}
 
 <ul>
+@if (isset($atelie->id))
 @foreach ($atelie->doc as $d)
-    <?php echo '<a href="'.URL::to('/').'/file?id='.$d->id.'&article_id='.$atelie->id.'">'.$d->name.'</a>' ?>
+    <?php echo '<a href="'.URL::to('/').'/file?id='.$d->id.'.'.$d->extension.'&article_id='.$atelie->id.'">'.$d->name.'</a>'; ?>
 @endforeach
+@endif
 </ul>
 
 {{ Form::submit('submit'); }}

@@ -54,7 +54,7 @@ class AdminController extends BaseController{
             $doc->extension = $file->getClientOriginalExtension();
             $doc->save();
 
-            $destinationPath = 'files/'.$atelie->id;
+            $destinationPath = 'files/'.$atelie->id.'.'.$file->getClientOriginalExtension();
             $filename = $doc->id;
             //$extension =$file->getClientOriginalExtension(); //if you need extension of the file
             $file->move($destinationPath, $filename);
@@ -69,5 +69,11 @@ class AdminController extends BaseController{
         $atelie->delete();
 
         return Redirect::to('/admin/atelieta');
+    }
+
+    public function getUsers() {
+
+        $users = User::paginate(30);
+        return View::make('admin_panel_users',array('users'=>$users));
     }
 }

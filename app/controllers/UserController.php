@@ -14,7 +14,7 @@ class UserController extends BaseController{
         $user = new User();
         $validate = $user->signIn($input);
         if ($validate && $validate->fails()) {
-            return Redirect::to('/')->withErrors($validate, 'signin')->withInput();
+            return Redirect::to('/')->with('showForm', 'signin')->withErrors($validate, 'signin')->withInput();
         } else
         {
             return Redirect::to('/');
@@ -27,14 +27,14 @@ class UserController extends BaseController{
         $rules = array('username' => 'required | max:50 | min:3', 'password' => 'required');
         $validate = Validator::make(array_map('trim', $input), $rules);
         if ($validate->fails()) {
-            return Redirect::to('/')->withErrors($validate, 'login')->withInput();
+            return Redirect::to('/')->withErrors($validate, 'login')->withInput()->with('showForm', "login");
         }
 
         $rememberMe = Input::has('remember');
         if (Auth::attempt(array('username' => $input['username'], 'password' => $input['password']), $rememberMe)) {
             return Redirect::to('/');
         } else {
-            return Redirect::to('/')->with('loginError', 'wrong input')->withInput();
+            return Redirect::to('/')->with('showForm', 'login')->withInput();
         }
         /*$user = new User();
         $validate = $user->logIn($input);
@@ -49,6 +49,42 @@ class UserController extends BaseController{
     public function logOut()
     {
         Auth::logout();
+        return Redirect::to('/');
+    }
+
+    public function sendMessage()
+    {
+        $input = Input::all();
+        if (isset($input['name']))
+        {
+            $rules = array('name' => 'required | max:50 | min:3', 'email' => 'required | email');
+            $validate = Validator::make(array_map('trim', $input), $rules);
+            if ($validate->fails()) {
+                return Redirect::to('/')->withErrors($validate, 'message')->withInput();
+            }
+
+            $name = $input['name'];
+            $email = $input['email'];
+        } else
+        {
+            $email = Auth::get('email');
+            $name = Auth::get('first_name') . ' ' . Auth::get('family_name');
+            if ($name != ' ')
+            {
+                $name .= ' (' . Auth::get('username') . ')';
+            } else
+            {
+                $name = Auth::get('username');
+            }
+        }
+
+        $msg = new Message();
+        $msg->name = $name;
+        $msg->email = $email;
+        $msg->content = $input['message'];
+        $msg->is_seen = 0;
+        $msg->save();
+
         return Redirect::to('/');
     }
 } 

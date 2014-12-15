@@ -7,5 +7,8 @@
     <div class="col-md-1">
         <a href="admin/atelieta">atelieta</a>
     </div>
+    <div class="col-md-1">
+        <a href="admin/users">potrebiteli</a>
+    </div>
 </div>
 @stop

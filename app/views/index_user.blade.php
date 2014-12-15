@@ -3,7 +3,7 @@
 <div class="row">
     <div class="col-md-offset-10 col-md-1">
         <p>send a message</p>
-        {{ Form::open(array('url' => 'sendMessage')); }}
+        {{ Form::open(array('url' => 'sendmsg')); }}
         {{ Form::textarea('message',Input::old('message'),array('placeholder' => 'enter your message here')) }}<p>{{ $errors->sendMessage->first('message'); }}</p>
         {{ Form::submit('send'); }}
         {{ Form::close(); }}

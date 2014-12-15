@@ -31,6 +31,8 @@ Route::get('/atelieta', function()
 Route::post('/signin', array('before' => 'csrf', 'uses' => 'UserController@signIn'));
 Route::post('/login', array('before' => 'csrf', 'uses' => 'UserController@logIn'));
 Route::get('/logout', array('uses' => 'UserController@logOut'));
+Route::get('/file', array('uses' => 'FileController@getDoc'));
+Route::post('/sendmsg', array('before' => 'csrf', 'uses' => 'UserController@sendMessage'));
 
 Route::group(array('prefix' => 'admin', 'before' => 'admin'), function()
 {
@@ -40,4 +42,5 @@ Route::group(array('prefix' => 'admin', 'before' => 'admin'), function()
     Route::get('/atelieta/add', array('uses' => 'AdminController@setAtelie'));
     Route::post('/atelieta/add', array('uses' => 'AdminController@addAtelieta'));
     Route::get('/atelieta/delete', array('uses' => 'AdminController@deleteAtelie'));
+    Route::get('/users', array('uses' => 'AdminController@getUsers'));
 });

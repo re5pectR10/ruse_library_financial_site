@@ -53,7 +53,7 @@
                 </div>
                 <div class="collapse navbar-collapse" role="navigation">
                     <!--<ul class="nav navbar-nav navbar-right">-->
-                        <li><a href="../">kam saita</a></li>
+                        <li><a href=<?php echo URL::to('/'); ?>>kam saita</a></li>
 
                 </div>
             </div>
@@ -62,7 +62,7 @@
     </div>
 </header>
 
-<section style="padding-top: 200px">
+<section style="padding-top: 20%">
     @yield('content')
 </section>
 

@@ -4,10 +4,10 @@
 <!-- START -> Log in and Sign in link buttons -->
 <div class="row">
         <div class="col-md-offset-9 col-md-1">
-        <a id="btn-login" href="#" class="btn btn-success clicklogin">Влез</a>
+        <a id="btn-login" class="btn btn-success clicklogin">Влез</a>
         </div>
         <div class="col-md-2">
-        <a id="btn-signin" href="#" class="btn btn-primary clicksignin">Регистрирай се</a>
+        <a id="btn-signin" class="btn btn-primary clicksignin">Регистрирай се</a>
         </div>
 </div>
 <!-- END <- Log in and Sign in link buttons -->
@@ -89,23 +89,23 @@
         <h3>Изпрати съобщение</h3>
         <div class="status alert alert-success" style="display: none"></div>
 
-        {{ Form::open(array('url' => 'sendMessage','id'=>'main-contact-form', 'class'=>'contact-form')); }}
+        {{ Form::open(array('url' => 'sendmsg','id'=>'main-contact-form')); }}
         <div class="form-group">
             {{ Form::text('name', Input::old('name'),  array('placeholder'=>'Име', 'class'=>'form-control')); }}
             <div class="bg-danger">
-                <p>{{ $errors->sendMessage->first('name'); }}</p>
+                <p>{{ $errors->message->first('name'); }}</p>
             </div>
         </div>
         <div class="form-group">
             {{ Form::email('email', Input::old('email'),  array('placeholder'=>'и-мейл', 'class'=>'form-control')); }}
             <div class="bg-danger">
-                <p>{{ $errors->sendMessage->first('email'); }}</p>
+                <p>{{ $errors->message->first('email'); }}</p>
             </div>
         </div>
         <div class="form-group">
             {{ Form::textarea('message',Input::old('message'),array('placeholder' => 'Напишете вашето съобщение тук', 'class'=>'form-control')) }}
             <div class="bg-danger">
-                <p>{{ $errors->sendMessage->first('message'); }}</p>
+                <p>{{ $errors->message->first('message'); }}</p>
             </div>
         </div>
         <div class="form-group">
