@@ -39,8 +39,13 @@ Route::group(array('prefix' => 'admin', 'before' => 'admin'), function()
     Route::get('/atelieta/edit', array('uses' => 'AdminController@getAtelie'));
     Route::post('/atelieta/edit', array('uses' => 'AdminController@editAtelie'));
     Route::get('/atelieta', array('uses' => 'AdminController@getAtelieta'));
+    Route::get('/atelieta/deletefile', array('uses' => 'AdminController@deleteFile'));
     Route::get('/atelieta/add', array('uses' => 'AdminController@setAtelie'));
-    Route::post('/atelieta/add', array('uses' => 'AdminController@addAtelieta'));
+    Route::post('/atelieta/add', array('uses' => 'AdminController@addAtelie'));
     Route::get('/atelieta/delete', array('uses' => 'AdminController@deleteAtelie'));
     Route::get('/users', array('uses' => 'AdminController@getUsers'));
+    Route::get('/users/makeadmin', array('uses' => 'AdminController@makeAdmin'));
+    Route::get('/users/removeadmin', array('uses' => 'AdminController@removeAdmin'));
+    Route::get('/users/delete', array('uses' => 'AdminController@deleteUser'));
+    Route::get('/messages', array('uses' => 'AdminController@getMessages'));
 });

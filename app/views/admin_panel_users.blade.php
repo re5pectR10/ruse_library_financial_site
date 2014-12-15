@@ -14,8 +14,12 @@
         <tr>
             <td style="border: 1px solid #000000"><?php echo $user->username; ?></td>
             <td style="border: 1px solid #000000"><?php echo $user->email; ?></td>
-            <td style="border: 1px solid #000000"><a <?php echo 'href="atelieta/makeadmin?id=' .  $user->id . '"'; ?>>make admin</a></td>
-            <td style="border: 1px solid #000000"><a <?php echo 'href="atelieta/deleteuser?id=' .  $user->id . '"'; ?>>delete</a></td>
+            <td style="border: 1px solid #000000"><a <?php echo 'href="users/delete?id=' .  $user->id . '"'; ?>>delete</a></td>
+            <?php if ($user->user_type == 1)
+                echo '<td style="border: 1px solid #000000"><a href="users/removeadmin?id=' .  $user->id . '">remove admin rights</a></td>';
+            else
+                echo '<td style="border: 1px solid #000000"><a href="users/makeadmin?id=' .  $user->id . '">make admin</a></td>';
+            ?>
         </tr>
     <?php
     endforeach; ?>

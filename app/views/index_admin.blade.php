@@ -10,5 +10,8 @@
     <div class="col-md-1">
         <a href="admin/users">potrebiteli</a>
     </div>
+    <div class="col-md-1">
+        <a href="admin/messages">saob6teniq</a>
+    </div>
 </div>
 @stop
