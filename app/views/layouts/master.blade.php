@@ -146,7 +146,7 @@
                     <p><?php echo $atelie->content; ?></p>
                     <?php foreach($atelie->doc as $d)
                     {
-                        echo '<a href="'.URL::to('/').'/file?id='.$d->id.'.'.$d->extension.'&article_id='.$atelie->id.'">'.$d->name.'</a>';
+                        echo '<a href="'.URL::to('/').'/file?name='.$d->name.'&article_id='.$atelie->id.'">'.$d->name.'</a>';
                     } ?>
                 </div>
                 <?php
