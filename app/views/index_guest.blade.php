@@ -4,10 +4,10 @@
 <!-- START -> Log in and Sign in link buttons -->
 <div class="row">
         <div class="col-md-offset-9 col-md-1">
-        <a id="btn-login" class="btn btn-success clicklogin">Влез</a>
+        <button type="button" id="btn-login" class="btn btn-success clicklogin">Влез</button>
         </div>
         <div class="col-md-2">
-        <a id="btn-signin" class="btn btn-primary clicksignin">Регистрирай се</a>
+        <button type="button" id="btn-signin" class="btn btn-primary clicksignin">Регистрирай се</button>
         </div>
 </div>
 <!-- END <- Log in and Sign in link buttons -->

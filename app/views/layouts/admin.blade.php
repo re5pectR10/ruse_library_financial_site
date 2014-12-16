@@ -53,7 +53,9 @@
                 </div>
                 <div class="collapse navbar-collapse" role="navigation">
                     <!--<ul class="nav navbar-nav navbar-right">-->
-                        <li><a href=<?php echo URL::to('/'); ?>>kam saita</a></li>
+                    <button type="button" class="btn btn-default">
+                        <a href=<?php echo URL::to('/'); ?>>Отиди в сайта</a>
+                    </button>
 
                 </div>
             </div>
@@ -62,7 +64,7 @@
     </div>
 </header>
 
-<section style="padding-top: 20%">
+<section style="padding-top: 20%; background-color: #EBFFFF">
     @yield('content')
 </section>
 

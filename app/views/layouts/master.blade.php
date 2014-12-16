@@ -29,6 +29,7 @@
 </head>
 
 <body>
+
 <!--#header-->
 <header id="header" role="banner">
     <div class="main-nav">
@@ -63,13 +64,12 @@
                     </ul>
                 </div>
             </div>
-            @yield('user_auth')
             @yield('acc_options')
+            @yield('user_auth')
         </div>
     </div>
 </header>
 <!--/#header-->
-
 <section id="home">
     <div id="main-slider" class="carousel slide" data-ride="carousel">
         <ol class="carousel-indicators">
@@ -112,7 +112,6 @@
 
 <section id="explore">
     <div class="container">
-
         <div class="row ">
             <div class="col-md-1 atelieta">
                 <p>Ателиета</p>
