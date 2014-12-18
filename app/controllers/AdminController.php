@@ -165,14 +165,89 @@ class AdminController extends BaseController{
 
         $doc = Doc::find(Input::get('id'));
         $doc->delete();
-        File::delete(public_path() . DIRECTORY_SEPARATOR.'files'. DIRECTORY_SEPARATOR . Input::get('article_id') . DIRECTORY_SEPARATOR . Input::get('name'));
+        File::delete(public_path() . DIRECTORY_SEPARATOR . 'files'. DIRECTORY_SEPARATOR . Input::get('article_id') . DIRECTORY_SEPARATOR . Input::get('name'));
 
         return Redirect::back();
     }
 
     public function getMessages() {
+
         $messages = Message::orderBy('id', 'DESC')->Paginate(15);
 
         return View::make('admin_panel_messages', array('messages' => $messages));
+    }
+
+    public function getAlbums() {
+
+        $albums = Album::orderBy('id', 'DESC')->Paginate(15);
+
+        return View::make('admin_panel_albums', array('albums' => $albums));
+    }
+
+    public function deleteAlbum() {
+
+        $album = Album::find(Input::get('id'));
+        $album->delete();
+
+        File::deleteDirectory(public_path() . '/pictures/' . Input::get('id'));
+
+        return Redirect::to('/admin/albums');
+    }
+
+    public function setAlbum() {
+
+        return View::make('admin_panel_album_form',array('action' => 'admin/albums/add'));
+    }
+
+    public function addAlbum() {
+        $input = Input::all();
+        $rules = array('name' => 'max:250', 'files[]' => 'image');
+        $validate = Validator::make($input, $rules);
+        if ($validate->fails()) {
+            return Redirect::back()->withErrors($validate)->withInput();
+        }
+
+        $album = new Album();
+        $album->name = $input['name'];
+        $album->save();
+
+        if (Input::hasFile('files'))
+        {
+            $this->saveImg(Input::file('files'), $album->id);
+        }
+
+        return Redirect::to('/admin/albums');
+    }
+
+    private function saveImg($files, $albumID) {
+        foreach($files as $file)
+        {
+            $img = new Image();
+            $img->album_id = $albumID;
+            $img->extension = $file->getClientOriginalExtension();
+            $img->save();
+
+            $destinationPath = 'pictures' . DIRECTORY_SEPARATOR . $albumID;
+            $filePath = $img->id . '.' . $img->extension;
+            //$extension =$file->getClientOriginalExtension(); //if you need extension of the file
+            $file->move($destinationPath, $filePath);
+        }
+    }
+
+    public function getAlbum() {
+
+        $album = Album::find(Input::get('id'));
+
+        return View::make('admin_panel_album_form',array('album'=>$album, 'action' => 'admin/album/edit'));
+    }
+
+    public function deleteImage() {
+
+        $img = Image::find(Input::get('id'));
+        $img->delete();
+
+        File::delete(public_path() . DIRECTORY_SEPARATOR . 'pictures'. DIRECTORY_SEPARATOR . Input::get('album_id') . DIRECTORY_SEPARATOR . Input::get('id'));
+
+        return Redirect::back();
     }
 }

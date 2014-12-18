@@ -405,7 +405,7 @@ h2 {
     display: none;
 }
 
-.close-button {
+.close-button, .close-button-album {
     width: 3%;
     height: 3%;
     position: absolute;
@@ -415,7 +415,7 @@ h2 {
     cursor: pointer;
 }
 
-.close-button img {
+.close-button, .close-button-album img {
     width: 100%;
     height: auto;
 }
@@ -479,6 +479,10 @@ h2 {
 }
 
 #atelieta_left_page {
+    display: none;
+}
+
+#albums_left_page {
     display: none;
 }
 
@@ -572,6 +576,7 @@ h2 {
   position: relative;  
   width: 100%;
   display: flex;
+  padding: 15px 0 15px;
 }
 
 .guitar2 {

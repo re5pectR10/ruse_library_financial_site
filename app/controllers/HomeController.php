@@ -18,18 +18,19 @@ class HomeController extends BaseController {
 	public function showIndex()
 	{
         $allAtelieta = Atelieta::orderBy('id', 'DESC')->Paginate(3);
+        $pictureAlbums = Album::orderBy('id', 'DESC')->Paginate(3);
         if (Auth::check())
         {
             if (Auth::user()->user_type == 1)
             {
-                return View::make('index_admin',array('atelieta'=>$allAtelieta));
+                return View::make('index_admin',array('atelieta'=>$allAtelieta, 'albums' => $pictureAlbums));
             } else
             {
-                return View::make('index_user',array('atelieta'=>$allAtelieta));
+                return View::make('index_user',array('atelieta'=>$allAtelieta, 'albums' => $pictureAlbums));
             }
         } else
         {
-            return View::make('index_guest',array('atelieta'=>$allAtelieta));
+            return View::make('index_guest',array('atelieta'=>$allAtelieta, 'albums' => $pictureAlbums));
         }
 	}
 

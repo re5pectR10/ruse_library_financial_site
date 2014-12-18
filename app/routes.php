@@ -22,10 +22,34 @@ Route::get('/atelieta', function()
         $atelietaToSend[$counter]['title'] = $atelie->title;
         $atelietaToSend[$counter]['description'] = $atelie->description;
         $atelietaToSend[$counter]['content'] = $atelie->content;
+        foreach ($atelie->doc as $d) {
+            $atelietaToSend[$counter]['docs']['path'][] = URL::to('/').'/file?name='.$d->name.'&article_id='.$atelie->id;
+            $atelietaToSend[$counter]['docs']['name'][] = $d->name;
+        }
+
         $counter++;
     }
 
     echo json_encode($atelietaToSend);
+});
+
+Route::get('/albums', function()
+{
+    $albums = Album::orderBy('id', 'DESC')->Paginate(3);
+    $counter = 0;
+    foreach($albums as $a)
+    {
+        $albumsToSend[$counter]['name'] = $a->name;
+        $albumsToSend[$counter]['path'] = URL::to('/') . '/pictures/' . $a->id . '/' . $a->images[0]->id . '.' . $a->images[0]->extension;
+        foreach ($a->images as $i) {
+            $albumsToSend[$counter]['images']['path'][] = URL::to('/').'/pictures/'.$a->id.'/'.$i->id . '.' . $i->extension;
+            //$atelietaToSend[$counter]['docs']['name'][] = $d->name;
+        }
+
+        $counter++;
+    }
+
+    echo json_encode($albumsToSend);
 });
 
 Route::post('/signin', array('before' => 'csrf', 'uses' => 'UserController@signIn'));
@@ -48,4 +72,11 @@ Route::group(array('prefix' => 'admin', 'before' => 'admin'), function()
     Route::get('/users/removeadmin', array('uses' => 'AdminController@removeAdmin'));
     Route::get('/users/delete', array('uses' => 'AdminController@deleteUser'));
     Route::get('/messages', array('uses' => 'AdminController@getMessages'));
+    Route::get('/albums', array('uses' => 'AdminController@getAlbums'));
+    Route::get('/albums/delete', array('uses' => 'AdminController@deleteAlbum'));
+    Route::get('/albums/add', array('uses' => 'AdminController@setAlbum'));
+    Route::post('/albums/add', array('uses' => 'AdminController@addAlbum'));
+    Route::get('/albums/edit', array('uses' => 'AdminController@getAlbum'));
+    Route::post('/albums/edit', array('uses' => 'AdminController@editAlbum'));
+    Route::get('/albums/deleteimage', array('uses' => 'AdminController@deleteImage'));
 });

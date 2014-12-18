@@ -13,6 +13,9 @@
     {{ HTML::style('css/animate.css'); }}
     {{ HTML::style('css/responsive.css'); }}
 
+    {{ HTML::style('css/lightbox.css'); }}
+
+
     <!--[if lt IE 9]>
     {{ HTML::style('css/html5shiv.css'); }}
     {{ HTML::style('css/respond.css'); }}
@@ -281,19 +284,52 @@
 </section>
 <!--/#event-->
 
-<section id="about">
-    <div class="guitar2">
-        <img class="img-responsive" src="../../../public/images/guitar2.jpg" alt="guitar">
-    </div>
-    <div class="about-content">
-        <h2>About Evento</h2>
-
-        <p>We have created an extremely positive and relaxed environment all geared towards developing your skills
-            whether you are an absolute beginner trying to get off the ground or an accomplished player looking to move
-            to the next level. Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum
-            has been the industry's standard dummy text ever since the 1500s</p>
-        <a href="#" class="btn btn-primary">View Date & Place <i class="fa fa-angle-right"></i></a>
-
+<section id="about"><!-- class="img-responsive" -->
+    <div class="container">
+      <div class="row">
+          <div class="row ">
+              <div>
+                  <?php
+                  $counter = 1;
+                  foreach ($albums as $a): ?>
+                      <div class="col-md-4 albums-info">
+                          @if (isset($a->images[0]->id))
+                            <img style="max-width: 100%" src=<?php echo '"' . URL::to('/') . '/pictures/' . $a->id . '/' . $a->images[0]->id . '.' . $a->images[0]->extension . '"'; ?>/>
+                          @endif
+                          <h3><?php echo $a->name; ?></h3>
+                          <div class="more-info-button album<?php echo $counter ?>">
+                              <p>pokaji vs snimki</p>
+                          </div>
+                      </div>
+                      <?php
+                      $counter++;
+                  endforeach; ?>
+                  <div id="albums_left_page">levo</div>
+                  <div id="albums_right_page">desno</div>
+              </div>
+          </div>
+          <div class="row toggle-slide-albums">
+              <?php
+              $counter = 1;
+              foreach ($albums as $a): ?>
+                  <div class="col-md-12 album<?php echo $counter ?>-info toggle-slide albums-content">
+                      <div class="close-button-album">
+                          <img src="{{ URL::asset('images/close_button.png'); }}">
+                      </div>
+                      <h3 class="align-center"><?php echo $a->name; ?></h3>
+                      <?php
+                      foreach($a->images as $img){
+                          echo '<div class="album-images" style="width:10%"><a href="'.URL::to('/').'/pictures/'.$a->id . '/'. $img->id .'.'.$img->extension.'" data-lightbox="album'.$a->id.'"><img style="border-radius: 3px; max-width: 100%" src="'.
+                              URL::to('/').'/pictures/'.$a->id . '/'. $img->id .'.'.$img->extension .'"></a></div>';
+                      }
+                      ?>
+                      <!--<p><?php// echo '"' . URL::to('/') . '/pictures/' . $a->id . '/' . $a->images[0]->id . '.' . $a->images[0]->extension . '"'; ?></p>-->
+                  </div>
+                  <?php
+                  $counter++;
+              endforeach; ?>
+          </div>
+      </div>
     </div>
 </section>
 <!--/#about-->
@@ -451,6 +487,7 @@
 <!--/#footer-->
 
 {{ HTML::script('js/jquery.js'); }}
+{{ HTML::script('js/lightbox.min.js'); }}
 {{ HTML::script('js/bootstrap.min.js'); }}
 {{ HTML::script('http://maps.google.com/maps/api/js?sensor=true'); }}
 {{ HTML::script('js/gmaps.js'); }}
@@ -465,7 +502,8 @@
 <script type="text/javascript">
     <?php
         echo 'var allPagesCount=' . ceil($atelieta->getTotal() / $atelieta->getPerPage()) . ';';
-        echo 'var URLPath="' . URL::current() . '/atelieta";';
+        echo 'var allPagesImagesCount=' . ceil($albums->getTotal() / $albums->getPerPage()) . ';';
+        echo 'var URLPath="' . URL::current() . '";';
         echo 'var showErrorForm="';
         if (Session::has('showForm'))
             echo '.toggle-slide-' . Session::get('showForm');

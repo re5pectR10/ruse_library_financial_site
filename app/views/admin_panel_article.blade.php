@@ -22,7 +22,7 @@
             <div class="panel panel-default">
                 <div class="panel-heading">
                     <h2 class="panel-title">Заглавие:</h2>
-                    {{ Form::text('title', isset($atelie->title) ? $atelie->title : Input::old('title'),  array('placeholder'=>'Title',  'class'=>'form-control')); }}<p>{{ $errors->login->first('title'); }}</p>
+                    {{ Form::text('title', isset($atelie->title) ? $atelie->title : Input::old('title'),  array('placeholder'=>'Title',  'class'=>'form-control')); }}<p>{{ $errors->sendMessage->first('title'); }}</p>
                 </div>
             </div>
             <div class="panel panel-default">

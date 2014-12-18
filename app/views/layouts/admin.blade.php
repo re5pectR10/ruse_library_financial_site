@@ -12,6 +12,7 @@
     {{ HTML::style('css/main.css'); }}
     {{ HTML::style('css/animate.css'); }}
     {{ HTML::style('css/responsive.css'); }}
+    {{ HTML::style('css/lightbox.css'); }}
 
     <!--[if lt IE 9]>
     {{ HTML::style('css/html5shiv.css'); }}
@@ -88,6 +89,7 @@
 {{ HTML::script('js/jquery.scrollTo.js'); }}
 {{ HTML::script('js/main.js'); }}
 {{ HTML::script('js/jquery.nav.js'); }}
+{{ HTML::script('js/lightbox.min.js'); }}
 {{ HTML::script('js/additional.js'); }}
 </body>
 </html>

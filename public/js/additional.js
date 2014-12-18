@@ -39,6 +39,28 @@ $(document).ready(function () {
         $('.atelieta-info').css({height: (maxHeight + moreInfoButtonHeight) + 'px'});
     }
 
+    $(".album1").click(function () {
+        $(".album1-info").slideToggle();
+        $(".album2-info").slideUp();
+        $(".album3-info").slideUp();
+    });
+    $(".album2").click(function () {
+        $(".album1-info").slideUp();
+        $(".album2-info").slideToggle();
+        $(".album3-info").slideUp();
+    });
+    $(".album3").click(function () {
+        $(".album1-info").slideUp();
+        $(".album2-info").slideUp();
+        $(".album3-info").slideToggle();
+    });
+
+    $(".close-button-album").click(function () {
+        $(".album1-info").slideUp();
+        $(".album2-info").slideUp();
+        $(".album3-info").slideUp();
+    });
+
     $(".atelie1").click(function () {
         $(".atelie1-info").slideToggle();
         $(".atelie2-info").slideUp();
@@ -63,7 +85,7 @@ $(document).ready(function () {
 
     var currentAtelietaPage = 1;
     $('#atelieta_right_page').click(function () {
-        $.ajax({url: URLPath, type: "GET",
+        $.ajax({url: URLPath+'/atelieta', type: "GET",
             data: { page: currentAtelietaPage + 1 }, dataType: "json", success: function (result) {
                 currentAtelietaPage++;
                 if (currentAtelietaPage == allPagesCount) {
@@ -86,11 +108,16 @@ $(document).ready(function () {
                     $counter++;
                 })
 
+                $('.atelieta-content a').remove();
                 $counter = 0;
                 $('.atelieta-content').each(function () {
                     if (result.length > $counter) {
                         $('.atelieta-content').eq($counter).find('h3').text(result[$counter]['title']);
                         $('.atelieta-content').eq($counter).find('p:first').text(result[$counter]['content']);
+                        result[$counter]['docs'].each(function (index) {
+                            $('.atelieta-content').eq($counter).append('<a href="'+result[$counter]['docs'][index]['path']+'">'+result[$counter]['docs'][index]['name']+'</a>')
+                        })
+
                     } else {
                         $('.atelieta-content').eq($counter).find('h3').text("");
                         $('.atelieta-content').eq($counter).find('p').text("");
@@ -106,7 +133,7 @@ $(document).ready(function () {
             return;
         }
 
-        $.ajax({url: URLPath, type: "GET",
+        $.ajax({url: URLPath+'/atelieta', type: "GET",
             data: { page: currentAtelietaPage - 1 }, dataType: "json", success: function (result) {
                 currentAtelietaPage--;
                 if (currentAtelietaPage == 1) {
@@ -116,6 +143,7 @@ $(document).ready(function () {
                     $('#atelieta_right_page').fadeIn();
                 }
 
+                $('.atelieta-content a').remove();
                 $counter = 0;
                 $('.atelieta-info').each(function () {
                     $('.atelieta-info').eq($counter).find('h3').text(result[$counter]['title']);
@@ -128,6 +156,80 @@ $(document).ready(function () {
                 $('.atelieta-content').each(function () {
                     $('.atelieta-content').eq($counter).find('h3').text(result[$counter]['title']);
                     $('.atelieta-content').eq($counter).find('p:first').text(result[$counter]['content']);
+                    $.each(result[$counter]['docs']['path'], function (index) {
+
+                            $path=result[$counter]['docs']['path'][index];
+                            $name=result[$counter]['docs']['name'][index];
+                            $('.atelieta-content').eq($counter).append('<a href="'+$path+'">'+$name+'</a>')
+
+
+                    })
+                    $counter++;
+                })
+            }});
+    })
+
+    var currentImagesPage = 1;
+    $('#albums_right_page').click(function () {
+        $.ajax({url: URLPath+'/albums', type: "GET",
+            data: { page: currentImagesPage + 1 }, dataType: "json", success: function (result) {
+                currentImagesPage++;
+                if (currentImagesPage == allPagesImagesCount) {
+                    $('#albums_right_page').fadeOut();
+                    $('#albums_left_page').fadeIn();
+                } else if (currentImagesPage == 2) {
+                    $('#albums_left_page').fadeIn();
+                }
+
+                $('.albums-content div.album-images').remove();
+                $counter = 0;
+                $('.albums-info').each(function () {
+                    if (result.length > $counter) {
+                        $('.albums-info').eq($counter).find('h3').text(result[$counter]['name']);
+                        $('.albums-info').eq($counter).find('img').attr("src", result[$counter]['path']);
+                        $.each(result[$counter]['images']['path'], function (index) {
+
+                            $path=result[$counter]['images']['path'][index];
+                            $('.albums-content').eq($counter).append('<div class="album-images" style="width:10%"><a href="'+$path+'" data-lightbox="album'+$counter+'"><img style="border-radius: 3px; max-width: 100%" src="'+$path+'"></a></div>')
+                        })
+                    } else {
+                        $('.albums-info').eq($counter).find('h3').text("");
+                        $('.albums-info').eq($counter).find('img').attr("src", "");
+                        $('.albums-info').eq($counter).find('p').text("");
+                    }
+
+                    $counter++;
+                })
+            }});
+    })
+
+    $('#albums_left_page').click(function () {
+        if (currentImagesPage == 1) {
+            return;
+        }
+
+        $.ajax({url: URLPath+'/albums', type: "GET",
+            data: { page: currentImagesPage - 1 }, dataType: "json", success: function (result) {
+                currentImagesPage--;
+                if (currentImagesPage == 1) {
+                    $('#albums_left_page').fadeOut();
+                    $('#albums_right_page').fadeIn();
+                } else if (currentImagesPage == allPagesImagesCount - 1) {
+                    $('#albums_right_page').fadeIn();
+                }
+
+                $('.albums-content div.album-images').remove();
+                $counter = 0;
+                $('.albums-info').each(function () {
+                    $('.albums-info').eq($counter).find('h3').text(result[$counter]['name']);
+                    $('.albums-info').eq($counter).find('img').attr("src", result[$counter]['path']);
+                    $('.albums-info').eq($counter).find('p:last').text("vij vs pic");
+                    $.each(result[$counter]['images']['path'], function (index) {
+
+                        $path=result[$counter]['images']['path'][index];
+                        $('.albums-content').eq($counter).append('<div class="album-images" style="width:10%"><a href="'+$path+'" data-lightbox="album'+$counter+'"><img style="border-radius: 3px; max-width: 100%" src="'+$path+'"></a></div>')
+                    })
+
                     $counter++;
                 })
             }});
