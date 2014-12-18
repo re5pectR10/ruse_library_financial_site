@@ -219,6 +219,26 @@ class AdminController extends BaseController{
         return Redirect::to('/admin/albums');
     }
 
+    public function editAlbum() {
+        $input = Input::all();
+        $rules = array('name' => 'max:250', 'files[]' => 'image');
+        $validate = Validator::make($input, $rules);
+        if ($validate->fails()) {
+            return Redirect::back()->withErrors($validate)->withInput();
+        }
+
+        $album = Album::find($input['id']);
+        $album->name = $input['name'];
+        $album->save();
+
+        if (Input::hasFile('files'))
+        {
+            $this->saveImg(Input::file('files'), $album->id);
+        }
+
+        return Redirect::to('/admin/albums');
+    }
+
     private function saveImg($files, $albumID) {
         foreach($files as $file)
         {
@@ -238,7 +258,7 @@ class AdminController extends BaseController{
 
         $album = Album::find(Input::get('id'));
 
-        return View::make('admin_panel_album_form',array('album'=>$album, 'action' => 'admin/album/edit'));
+        return View::make('admin_panel_album_form',array('album'=>$album, 'action' => 'admin/albums/edit'));
     }
 
     public function deleteImage() {
@@ -249,5 +269,79 @@ class AdminController extends BaseController{
         File::delete(public_path() . DIRECTORY_SEPARATOR . 'pictures'. DIRECTORY_SEPARATOR . Input::get('album_id') . DIRECTORY_SEPARATOR . Input::get('id'));
 
         return Redirect::back();
+    }
+
+    public function deleteVideo() {
+
+        $img = Video::find(Input::get('id'));
+        $img->delete();
+
+        return Redirect::back();
+    }
+
+    public function getVideos() {
+
+        $videos = Video::paginate(15);
+        return View::make('admin_panel_videos',array('videos'=>$videos));
+    }
+
+    public function getVideo() {
+
+        $video = Video::find(Input::get('id'));
+
+        return View::make('admin_panel_video_form',array('video'=>$video, 'action' => 'admin/videos/edit'));
+    }
+
+    public function setVideo() {
+
+        return View::make('admin_panel_video_form',array('action' => 'admin/videos/add'));
+    }
+
+    private function validateVideoInput() {
+
+        $input = Input::all();
+        $rules = array('name' => 'max:200', 'path' => 'max:150|required');
+        $validate = Validator::make($input, $rules);
+        if ($validate->fails()) {
+            return Redirect::back()->withErrors($validate)->withInput();
+        }
+
+        return $input;
+    }
+
+    public function addVideo() {
+
+        $input = $this->validateVideoInput();
+
+        $pathArray = explode('watch?v=', $input['path']);
+        if (!isset($pathArray[1]))
+        {
+            return Redirect::back()->with('error', 'no such video');
+        }
+
+        $video = new Video();
+        $video->name = $input['name'];
+        $video->path = '//www.youtube.com/embed/' . $pathArray[1];
+        $video->save();
+
+        return Redirect::to('/admin/videos');
+    }
+
+    public function editVideo() {
+
+        $input = $this->validateVideoInput();
+
+        $pathArray = explode('watch?v=', $input['path']);
+        if (!isset($pathArray[1]))
+        {
+            return Redirect::back()->with('error', 'no such video');
+        }
+
+        $video = Video::find($input['id']);
+        $video->name = $input['name'];
+        $video->path = '//www.youtube.com/embed/' . $pathArray[1];
+        $video->save();
+
+        return Redirect::to('/admin/videos');
     }
 }

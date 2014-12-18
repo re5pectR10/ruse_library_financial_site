@@ -79,4 +79,10 @@ Route::group(array('prefix' => 'admin', 'before' => 'admin'), function()
     Route::get('/albums/edit', array('uses' => 'AdminController@getAlbum'));
     Route::post('/albums/edit', array('uses' => 'AdminController@editAlbum'));
     Route::get('/albums/deleteimage', array('uses' => 'AdminController@deleteImage'));
+    Route::get('/videos', array('uses' => 'AdminController@getVideos'));
+    Route::get('/videos/delete', array('uses' => 'AdminController@deleteVideo'));
+    Route::get('/videos/edit', array('uses' => 'AdminController@getVideo'));
+    Route::post('/videos/edit', array('uses' => 'AdminController@editVideo'));
+    Route::get('/videos/add', array('uses' => 'AdminController@setVideo'));
+    Route::post('/videos/add', array('uses' => 'AdminController@addVideo'));
 });
