@@ -344,4 +344,28 @@ class AdminController extends BaseController{
 
         return Redirect::to('/admin/videos');
     }
+
+    public function getSlides() {
+
+        $slide = Slide::Paginate(1);
+
+        return View::make('admin_panel_slides', array('slide' => $slide));
+    }
+
+    public function updateSlide() {
+
+        $input = Input::all();
+        $rules = array('title' => 'max:250');
+        $validate = Validator::make($input, $rules);
+        if ($validate->fails()) {
+            return Redirect::back()->withErrors($validate)->withInput();
+        }
+
+        $slide = Slide::find($input['id']);
+        $slide->title = $input['title'];
+        $slide->content = $input['content'];
+        $slide->save();
+
+        return Redirect::to('/');
+    }
 }

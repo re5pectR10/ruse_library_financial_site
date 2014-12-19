@@ -87,4 +87,37 @@ class UserController extends BaseController{
 
         return Redirect::to('/');
     }
+
+    public function getProfile() {
+
+        $user = Auth::user();
+
+        return View::make('user_profile', array('user' => $user));
+    }
+
+    public function changeProfile() {
+
+        $input = Input::all();
+        $rules = array('email' => 'email | unique:users');
+        $user = Auth::user();
+
+        if ($input['email'] != '')
+        {
+            $validate = Validator::make(array_map('trim', $input), $rules);
+            if ($validate->fails()) {
+                return  Redirect::back()->withErrors($validate)->withInput();;
+            }
+
+            $user->email = $input['email'];
+        }
+
+        if (isset($input['password']))
+        {
+            $user->password = Hash::make($input['password']);
+        }
+
+        $user->save();
+
+        return Redirect::to('/');
+    }
 } 

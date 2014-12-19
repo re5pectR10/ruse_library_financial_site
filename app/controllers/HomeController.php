@@ -20,18 +20,19 @@ class HomeController extends BaseController {
         $allAtelieta = Atelieta::orderBy('id', 'DESC')->Paginate(3);
         $pictureAlbums = Album::orderBy('id', 'DESC')->Paginate(3);
         $allVideos = Video::all();
+        $slides = Slide::all();
         if (Auth::check())
         {
             if (Auth::user()->user_type == 1)
             {
-                return View::make('index_admin',array('atelieta'=>$allAtelieta, 'albums' => $pictureAlbums, 'videos' => $allVideos));
+                return View::make('index_admin',array('atelieta'=>$allAtelieta, 'albums' => $pictureAlbums, 'videos' => $allVideos, 'slides' => $slides));
             } else
             {
-                return View::make('index_user',array('atelieta'=>$allAtelieta, 'albums' => $pictureAlbums, 'videos' => $allVideos));
+                return View::make('index_user',array('atelieta'=>$allAtelieta, 'albums' => $pictureAlbums, 'videos' => $allVideos, 'slides' => $slides));
             }
         } else
         {
-            return View::make('index_guest',array('atelieta'=>$allAtelieta, 'albums' => $pictureAlbums, 'videos' => $allVideos));
+            return View::make('index_guest',array('atelieta'=>$allAtelieta, 'albums' => $pictureAlbums, 'videos' => $allVideos, 'slides' => $slides));
         }
 	}
 

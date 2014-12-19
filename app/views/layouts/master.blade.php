@@ -85,27 +85,24 @@
                 <img class="img-responsive" src="{{ URL::asset('images/slider/bg1.jpg'); }}" alt="slider">
 
                 <div class="carousel-caption">
-                    <h2>register for our next event </h2>
-                    <h4>full event package only @$199</h4>
-                    <a href="#contact">GRAB YOUR TICKETS <i class="fa fa-angle-right"></i></a>
+                    <h3>{{ isset($slides[0]->title) ? $slides[0]->title : '' }}</h3>
+                    <h5>{{ isset($slides[0]->content) ? $slides[0]->content : '' }}</h5>
                 </div>
             </div>
             <div class="item">
                 <img class="img-responsive" src="{{ URL::asset('images/slider/bg2.jpg'); }}" alt="slider">
 
                 <div class="carousel-caption">
-                    <h2>register for our next event </h2>
-                    <h4>full event package only @$199</h4>
-                    <a href="#contact">GRAB YOUR TICKETS <i class="fa fa-angle-right"></i></a>
+                    <h3>{{ isset($slides[1]->title) ? $slides[1]->title : '' }}</h3>
+                    <h5>{{ isset($slides[1]->content) ? $slides[1]->content : '' }}</h5>
                 </div>
             </div>
             <div class="item">
                 <img class="img-responsive" src="{{ URL::asset('images/slider/bg3.jpg'); }}" alt="slider">
 
                 <div class="carousel-caption">
-                    <h2>register for our next event </h2>
-                    <h4>full event package only @$199</h4>
-                    <a href="#contact">GRAB YOUR TICKETS <i class="fa fa-angle-right"></i></a>
+                    <h3>{{ isset($slides[2]->title) ? $slides[2]->title : '' }}</h3>
+                    <h5>{{ isset($slides[2]->content) ? $slides[2]->content : '' }}</h5>
                 </div>
             </div>
         </div>

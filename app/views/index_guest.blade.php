@@ -35,6 +35,9 @@
                 <div class="bg-danger">
                     <p>{{ $errors->login->first('password'); }}</p>
                 </div>
+                <div>
+                    <a href="reminder">Забравена парола</a>
+                </div>
                 <div class="form-group" style="margin-bottom: 1px">
                     {{ Form::label('remember', 'Запомни ме', array('class'=>'text-primary')); }}
                     {{ Form::checkbox('remember', 'true'); }}
