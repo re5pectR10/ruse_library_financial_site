@@ -109,14 +109,14 @@
 <section id="explore">
     <div class="container">
         <div class="row ">
-            <div class="col-md-1 atelieta">
+            <div class="col-xs-1 atelieta">
                 <p>Ателиета</p>
             </div>
             <div class="toggle-slide toggle-slide-atelieta" id="atelietaDescription">
                 <?php
                 $counter = 1;
                 foreach ($atelieta as $atelie): ?>
-                    <div class="col-md-3 <?php if ($counter == 1) echo 'col-md-offset-1'; ?> atelieta-info">
+                    <div class="col-xs-3 <?php if ($counter == 1) echo 'col-md-offset-1'; ?> atelieta-info">
                         <h3><?php echo $atelie->title; ?></h3>
                         <p><?php echo $atelie->description; ?></p>
                         <div class="more-info-button atelie<?php echo $counter ?>">

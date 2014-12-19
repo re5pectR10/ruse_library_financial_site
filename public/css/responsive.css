@@ -54,7 +54,9 @@
         z-index: 10;
     }
 
-
+    .atelieta p {
+        font-size: 0.8em;
+    }
 }
 
 /* sm */
@@ -134,11 +136,14 @@
         left: -5%;
     }
 
-
+    .atelieta p {
+        font-size: 0.7em;
+    }
 }
 
 /* sm - menu */
 @media (min-width: 768px) and (max-width: 831px){
+
     .fixed-menu .navbar-right li a {
         padding: 20px 5px 20px 5px;
     }
@@ -147,11 +152,15 @@
         padding:20px 5px;
         font-size: 15px;
     }
+
+
 }
 
 /* xs */
 @media (max-width: 767px) {
-
+    .atelieta p {
+        font-size: 0.6em;
+    }
     .main-nav .container {
         display: none;
     }
