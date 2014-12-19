@@ -203,7 +203,7 @@
         <div class="row">
             <div class="col-sm-12 col-md-9">
                 <div id="event-carousel" class="carousel slide" data-interval="false">
-                    <h2 class="heading">VIDEOS</h2>
+                    <h2 class="heading">ВИДЕО</h2>
                     <a class="even-control-left" href="#event-carousel" data-slide="prev"><i
                             class="fa fa-angle-left"></i></a>
                     <a class="even-control-right" href="#event-carousel" data-slide="next"><i
@@ -252,23 +252,27 @@
       <div class="row">
           <div class="row ">
               <div>
+                    <div class="col-md-3">
+                        <div id="albums_left_page"><button type="button" class="btn btn-warning"><span class="glyphicon glyphicon-chevron-left"></span>Наляво</button></div>
+                        <div id="albums_right_page"><button type="button" class="btn btn-warning">Надясно<span class="glyphicon glyphicon-chevron-right"></span></button></div>
+                    </div>
                   <?php
                   $counter = 1;
                   foreach ($albums as $a): ?>
-                      <div class="col-md-4 albums-info">
+                      <div class="col-md-3 albums-info text-center">
                           @if (isset($a->images[0]->id))
-                            <img style="max-width: 100%" src=<?php echo '"' . URL::to('/') . '/pictures/' . $a->id . '/' . $a->images[0]->id . '.' . $a->images[0]->extension . '"'; ?>/>
+                          <div class="row thumbnail">
+                            <img style="max-width: 100%; height: 192px;" src=<?php echo '"' . URL::to('/') . '/pictures/' . $a->id . '/' . $a->images[0]->id . '.' . $a->images[0]->extension . '"'; ?>/>
+                          </div>
                           @endif
-                          <h3><?php echo $a->name; ?></h3>
+                          <h3><p class="bg-primary text-center"><?php echo $a->name; ?></p></h3>
                           <div class="more-info-button album<?php echo $counter ?>">
-                              <p>pokaji vs snimki</p>
+                              <button type="button" class="btn btn-default">Покажи албума</button>
                           </div>
                       </div>
                       <?php
                       $counter++;
                   endforeach; ?>
-                  <div id="albums_left_page">levo</div>
-                  <div id="albums_right_page">desno</div>
               </div>
           </div>
           <div class="row toggle-slide-albums">
@@ -276,10 +280,10 @@
               $counter = 1;
               foreach ($albums as $a): ?>
                   <div class="col-md-12 album<?php echo $counter ?>-info toggle-slide albums-content">
-                      <div class="close-button-album">
+                      <div class="close-button-album" style="margin-top: 15px; margin-right: 12px;">
                           <img src="{{ URL::asset('images/close_button.png'); }}">
                       </div>
-                      <h3 class="align-center"><?php echo $a->name; ?></h3>
+                      <h3><p class="bg-warning align-center"><?php echo $a->name; ?></p></h3>
                       <?php
                       foreach($a->images as $img){
                           echo '<div class="album-images" style="width:10%"><a href="'.URL::to('/').'/pictures/'.$a->id . '/'. $img->id .'.'.$img->extension.'" data-lightbox="album'.$a->id.'"><img style="border-radius: 3px; max-width: 100%" src="'.
@@ -299,29 +303,26 @@
 
 <section id="twitter">
     <div id="twitter-feed" class="carousel slide" data-interval="false">
-        <div class="twit">
-            <img class="img-responsive" src="../../../public/images/twit.png" alt="twit">
-        </div>
         <div class="row">
             <div class="col-sm-6 col-sm-offset-3">
                 <div class="text-center carousel-inner center-block">
                     <div class="item active">
                         <img src="../../../public/images/twitter/twitter1.png" alt="">
 
-                        <p>In hac habitasse platea dictumst. Nam pulvinar, odio sed rhoncus suscipit </p>
-                        <a href="#">http://t.co/yY7s1IfrAb 2 days ago</a>
+                        <p>Скоро</p>
+                        <a href="#">http://</a>
                     </div>
                     <div class="item">
                         <img src="../../../public/images/twitter/twitter2.png" alt="">
 
-                        <p>In hac habitasse platea dictumst. Nam pulvinar, odio sed rhoncus suscipit </p>
-                        <a href="#">http://t.co/yY7s1IfrAb 2 days ago</a>
+                        <p>Скоро</p>
+                        <a href="#">http://</a>
                     </div>
                     <div class="item">
                         <img src="../../../public/images/twitter/twitter3.png" alt="">
 
-                        <p>In hac habitasse platea dictumst. Nam pulvinar, odio sed rhoncus suscipit </p>
-                        <a href="#">http://t.co/yY7s1IfrAb 2 days ago</a>
+                        <p>Скоро</p>
+                        <a href="#">http://</a>
                     </div>
                 </div>
                 <a class="twitter-control-left" href="#twitter-feed" data-slide="prev"><i class="fa fa-angle-left"></i></a>
@@ -338,7 +339,7 @@
         <div class="container">
             <div class="row">
                 <div class="col-sm-10">
-                    <h2>Sponsors</h2>
+                    <h2>Спонсори</h2>
                     <a class="sponsor-control-left" href="#sponsor-carousel" data-slide="prev"><i
                             class="fa fa-angle-left"></i></a>
                     <a class="sponsor-control-right" href="#sponsor-carousel" data-slide="next"><i
@@ -347,46 +348,20 @@
                     <div class="carousel-inner">
                         <div class="item active">
                             <ul>
-                                <li><a href="#"><img class="img-responsive"
-                                                     src="../../../public/images/sponsor/sponsor1.png"
-                                                     alt=""></a></li>
-                                <li><a href="#"><img class="img-responsive"
-                                                     src="../../../public/images/sponsor/sponsor2.png"
-                                                     alt=""></a></li>
-                                <li><a href="#"><img class="img-responsive"
-                                                     src="../../../public/images/sponsor/sponsor3.png"
-                                                     alt=""></a></li>
-                                <li><a href="#"><img class="img-responsive"
-                                                     src="../../../public/images/sponsor/sponsor4.png"
-                                                     alt=""></a></li>
-                                <li><a href="#"><img class="img-responsive"
-                                                     src="../../../public/images/sponsor/sponsor5.png"
-                                                     alt=""></a></li>
-                                <li><a href="#"><img class="img-responsive"
-                                                     src="../../../public/images/sponsor/sponsor6.png"
-                                                     alt=""></a></li>
+                                <li><a href="#"><img class="img-responsive" src="{{ URL::asset('images/sponsor/sponsor1.jpg'); }}" alt="sponsor1"></a></li>
+                                <li><a href="#"><img class="img-responsive" src="{{ URL::asset('images/sponsor/sponsor2.jpg'); }}" alt="sponsor2"></a></li>
+                                <li><a href="#"><img class="img-responsive" src="{{ URL::asset('images/sponsor/sponsor3.jpg'); }}" alt="sponsor3"></a></li>
+                                <li><a href="#"><img class="img-responsive" src="{{ URL::asset('images/sponsor/sponsor4.png'); }}" alt="sponsor4"></a></li>
+                                <li><a href="#"><img class="img-responsive" src="{{ URL::asset('images/sponsor/sponsor5.jpg'); }}" alt="sponsor5"></a></li>
+                                <li><a href="#"><img class="img-responsive" src="{{ URL::asset('images/sponsor/sponsor6.jpg'); }}" alt="sponsor6"></a></li>
                             </ul>
                         </div>
                         <div class="item">
                             <ul>
-                                <li><a href="#"><img class="img-responsive"
-                                                     src="../../../public/images/sponsor/sponsor6.png"
-                                                     alt=""></a></li>
-                                <li><a href="#"><img class="img-responsive"
-                                                     src="../../../public/images/sponsor/sponsor5.png"
-                                                     alt=""></a></li>
-                                <li><a href="#"><img class="img-responsive"
-                                                     src="../../../public/images/sponsor/sponsor4.png"
-                                                     alt=""></a></li>
-                                <li><a href="#"><img class="img-responsive"
-                                                     src="../../../public/images/sponsor/sponsor3.png"
-                                                     alt=""></a></li>
-                                <li><a href="#"><img class="img-responsive"
-                                                     src="../../../public/images/sponsor/sponsor2.png"
-                                                     alt=""></a></li>
-                                <li><a href="#"><img class="img-responsive"
-                                                     src="../../../public/images/sponsor/sponsor1.png"
-                                                     alt=""></a></li>
+                                <li><a href="#"><img class="img-responsive" src="{{ URL::asset('images/sponsor/sponsor7.jpg'); }}" alt="sponsor7"></a></li>
+                                <li><a href="#"><img class="img-responsive" src="{{ URL::asset('images/sponsor/sponsor8.jpg'); }}" alt="sponsor8"></a></li>
+                                <li><a href="#"><img class="img-responsive" src="{{ URL::asset('images/sponsor/sponsor9.jpg'); }}" alt="sponsor9"></a></li>
+                                <li><a href="#"><img class="img-responsive" src="{{ URL::asset('images/sponsor/sponsor10.jpg'); }}" alt="sponsor10"></a></li>
                             </ul>
                         </div>
                     </div>

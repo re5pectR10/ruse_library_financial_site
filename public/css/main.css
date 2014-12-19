@@ -271,7 +271,7 @@ h2 {
   position: relative;
   overflow: hidden;
   padding: 15px 0 15px;
-    background-size: 100% auto;
+    background-size: cover;
 }
 
 .watch {
@@ -520,7 +520,7 @@ h2 {
   position: relative;
   background-repeat: no-repeat;
     overflow: hidden;
-    background-size: 100% auto;
+    background-size: cover;
 }
 
 #event h2 {
@@ -537,8 +537,8 @@ h2 {
 }
 
 .single-event h4 {
-  color: #FFFFFF;
-  font-size: 24px;
+  color: #000;
+  font-size: 32px;
   font-weight: 300;
   line-height: 26px;
   margin-top: 25px;
@@ -583,7 +583,7 @@ h2 {
     background-repeat: no-repeat;
   position: relative;  
   width: 100%;
-    background-size: 100% auto;
+    background-size: cover;
 }
 
 .guitar2 {
@@ -782,7 +782,7 @@ h2 {
   background-size:contain; */
   background-repeat:no-repeat;  
   position: relative;
-    background-size: 100% 100%;
+    background-size: cover;
 }
 
 .ear-piece {
