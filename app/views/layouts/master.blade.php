@@ -48,7 +48,7 @@
                         <span class="icon-bar"></span>
                         <span class="icon-bar"></span>
                     </button>
-                    <a class="navbar-brand" href="index.html">
+                    <a class="navbar-brand">
                         <img class="img-responsive" src="{{ URL::asset('images/logo.png'); }}" alt="logo">
                     </a>
                 </div>
@@ -226,7 +226,7 @@
                             echo '<div class="row">';
                         }
 
-                        echo '<div class="col-md-4"><div class="single-event">';
+                        echo '<div class="col-xs-4"><div class="single-event">';
                         echo '<iframe width="100%" height="100%" src="' . $v->path . '" frameborder="0" allowfullscreen></iframe>';
                         echo '<h4 style="word-wrap: break-word">' . $v->name . '</h4>';
                         echo '</div></div>';

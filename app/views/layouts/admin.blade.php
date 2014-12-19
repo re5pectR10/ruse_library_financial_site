@@ -54,9 +54,9 @@
                 </div>
                 <div class="collapse navbar-collapse" role="navigation">
                     <!--<ul class="nav navbar-nav navbar-right">-->
-                    <button type="button" class="btn btn-default">
+                    <div class="btn btn-default">
                         <a href=<?php echo URL::to('/'); ?>>Отиди в сайта</a>
-                    </button>
+                    </div>
 
                 </div>
             </div>

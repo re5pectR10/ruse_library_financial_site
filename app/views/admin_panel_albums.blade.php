@@ -1,12 +1,6 @@
 @extends('layouts.admin')
 @section('acc_options')
-<ul class="nav">
-    <li class="dropdown"><button type="button" class="btn btn-info dropdown-toggle" data-toggle="dropdown">Добре дошли, {{ Auth::user()->username; }}<b class="caret"></b></button>
-        <ul class="dropdown-menu">
-            <li><a href="logout"><i class="glyphicon glyphicon-off"></i> Изход от админския профил</a></li>
-        </ul>
-    </li>
-</ul>
+    @include('acc_admin_menu')
 @stop
 
 @section('content')

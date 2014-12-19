@@ -3,10 +3,10 @@
 <div class="container">
 <!-- START -> Log in and Sign in link buttons -->
 <div class="row">
-        <div class="col-md-offset-8 col-md-1">
+        <div class="col-md-offset-7 col-xs-2">
         <button type="button" id="btn-login" class="btn btn-success clicklogin">Влез</button>
         </div>
-        <div class="col-md-2">
+        <div class="col-xs-2">
         <button type="button" id="btn-signin" class="btn btn-primary clicksignin">Регистрирай се</button>
         </div>
         <div class="col-md-1 pull-right social-icons">
@@ -19,7 +19,7 @@
 <div class="container">
 
     <!-- START -> Log in form -->
-    <div class="row toggle-slide toggle-slide-login">
+    <div style="position: absolute; z-index: 99999" class="row toggle-slide toggle-slide-login">
     <div class="col-md-offset-4 col-md-8" >
 <div class="toggle-slide toggle-slide-login">
     <div class="panel panel-default" style="margin-bottom: 0px; margin-top: 5px; background-color: #FFFFD6">
@@ -56,7 +56,7 @@
 </div>
     <!-- END <- Log in form -->
     <!-- START -> Sign in form -->
-        <div class="row toggle-slide toggle-slide-signin">
+        <div style="position: absolute; z-index: 99999"  class="row toggle-slide toggle-slide-signin">
         <div class="col-md-offset-3 col-md-9" >
 <div class="toggle-slide toggle-slide-signin">
     <div class="panel panel-default"  style="margin-bottom: 0px; margin-top: 5px; background-color: #FFFFD6">

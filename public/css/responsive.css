@@ -60,14 +60,20 @@
 /* sm */
 @media (min-width: 768px) and (max-width: 991px) {
 
+    #btn-login {
+        margin-left: 20px;
+    }
+    #btn-signin{
+        margin-left: 40px;
+    }
     .navbar-brand {
         width: 145px;
         height: 60px;
     }
 
     .navbar-brand img{
-        padding-top: 20px;
-        height: 100px;
+        padding-top: 60px;
+        height: 140px;
     }
 
     .fixed-menu .navbar-brand img{
@@ -79,7 +85,7 @@
     }
 
     .navbar-right li a {
-        padding:20px 10px;
+        padding:20px 7px;
         font-size: 17px;
     }
 
