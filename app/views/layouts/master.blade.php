@@ -5,16 +5,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="">
     <meta name="author" content="">
-    <title>Evento | Free Onepage Event Template | ShapeBootstrap</title>
+    <title>Регионална библиотека "Любен Каравелов" - Русе - Проект</title>
 
     {{ HTML::style('css/bootstrap.min.css'); }}
     {{ HTML::style('css/font-awesome.min.css'); }}
     {{ HTML::style('css/main.css'); }}
     {{ HTML::style('css/animate.css'); }}
     {{ HTML::style('css/responsive.css'); }}
-
     {{ HTML::style('css/lightbox.css'); }}
-
 
     <!--[if lt IE 9]>
     {{ HTML::style('css/html5shiv.css'); }}
@@ -415,12 +413,7 @@
  <!--/#contact-->
 
 <footer id="footer">
-    <div class="container">
-        <div class="text-center">
-            <p> Copyright &copy;2014<a target="_blank" href="http://shapebootstrap.net/"> Evento </a>Theme. All Rights
-                Reserved. <br> Designed by <a target="_blank" href="http://shapebootstrap.net/">ShapeBootstrap</a></p>
-        </div>
-    </div>
+    @include('footer')
 </footer>
 <!--/#footer-->
 
