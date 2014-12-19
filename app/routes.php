@@ -52,11 +52,17 @@ Route::get('/albums', function()
     echo json_encode($albumsToSend);
 });
 
+Route::get('/reminder', array('uses' => 'RemindersController@getRemind'));
+Route::post('/reminder', array('uses' => 'RemindersController@postRemind'));
+Route::post('/reset', array('uses' => 'RemindersController@postReset'));
+Route::get('/password/reset/{token}', array('uses' => 'RemindersController@getReset'));
 Route::post('/signin', array('before' => 'csrf', 'uses' => 'UserController@signIn'));
 Route::post('/login', array('before' => 'csrf', 'uses' => 'UserController@logIn'));
 Route::get('/logout', array('uses' => 'UserController@logOut'));
 Route::get('/file', array('uses' => 'FileController@getDoc'));
 Route::post('/sendmsg', array('before' => 'csrf', 'uses' => 'UserController@sendMessage'));
+Route::get('/user/profile', array('before' => 'auth', 'uses' => 'UserController@getProfile'));
+Route::post('/user/change', array('before' => 'auth', 'uses' => 'UserController@changeProfile'));
 
 Route::group(array('prefix' => 'admin', 'before' => 'admin'), function()
 {
@@ -79,4 +85,12 @@ Route::group(array('prefix' => 'admin', 'before' => 'admin'), function()
     Route::get('/albums/edit', array('uses' => 'AdminController@getAlbum'));
     Route::post('/albums/edit', array('uses' => 'AdminController@editAlbum'));
     Route::get('/albums/deleteimage', array('uses' => 'AdminController@deleteImage'));
+    Route::get('/videos', array('uses' => 'AdminController@getVideos'));
+    Route::get('/videos/delete', array('uses' => 'AdminController@deleteVideo'));
+    Route::get('/videos/edit', array('uses' => 'AdminController@getVideo'));
+    Route::post('/videos/edit', array('uses' => 'AdminController@editVideo'));
+    Route::get('/videos/add', array('uses' => 'AdminController@setVideo'));
+    Route::post('/videos/add', array('uses' => 'AdminController@addVideo'));
+    Route::get('/slides', array('uses' => 'AdminController@getSlides'));
+    Route::post('/slides/update', array('uses' => 'AdminController@updateSlide'));
 });

@@ -45,6 +45,11 @@
             </div>
             <div class="col-md-4" style="margin-top:3px">
                     {{ Form::label('remember', 'Запомни ме', array('class'=>'text-primary', 'style'=>'font-size: 20px;')); }}
+                <div>
+                    <a href="reminder">Забравена парола</a>
+                </div>
+                <div class="form-group" style="margin-bottom: 1px">
+                    {{ Form::label('remember', 'Запомни ме', array('class'=>'text-primary')); }}
                     {{ Form::checkbox('remember', 'true'); }}
                     {{ Form::submit('Влез', array('class'=>'btn-success pull-right')); }}
                     {{ Form::close(); }}

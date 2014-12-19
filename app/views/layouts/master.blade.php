@@ -81,27 +81,24 @@
                 <img class="img-responsive" src="{{ URL::asset('images/slider/bg1.jpg'); }}" alt="slider">
 
                 <div class="carousel-caption">
-                    <h2>register for our next event </h2>
-                    <h4>full event package only @$199</h4>
-                    <a href="#contact">GRAB YOUR TICKETS <i class="fa fa-angle-right"></i></a>
+                    <h3>{{ isset($slides[0]->title) ? $slides[0]->title : '' }}</h3>
+                    <h5>{{ isset($slides[0]->content) ? $slides[0]->content : '' }}</h5>
                 </div>
             </div>
             <div class="item">
                 <img class="img-responsive" src="{{ URL::asset('images/slider/bg2.jpg'); }}" alt="slider">
 
                 <div class="carousel-caption">
-                    <h2>register for our next event </h2>
-                    <h4>full event package only @$199</h4>
-                    <a href="#contact">GRAB YOUR TICKETS <i class="fa fa-angle-right"></i></a>
+                    <h3>{{ isset($slides[1]->title) ? $slides[1]->title : '' }}</h3>
+                    <h5>{{ isset($slides[1]->content) ? $slides[1]->content : '' }}</h5>
                 </div>
             </div>
             <div class="item">
                 <img class="img-responsive" src="{{ URL::asset('images/slider/bg3.jpg'); }}" alt="slider">
 
                 <div class="carousel-caption">
-                    <h2>register for our next event </h2>
-                    <h4>full event package only @$199</h4>
-                    <a href="#contact">GRAB YOUR TICKETS <i class="fa fa-angle-right"></i></a>
+                    <h3>{{ isset($slides[2]->title) ? $slides[2]->title : '' }}</h3>
+                    <h5>{{ isset($slides[2]->content) ? $slides[2]->content : '' }}</h5>
                 </div>
             </div>
         </div>
@@ -206,70 +203,43 @@
         <div class="row">
             <div class="col-sm-12 col-md-9">
                 <div id="event-carousel" class="carousel slide" data-interval="false">
-                    <h2 class="heading">THE ROCKING Performers</h2>
+                    <h2 class="heading">VIDEOS</h2>
                     <a class="even-control-left" href="#event-carousel" data-slide="prev"><i
                             class="fa fa-angle-left"></i></a>
                     <a class="even-control-right" href="#event-carousel" data-slide="next"><i
                             class="fa fa-angle-right"></i></a>
-
                     <div class="carousel-inner">
-                        <div class="item active">
-                            <div class="row">
-                                <div class="col-sm-4">
-                                    <div class="single-event">
-                                        <img class="img-responsive" src="../../../public/images/event/event1.jpg"
-                                             alt="event-image">
-                                        <h4>Chester Bennington</h4>
-                                        <h5>Vocal</h5>
-                                    </div>
-                                </div>
-                                <div class="col-sm-4">
-                                    <div class="single-event">
-                                        <img class="img-responsive" src="../../../public/images/event/event2.jpg"
-                                             alt="event-image">
-                                        <h4>Mike Shinoda</h4>
-                                        <h5>vocals, rhythm guitar</h5>
-                                    </div>
-                                </div>
-                                <div class="col-sm-4">
-                                    <div class="single-event">
-                                        <img class="img-responsive" src="../../../public/images/event/event3.jpg"
-                                             alt="event-image">
-                                        <h4>Rob Bourdon</h4>
-                                        <h5>drums</h5>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="item">
-                            <div class="row">
-                                <div class="col-sm-4">
-                                    <div class="single-event">
-                                        <img class="img-responsive" src="../../../public/images/event/event1.jpg"
-                                             alt="event-image">
-                                        <h4>Chester Bennington</h4>
-                                        <h5>Vocal</h5>
-                                    </div>
-                                </div>
-                                <div class="col-sm-4">
-                                    <div class="single-event">
-                                        <img class="img-responsive" src="../../../public/images/event/event2.jpg"
-                                             alt="event-image">
-                                        <h4>Mike Shinoda</h4>
-                                        <h5>vocals, rhythm guitar</h5>
-                                    </div>
-                                </div>
-                                <div class="col-sm-4">
-                                    <div class="single-event">
-                                        <img class="img-responsive" src="../../../public/images/event/event3.jpg"
-                                             alt="event-image">
-                                        <h4>Rob Bourdon</h4>
-                                        <h5>drums</h5>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+                    <?php
+                    $i = 0;
+                    foreach ($videos as $v)
+                    {
+                        if ($i%3==0)
+                        {
+                            if ($i==0)
+                            {
+                                echo '<div class="item active">';
+                            } else
+                            {
+                                echo '<div class="item">';
+                            }
+
+                            echo '<div class="row">';
+                        }
+
+                        echo '<div class="col-md-4"><div class="single-event">';
+                        echo '<iframe width="100%" height="100%" src="' . $v->path . '" frameborder="0" allowfullscreen></iframe>';
+                        echo '<h4 style="word-wrap: break-word">' . $v->name . '</h4>';
+                        echo '</div></div>';
+
+                        if ($i%3==2)
+                        {
+                            echo '</div></div>';
+                        }
+
+                        $i++;
+                    }
+                    ?>
+                    </div><h4></h4>
                 </div>
             </div>
         </div>
