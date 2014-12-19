@@ -11,7 +11,7 @@
 
 @section('content')
 <div class="container">
-    <div class="row col-md-12 custyle">
+    <div class="row col-md-offset-1 col-md-10 custyle">
         <table class="table table-striped custab">
             <div class="row text-center">
                 <?php echo $messages->links(); ?>

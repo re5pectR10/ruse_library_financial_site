@@ -38,10 +38,7 @@
     <div class="main-nav">
         <div class="container">
             <div class="header-top">
-                <div class="pull-right social-icons">
-                    <a href="https://www.facebook.com/Library.Ruse" target="_blank"><i class="fa fa-facebook"></i></a>
-                    <a href="http://www.youtube.com/user/libruse" target="_blank"><i class="fa fa-youtube"></i></a>
-                </div>
+                 @yield('user_auth')
             </div>
             <div class="row">
                 <div class="navbar-header navbar-header-menu">
@@ -67,9 +64,8 @@
                     </ul>
                 </div>
             </div>
-            @yield('acc_options')
-            @yield('user_auth')
         </div>
+        @yield('acc_options')
     </div>
 </header>
 <!--/#header-->
@@ -275,9 +271,6 @@
                         </div>
                     </div>
                 </div>
-            </div>
-            <div class="guitar">
-                <img class="img-responsive" src="../../../public/images/guitar.png" alt="guitar">
             </div>
         </div>
     </div>
