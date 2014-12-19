@@ -114,10 +114,14 @@ $(document).ready(function () {
                     if (result.length > $counter) {
                         $('.atelieta-content').eq($counter).find('h3').text(result[$counter]['title']);
                         $('.atelieta-content').eq($counter).find('p:first').text(result[$counter]['content']);
-                        result[$counter]['docs'].each(function (index) {
-                            $('.atelieta-content').eq($counter).append('<a href="'+result[$counter]['docs'][index]['path']+'">'+result[$counter]['docs'][index]['name']+'</a>')
-                        })
+                        $.each(result[$counter]['docs']['path'], function (index) {
 
+                            $path=result[$counter]['docs']['path'][index];
+                            $name=result[$counter]['docs']['name'][index];
+                            $('.atelieta-content').eq($counter).append('<a href="'+$path+'">'+$name+'</a>')
+
+
+                        })
                     } else {
                         $('.atelieta-content').eq($counter).find('h3').text("");
                         $('.atelieta-content').eq($counter).find('p').text("");

@@ -16,19 +16,19 @@
             <div class="panel panel-default">
                 <div class="panel-heading">
                     <h2 class="panel-title">Заглавие:</h2>
-                    {{ Form::text('title', isset($atelie->title) ? $atelie->title : Input::old('title'),  array('placeholder'=>'Title',  'class'=>'form-control')); }}<p>{{ $errors->sendMessage->first('title'); }}</p>
+                    {{ Form::text('title', isset($atelie->title) ? $atelie->title : Input::old('title'),  array('placeholder'=>'Title',  'class'=>'form-control')); }}<p>{{ $errors->first('title'); }}</p>
                 </div>
             </div>
             <div class="panel panel-default">
                 <div class="panel-heading">
                     <h2 class="panel-title">Описание:</h2>
-            {{ Form::textarea('description', isset($atelie->description) ? $atelie->description : Input::old('description'), array('placeholder' => 'description', 'rows' => '3')) }}<p>{{ $errors->sendMessage->first('description'); }}</p>
+            {{ Form::textarea('description', isset($atelie->description) ? $atelie->description : Input::old('description'), array('placeholder' => 'description', 'rows' => '3')) }}<p>{{ $errors->first('description'); }}</p>
                 </div>
             </div>
             <div class="panel panel-default">
                 <div class="panel-heading">
                     <h2 class="panel-title">Съдържание:</h2>
-            {{ Form::textarea('content', isset($atelie->content) ? $atelie->content : Input::old('content'), array('placeholder' => 'content')) }}<p>{{ $errors->sendMessage->first('content'); }}</p>
+            {{ Form::textarea('content', isset($atelie->content) ? $atelie->content : Input::old('content'), array('placeholder' => 'content')) }}<p>{{ $errors->first('content'); }}</p>
                 </div>
             </div>
             {{ Form::file('files[]', $attributes = array('multiple' => 'true')); }}
@@ -46,15 +46,11 @@
             </div>
             {{ Form::submit('Редактирай', array('class'=>'btn btn-primary pull-right')); }}
         </div>
+    @if (Session::has('files_error'))
+    <p>{{ Session::get('files_error') }}</p>
+    @endif
 </div>
 </div>
 </div>
-
-
-
-@if (Session::has('files_error'))
-<p>{{ Session::get('files_error') }}</p>
-@endif
-
 {{ Form::close(); }}
 @stop
