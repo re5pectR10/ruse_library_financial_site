@@ -286,7 +286,7 @@
                       <h3><p class="bg-warning align-center"><?php echo $a->name; ?></p></h3>
                       <?php
                       foreach($a->images as $img){
-                          echo '<div class="album-images" style="width:10%"><a href="'.URL::to('/').'/pictures/'.$a->id . '/'. $img->id .'.'.$img->extension.'" data-lightbox="album'.$a->id.'"><img style="border-radius: 3px; max-width: 100%" src="'.
+                          echo '<div class="col-md-3 album-images" style="width:10%"><a href="'.URL::to('/').'/pictures/'.$a->id . '/'. $img->id .'.'.$img->extension.'" data-lightbox="album'.$a->id.'"><img style="border-radius: 3px; max-width: 100%" src="'.
                               URL::to('/').'/pictures/'.$a->id . '/'. $img->id .'.'.$img->extension .'"></a></div>';
                       }
                       ?>

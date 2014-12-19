@@ -190,7 +190,7 @@ $(document).ready(function () {
                         $.each(result[$counter]['images']['path'], function (index) {
 
                             $path=result[$counter]['images']['path'][index];
-                            $('.albums-content').eq($counter).append('<div class="album-images" style="width:10%"><a href="'+$path+'" data-lightbox="album'+$counter+'"><img style="border-radius: 3px; max-width: 100%" src="'+$path+'"></a></div>')
+                            $('.albums-content').eq($counter).append('<div class="col-md-3 album-images" style="width:10%"><a href="'+$path+'" data-lightbox="album'+$counter+'"><img style="border-radius: 3px; max-width: 100%" src="'+$path+'"></a></div>')
                         })
                     } else {
                         $('.albums-info').eq($counter).find('h3').text("");
@@ -227,7 +227,7 @@ $(document).ready(function () {
                     $.each(result[$counter]['images']['path'], function (index) {
 
                         $path=result[$counter]['images']['path'][index];
-                        $('.albums-content').eq($counter).append('<div class="album-images" style="width:10%"><a href="'+$path+'" data-lightbox="album'+$counter+'"><img style="border-radius: 3px; max-width: 100%" src="'+$path+'"></a></div>')
+                        $('.albums-content').eq($counter).append('<div class="col-md-3 album-images" style="width:10%"><a href="'+$path+'" data-lightbox="album'+$counter+'"><img style="border-radius: 3px; max-width: 100%" src="'+$path+'"></a></div>')
                     })
 
                     $counter++;
