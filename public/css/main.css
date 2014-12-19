@@ -103,7 +103,7 @@ h2 {
 }
 
 .navbar-brand {
-  background-color: #FFFFD6;
+  background-color: #C2C2E0;
   height: 90px;
   margin-bottom: 20px;
   position: relative;
@@ -116,7 +116,7 @@ h2 {
 }
 
 .navbar-right {
-  background-color: #FFFFD6;
+  background-color: #C2C2E0;
   padding:0 95px 0 0;
   opacity: .9
 }
@@ -124,7 +124,7 @@ h2 {
 .navbar-right li a {
   padding: 35px 21px;
   font-size: 22px;
-  color: #3CC9B9;
+  color: #005C99;
   text-transform: uppercase;
   font-family: 'Yanone Kaffeesatz', 'sans-serif';
   font-weight: 300;
@@ -146,7 +146,7 @@ h2 {
 }
 
 .fixed-menu {
-  background-color: #D5F5F1;
+  background-color: #C2C2E0;
   position: fixed;
   top: 0;
 }

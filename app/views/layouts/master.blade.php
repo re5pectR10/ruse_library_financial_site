@@ -53,12 +53,12 @@
                 <div class="collapse navbar-collapse" role="navigation">
                     <ul class="nav navbar-nav navbar-right">
                         <li class="scroll active"><a href="#home">Начало</a></li>
-                        <li class="scroll"><a href="#explore">Финанси</a></li>
-                        <li class="scroll"><a href="#event">Бюджет</a></li>
-                        <li class="scroll"><a href="#about">Събития</a></li>
-                        <li class="no-scroll"><a href="#twitter">Ресурси</a></li>
-                        <li><a class="no-scroll" href="#" target="_blank">В медиите</a></li>
-                        <li class="scroll"><a href="#contact">За нас</a></li>
+                        <li class="scroll"><a href="#explore">Ателиета</a></li>
+                        <li class="scroll"><a href="#event">Видео</a></li>
+                        <li class="scroll"><a href="#about">Галерия</a></li>
+                        <li class="no-scroll"><a href="#twitter">Новини</a></li>
+                        <li class="no-scroll"><a  href="#sponsor">Спонсори</a></li>
+                        <li class="scroll"><a href="#contact">Контакти</a></li>
                     </ul>
                 </div>
             </div>
@@ -111,12 +111,20 @@
                 <p>Ателиета</p>
             </div>
             <div class="toggle-slide toggle-slide-atelieta" id="atelietaDescription">
+                <div class="col-xs-1">
+                    <div id="atelieta_left_page"><button type="button" class="btn btn-warning"><span class="glyphicon glyphicon-chevron-left"></span>Наляво</button></div>
+                    <div id="atelieta_right_page"><button type="button" class="btn btn-warning">Надясно<span class="glyphicon glyphicon-chevron-right"></span></button></div>
+                </div>
                 <?php
                 $counter = 1;
                 foreach ($atelieta as $atelie): ?>
                     <div class="col-xs-3 <?php if ($counter == 1) echo 'col-md-offset-1'; ?> atelieta-info">
-                        <h3><?php echo $atelie->title; ?></h3>
-                        <p><?php echo $atelie->description; ?></p>
+                        <div class="panel panel-default">
+                            <div class="panel-body" style="background-color: #FFC266">
+                                <h3><?php echo $atelie->title; ?></h3>
+                                <p><?php echo $atelie->description; ?></p>
+                            </div>
+                        </div>
                         <div class="more-info-button atelie<?php echo $counter ?>">
                             <p>Прочети повече...</p>
                         </div>
@@ -124,24 +132,31 @@
                     <?php
                     $counter++;
                 endforeach; ?>
-                <div id="atelieta_left_page">levo</div>
-                <div id="atelieta_right_page">desno</div>
             </div>
         </div>
+
         <div class="row toggle-slide toggle-slide-atelieta">
             <?php
             $counter = 1;
             foreach ($atelieta as $atelie): ?>
                 <div class="col-md-offset-2 col-md-10 atelie<?php echo $counter ?>-info toggle-slide atelieta-content">
-                    <div class="close-button">
+                    <div class="close-button" style="margin-right:15px; margin-top: 10px;">
                         <img src="{{ URL::asset('images/close_button.png'); }}">
                     </div>
-                    <h3 class="align-center"><?php echo $atelie->title; ?></h3>
-                    <p><?php echo $atelie->content; ?></p>
-                    <?php foreach($atelie->doc as $d)
-                    {
-                        echo '<a href="'.URL::to('/').'/file?name='.$d->name.'&article_id='.$atelie->id.'">'.$d->name.'</a>';
-                    } ?>
+                    <div class="panel panel-default" style="margin-top:10px">
+                        <div class="panel-body" style="background-color: #FFC266">
+                            <h3 class="align-center"><?php echo $atelie->title; ?></h3>
+                            <p><?php echo $atelie->content; ?></p>
+                        </div>
+                    </div>
+                    <div class="panel panel-default">
+                        <div class="panel-body" style="background-color: #FFC266">
+                            <?php foreach($atelie->doc as $d)
+                            {
+                                echo '<a href="'.URL::to('/').'/file?name='.$d->name.'&article_id='.$atelie->id.'">'.$d->name.'</a>';
+                            } ?>
+                        </div>
+                    </div>
                 </div>
                 <?php
                 $counter++;
@@ -226,7 +241,7 @@
 
                         echo '<div class="col-xs-4"><div class="single-event">';
                         echo '<iframe width="100%" height="100%" src="' . $v->path . '" frameborder="0" allowfullscreen></iframe>';
-                        echo '<h4 style="word-wrap: break-word">' . $v->name . '</h4>';
+                        echo '<h4 style="word-wrap: break-word"><mark>' . $v->name . '</mark></h4>';
                         echo '</div></div>';
 
                         if ($i%3==2)
@@ -247,8 +262,8 @@
 
 <section id="about"><!-- class="img-responsive" -->
     <div class="container">
-      <div class="row">
-          <div class="row ">
+      <div class="row" style="padding-top:30px; padding-bottom: 10px;">
+          <div class="row">
               <div>
                     <div class="col-md-3">
                         <div id="albums_left_page"><button type="button" class="btn btn-warning"><span class="glyphicon glyphicon-chevron-left"></span>Наляво</button></div>
