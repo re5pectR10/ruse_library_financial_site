@@ -36,7 +36,10 @@
     <div class="main-nav">
         <div class="container">
             <div class="header-top">
-                 @yield('user_auth')
+                <div class="pull-right social-icons">
+                    <a href="https://www.facebook.com/Library.Ruse" target="_blank"><i class="fa fa-facebook"></i></a>
+                    <a href="http://www.youtube.com/user/libruse" target="_blank"><i class="fa fa-youtube"></i></a>
+                </div>
             </div>
             <div class="row">
                 <div class="navbar-header navbar-header-menu">
@@ -52,17 +55,20 @@
                 </div>
                 <div class="collapse navbar-collapse" role="navigation">
                     <ul class="nav navbar-nav navbar-right">
-                        <li class="scroll active"><a href="#home">Начало</a></li>
-                        <li class="scroll"><a href="#explore">Ателиета</a></li>
-                        <li class="scroll"><a href="#event">Видео</a></li>
-                        <li class="scroll"><a href="#about">Галерия</a></li>
-                        <li class="no-scroll"><a href="#twitter">Новини</a></li>
-                        <li class="no-scroll"><a  href="#sponsor">Спонсори</a></li>
-                        <li class="scroll"><a href="#contact">Контакти</a></li>
+                        <li class="scroll active"><a href="#home" data-toggle="collapse" data-target=".navbar-collapse">Начало</a></li>
+                        <li class="scroll"><a href="#explore" data-toggle="collapse" data-target=".navbar-collapse">Ателиета</a></li>
+                        <li class="scroll"><a href="#event" data-toggle="collapse" data-target=".navbar-collapse">Видео</a></li>
+                        <li class="scroll"><a href="#about" data-toggle="collapse" data-target=".navbar-collapse">Галерия</a></li>
+                        <li class="scroll"><a href="#twitter" data-toggle="collapse" data-target=".navbar-collapse">Новини</a></li>
+                        <li class="scroll"><a  href="#sponsor" data-toggle="collapse" data-target=".navbar-collapse">Спонсори</a></li>
+                        <li class="scroll"><a href="#contact" data-toggle="collapse" data-target=".navbar-collapse">Контакти</a></li>
                     </ul>
                 </div>
             </div>
         </div>
+    </div>
+    <div class="auth-forms">
+        @yield('user_auth')
         @yield('acc_options')
     </div>
 </header>
@@ -79,24 +85,24 @@
                 <img class="img-responsive" src="{{ URL::asset('images/slider/bg1.jpg'); }}" alt="slider">
 
                 <div class="carousel-caption">
-                    <h3>{{ isset($slides[0]->title) ? $slides[0]->title : '' }}</h3>
-                    <h5>{{ isset($slides[0]->content) ? $slides[0]->content : '' }}</h5>
+                    <h2>{{ isset($slides[0]->title) ? $slides[0]->title : '' }}</h2>
+                    <h4>{{ isset($slides[0]->content) ? $slides[0]->content : '' }}</h4>
                 </div>
             </div>
             <div class="item">
                 <img class="img-responsive" src="{{ URL::asset('images/slider/bg2.jpg'); }}" alt="slider">
 
                 <div class="carousel-caption">
-                    <h3>{{ isset($slides[1]->title) ? $slides[1]->title : '' }}</h3>
-                    <h5>{{ isset($slides[1]->content) ? $slides[1]->content : '' }}</h5>
+                    <h2>{{ isset($slides[1]->title) ? $slides[1]->title : '' }}</h2>
+                    <h4>{{ isset($slides[1]->content) ? $slides[1]->content : '' }}</h4>
                 </div>
             </div>
             <div class="item">
                 <img class="img-responsive" src="{{ URL::asset('images/slider/bg3.jpg'); }}" alt="slider">
 
                 <div class="carousel-caption">
-                    <h3>{{ isset($slides[2]->title) ? $slides[2]->title : '' }}</h3>
-                    <h5>{{ isset($slides[2]->content) ? $slides[2]->content : '' }}</h5>
+                    <h2>{{ isset($slides[2]->title) ? $slides[2]->title : '' }}</h2>
+                    <h4>{{ isset($slides[2]->content) ? $slides[2]->content : '' }}</h4>
                 </div>
             </div>
         </div>
@@ -107,18 +113,18 @@
 <section id="explore">
     <div class="container">
         <div class="row ">
-            <div class="col-xs-1 atelieta">
+            <div class="col-md-1 atelieta">
                 <p>Ателиета</p>
             </div>
             <div class="toggle-slide toggle-slide-atelieta" id="atelietaDescription">
-                <div class="col-xs-1">
-                    <div id="atelieta_left_page"><button type="button" class="btn btn-warning"><span class="glyphicon glyphicon-chevron-left"></span>Наляво</button></div>
-                    <div id="atelieta_right_page"><button type="button" class="btn btn-warning">Надясно<span class="glyphicon glyphicon-chevron-right"></span></button></div>
+                <div class="col-md-1">
+                    <div id="atelieta_left_page"><div class="btn btn-warning"><span class="glyphicon glyphicon-chevron-left"></span>Наляво</div></div>
+                    <div id="atelieta_right_page"><div class="btn btn-warning">Надясно<span class="glyphicon glyphicon-chevron-right"></span></div></div>
                 </div>
                 <?php
                 $counter = 1;
                 foreach ($atelieta as $atelie): ?>
-                    <div class="col-xs-3 <?php if ($counter == 1) echo 'col-md-offset-1'; ?> atelieta-info">
+                    <div class="col-md-3 <?php if ($counter == 1) echo 'col-md-offset-1'; ?> atelieta-info">
                         <div class="panel panel-default">
                             <div class="panel-body" style="background-color: #FFC266">
                                 <h3><?php echo $atelie->title; ?></h3>
@@ -239,7 +245,7 @@
                             echo '<div class="row">';
                         }
 
-                        echo '<div class="col-xs-4"><div class="single-event">';
+                        echo '<div class="col-sm-4"><div class="single-event">';
                         echo '<iframe width="100%" height="100%" src="' . $v->path . '" frameborder="0" allowfullscreen></iframe>';
                         echo '<h4 style="word-wrap: break-word"><mark>' . $v->name . '</mark></h4>';
                         echo '</div></div>';
@@ -252,7 +258,7 @@
                         $i++;
                     }
                     ?>
-                    </div><h4></h4>
+                    </div>
                 </div>
             </div>
         </div>
@@ -262,55 +268,73 @@
 
 <section id="about"><!-- class="img-responsive" -->
     <div class="container">
-      <div class="row" style="padding-top:30px; padding-bottom: 10px;">
+<div class="row">
+    <div class="col-xs-12">
+        <h2>galeriq</h2>
+        <div id="albums_left_page"><div class="btn btn-warning"><span class="glyphicon glyphicon-chevron-left"></span></div></div>
+        <div id="albums_right_page"><div class="btn btn-warning"><span class="glyphicon glyphicon-chevron-right"></span></div></div>
+</div>
+</div>
           <div class="row">
-              <div>
-                    <div class="col-md-3">
-                        <div id="albums_left_page"><button type="button" class="btn btn-warning"><span class="glyphicon glyphicon-chevron-left"></span>Наляво</button></div>
-                        <div id="albums_right_page"><button type="button" class="btn btn-warning">Надясно<span class="glyphicon glyphicon-chevron-right"></span></button></div>
-                    </div>
                   <?php
                   $counter = 1;
                   foreach ($albums as $a): ?>
-                      <div class="col-md-3 albums-info text-center">
+                      <div class="col-md-4 albums-info text-center">
                           @if (isset($a->images[0]->id))
-                          <div class="row thumbnail">
-                            <img style="max-width: 100%; height: 192px;" src=<?php echo '"' . URL::to('/') . '/pictures/' . $a->id . '/' . $a->images[0]->id . '.' . $a->images[0]->extension . '"'; ?>/>
+                          <div class="thumbnail">
+                              {{ HTML::image('pictures/' . $a->id . '/' . $a->images[0]->id . '.' . $a->images[0]->extension, $alt="DRCSports", $attributes = array('max-width' => '100%', 'height' => '192px')) }}
                           </div>
                           @endif
                           <h3><p class="bg-primary text-center"><?php echo $a->name; ?></p></h3>
                           <div class="more-info-button album<?php echo $counter ?>">
-                              <button type="button" class="btn btn-default">Покажи албума</button>
+                              <div class="btn btn-default">Покажи албума</div>
                           </div>
                       </div>
                       <?php
                       $counter++;
                   endforeach; ?>
               </div>
-          </div>
+
           <div class="row toggle-slide-albums">
               <?php
               $counter = 1;
               foreach ($albums as $a): ?>
-                  <div class="col-md-12 album<?php echo $counter ?>-info toggle-slide albums-content">
+                  <div class="col-md-12 album<?php echo $counter ?>-info toggle-slide albums-content selected-album">
                       <div class="close-button-album" style="margin-top: 15px; margin-right: 12px;">
                           <img src="{{ URL::asset('images/close_button.png'); }}">
                       </div>
                       <h3><p class="bg-warning align-center"><?php echo $a->name; ?></p></h3>
                       <?php
+                      $i = 0;
                       foreach($a->images as $img){
-                          echo '<div class="col-md-3 album-images" style="width:10%"><a href="'.URL::to('/').'/pictures/'.$a->id . '/'. $img->id .'.'.$img->extension.'" data-lightbox="album'.$a->id.'"><img style="border-radius: 3px; max-width: 100%" src="'.
+                          if ($i % 12 == 0)
+                          {
+                              echo '<div class="row">';
+                          }
+
+                          echo '<div class="col-md-1 album-images"><a href="'.URL::to('/').'/pictures/'.$a->id . '/'. $img->id .'.'.$img->extension.'" data-lightbox="album'.$a->id.'"><img style="border-radius: 3px; max-width: 100%" src="'.
                               URL::to('/').'/pictures/'.$a->id . '/'. $img->id .'.'.$img->extension .'"></a></div>';
+                          if ($i % 12 == 11)
+                          {
+                              echo '</div>';
+                          }
+
+                          $i++;
+                      }
+
+                      if ($i % 12 != 0)
+                      {
+                          echo '</div>';
                       }
                       ?>
-                      <!--<p><?php// echo '"' . URL::to('/') . '/pictures/' . $a->id . '/' . $a->images[0]->id . '.' . $a->images[0]->extension . '"'; ?></p>-->
+                      <!--<p>// echo '"' . URL::to('/') . '/pictures/' . $a->id . '/' . $a->images[0]->id . '.' . $a->images[0]->extension . '"'; </p>-->
                   </div>
                   <?php
                   $counter++;
               endforeach; ?>
           </div>
       </div>
-    </div>
+
 </section>
 <!--/#about-->
 
@@ -456,6 +480,9 @@
         else
             echo '0';
         echo '";';
+
+        if (Session::has('msg'))
+        echo 'window.scrollTo(0,document.body.scrollHeight);';
     ?>
 </script>
 {{ HTML::script('js/additional.js'); }}

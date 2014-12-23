@@ -1,6 +1,9 @@
 /* lg */
 @media (min-width: 1300px) {
-
+    .auth-forms-fixed {
+        position: fixed;
+        top: 60px;
+    }
 }
 
 /* md */
@@ -56,6 +59,11 @@
 
     .atelieta p {
         font-size: 0.8em;
+    }
+
+    .auth-forms-fixed {
+        position: fixed;
+        top: 60px;
     }
 }
 
@@ -138,6 +146,21 @@
 
     .atelieta p {
         font-size: 0.7em;
+    }
+
+    .auth-forms {
+        top: 120px;
+        right: 0;
+    }
+
+    .auth-forms div {
+        font-size: 0.95em;
+        right: 0;
+    }
+
+    .auth-forms-fixed {
+        position: fixed;
+        top: 60px;
     }
 }
 
@@ -313,10 +336,27 @@
         padding: 70px 25px 110px;
     }
 
+    .auth-forms-fixed {
+        z-index: 99;
+        position: fixed;
+        top: 60px;
+    }
+
+    .auth-forms-fixed div {
+        font-size: 0.95em;
+    }
+
+    .auth-forms-fixed .container {
+        margin-right: 20px;
+    }
+    #event iframe {
+        width: 250px;
+    }
 }
 
 /* XS Portrait */
 @media (max-width: 479px) {
+
 
     .main-nav .container {
         display: none;
@@ -328,6 +368,23 @@
 
     .fixed-menu .navbar-right li a {
         padding: 10px 25px;
+    }
+
+    .auth-forms-fixed {
+        z-index: 99;
+        position: fixed;
+        top: 45px;
+        right: 0;
+    }
+
+    .auth-forms-fixed div {
+        font-size: 0.9em;
+        padding: 5px;
+        margin-right: 10px;
+    }
+
+    .auth-forms-fixed li a {
+        font-size: 0.9em;
     }
 
     /* Home */

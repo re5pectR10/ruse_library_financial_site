@@ -60,7 +60,7 @@ class UserController extends BaseController{
             $rules = array('name' => 'required | max:50 | min:3', 'email' => 'required | email');
             $validate = Validator::make(array_map('trim', $input), $rules);
             if ($validate->fails()) {
-                return Redirect::to('/')->withErrors($validate, 'message')->withInput();
+                return Redirect::to('/')->withErrors($validate, 'message')->withInput()->with('msg', '0');
             }
 
             $name = $input['name'];

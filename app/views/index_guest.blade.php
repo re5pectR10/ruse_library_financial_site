@@ -3,15 +3,11 @@
 <div class="container">
 <!-- START -> Log in and Sign in link buttons -->
 <div class="row">
-        <div class="col-md-offset-7 col-xs-2">
-        <button type="button" id="btn-login" class="btn btn-success clicklogin">Влез</button>
+        <div class="col-xs-offset-7 col-xs-2">
+        <div id="btn-login" class="btn btn-success clicklogin">Влез</div>
         </div>
         <div class="col-xs-2">
-        <button type="button" id="btn-signin" class="btn btn-primary clicksignin">Регистрирай се</button>
-        </div>
-        <div class="col-md-1 pull-right social-icons">
-            <a href="https://www.facebook.com/Library.Ruse" target="_blank"><i class="fa fa-facebook"></i></a>
-            <a href="http://www.youtube.com/user/libruse" target="_blank"><i class="fa fa-youtube"></i></a>
+        <div id="btn-signin" class="btn btn-primary clicksignin">Регистрирай се</div>
         </div>
 </div>
 <!-- END <- Log in and Sign in link buttons -->

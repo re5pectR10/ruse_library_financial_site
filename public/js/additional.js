@@ -19,16 +19,31 @@ $(document).ready(function () {
         $(".toggle-slide-atelieta").slideToggle();
     });
 
-    $(".clicklogin").click(function () {
+    $(".clicklogin").click(function (e) {
+        e.stopPropagation();
         $(this).toggleClass("is-clicked");
         $(".toggle-slide-signin").slideUp();
         $(".toggle-slide-login").toggle();
     });
 
-    $(".clicksignin").click(function () {
+    $(".clicksignin").click(function (e) {
+        e.stopPropagation();
         $(this).toggleClass("is-clicked");
         $(".toggle-slide-login").slideUp();
         $(".toggle-slide-signin").toggle();
+    });
+
+    $('.toggle-slide-signin').click(function(e){
+        e.stopPropagation();
+    });
+
+    $('.toggle-slide-login').click(function(e){
+        e.stopPropagation();
+    });
+
+    $(document).click(function(){
+        $('.toggle-slide-signin').slideUp();
+        $('.toggle-slide-login').slideUp();
     });
 
     function resizeSubmenuDivs() {
@@ -40,22 +55,34 @@ $(document).ready(function () {
     }
 
     $(".album1").click(function () {
+        $(this).parent().toggleClass('selected-album');
+        $(".album2").parent().removeClass('selected-album');
+        $(".album3").parent().removeClass('selected-album');
         $(".album1-info").slideToggle();
         $(".album2-info").slideUp();
         $(".album3-info").slideUp();
     });
     $(".album2").click(function () {
+        $(this).parent().toggleClass('selected-album');
+        $(".album1").parent().removeClass('selected-album');
+        $(".album3").parent().removeClass('selected-album');
         $(".album1-info").slideUp();
         $(".album2-info").slideToggle();
         $(".album3-info").slideUp();
     });
     $(".album3").click(function () {
+        $(this).parent().toggleClass('selected-album');
+        $(".album1").parent().removeClass('selected-album');
+        $(".album2").parent().removeClass('selected-album');
         $(".album1-info").slideUp();
         $(".album2-info").slideUp();
         $(".album3-info").slideToggle();
     });
 
     $(".close-button-album").click(function () {
+        $(".album1").parent().removeClass('selected-album');
+        $(".album2").parent().removeClass('selected-album');
+        $(".album3").parent().removeClass('selected-album');
         $(".album1-info").slideUp();
         $(".album2-info").slideUp();
         $(".album3-info").slideUp();
@@ -194,7 +221,7 @@ $(document).ready(function () {
                         $.each(result[$counter]['images']['path'], function (index) {
 
                             $path=result[$counter]['images']['path'][index];
-                            $('.albums-content').eq($counter).append('<div class="col-md-3 album-images" style="width:10%"><a href="'+$path+'" data-lightbox="album'+$counter+'"><img style="border-radius: 3px; max-width: 100%" src="'+$path+'"></a></div>')
+                            $('.albums-content').eq($counter).append('<div class="col-md-1 album-images"><a href="'+$path+'" data-lightbox="album'+$counter+'"><img style="border-radius: 3px; max-width: 100%" src="'+$path+'"></a></div>')
                         })
                     } else {
                         $('.albums-info').eq($counter).find('h3').text("");
@@ -231,7 +258,7 @@ $(document).ready(function () {
                     $.each(result[$counter]['images']['path'], function (index) {
 
                         $path=result[$counter]['images']['path'][index];
-                        $('.albums-content').eq($counter).append('<div class="col-md-3 album-images" style="width:10%"><a href="'+$path+'" data-lightbox="album'+$counter+'"><img style="border-radius: 3px; max-width: 100%" src="'+$path+'"></a></div>')
+                        $('.albums-content').eq($counter).append('<div class="col-md-1 album-images"><a href="'+$path+'" data-lightbox="album'+$counter+'"><img style="border-radius: 3px; max-width: 100%" src="'+$path+'"></a></div>')
                     })
 
                     $counter++;

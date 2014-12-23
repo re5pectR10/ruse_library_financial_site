@@ -22,10 +22,12 @@ jQuery(function($) {'use strict',
 			$(window).on('scroll', function(){
 				if( $(window).scrollTop()>75 ){
 					$('.main-nav').addClass('fixed-menu');
+                    $('.auth-forms').addClass('auth-forms-fixed');
                     $('.cart').removeClass('hide');
                     $('.cart').addClass('animated slideInRight');
 				} else {
 					$('.main-nav').removeClass('fixed-menu');
+                    $('.auth-forms').removeClass('auth-forms-fixed');
                     $('.cart').addClass('hide');
                     $('.cart').removeClass('animated slideInRight');
 				}
@@ -33,7 +35,7 @@ jQuery(function($) {'use strict',
 		}else{
 
 			$('.main-nav').addClass('fixed-menu');
-				
+            $('.auth-forms').addClass('auth-forms-fixed');
 		}
 	}
 
