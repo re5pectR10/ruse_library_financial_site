@@ -40,7 +40,14 @@ Route::get('/albums', function()
     foreach($albums as $a)
     {
         $albumsToSend[$counter]['name'] = $a->name;
-        $albumsToSend[$counter]['path'] = URL::to('/') . '/pictures/' . $a->id . '/' . $a->images[0]->id . '.' . $a->images[0]->extension;
+        if (isset($a->images[0]))
+        {
+            $albumsToSend[$counter]['path'] = URL::to('/') . '/pictures/' . $a->id . '/' . $a->images[0]->id . '.' . $a->images[0]->extension;
+        } else
+        {
+            $albumsToSend[$counter]['path'] = URL::to('/') . '/images/does_not_exist.png';
+            $albumsToSend[$counter]['images']['path'][] = URL::to('/') . '/images/does_not_exist.png';
+        }
         foreach ($a->images as $i) {
             $albumsToSend[$counter]['images']['path'][] = URL::to('/').'/pictures/'.$a->id.'/'.$i->id . '.' . $i->extension;
             //$atelietaToSend[$counter]['docs']['name'][] = $d->name;

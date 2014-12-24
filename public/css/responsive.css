@@ -352,6 +352,10 @@
     #event iframe {
         width: 250px;
     }
+
+    .album-images div {
+        padding-bottom: 20px;
+    }
 }
 
 /* XS Portrait */
@@ -542,6 +546,5 @@
         background-position: left 0 bottom 0;
         background-size: cover;
     }
-
 }
 

@@ -220,7 +220,7 @@
 <section id="event">
     <div class="container">
         <div class="row">
-            <div class="col-sm-12 col-md-9">
+            <div class="col-sm-12 col-md-10">
                 <div id="event-carousel" class="carousel slide" data-interval="false">
                     <h2 class="heading">ВИДЕО</h2>
                     <a class="even-control-left" href="#event-carousel" data-slide="prev"><i
@@ -270,7 +270,7 @@
     <div class="container">
 <div class="row">
     <div class="col-xs-12">
-        <h2>galeriq</h2>
+        <h2>ГАЛЕРИЯ</h2>
         <div id="albums_left_page"><div class="btn btn-warning"><span class="glyphicon glyphicon-chevron-left"></span></div></div>
         <div id="albums_right_page"><div class="btn btn-warning"><span class="glyphicon glyphicon-chevron-right"></span></div></div>
 </div>
@@ -279,11 +279,16 @@
                   <?php
                   $counter = 1;
                   foreach ($albums as $a): ?>
-                      <div class="col-md-4 albums-info text-center">
-                          @if (isset($a->images[0]->id))
+                      <div class="col-sm-4 albums-info text-center">
+                          @if (isset($a->images[0]))
+                          <div class="thumbnail"><div>
+                              {{ HTML::image('pictures/' . $a->id . '/' . $a->images[0]->id . '.' . $a->images[0]->extension, $alt="image", $attributes = array('max-width' => '100%')) }}
+                          </div></div>
+                          @else
                           <div class="thumbnail">
-                              {{ HTML::image('pictures/' . $a->id . '/' . $a->images[0]->id . '.' . $a->images[0]->extension, $alt="DRCSports", $attributes = array('max-width' => '100%', 'height' => '192px')) }}
-                          </div>
+                              <div>
+                              {{ HTML::image('images/does_not_exist.png', $alt="image", $attributes = array('max-width' => '100%')) }}
+                          </div> </div>
                           @endif
                           <h3><p class="bg-primary text-center"><?php echo $a->name; ?></p></h3>
                           <div class="more-info-button album<?php echo $counter ?>">
@@ -295,26 +300,25 @@
                   endforeach; ?>
               </div>
 
-          <div class="row toggle-slide-albums">
+          <div class="row toggle-slide-albums selected-album">
               <?php
               $counter = 1;
               foreach ($albums as $a): ?>
-                  <div class="col-md-12 album<?php echo $counter ?>-info toggle-slide albums-content selected-album">
-                      <div class="close-button-album" style="margin-top: 15px; margin-right: 12px;">
+                  <div style="padding: 20px" class="col-sm-12 album<?php echo $counter ?>-info toggle-slide albums-content">
+                      <div class="close-button-album">
                           <img src="{{ URL::asset('images/close_button.png'); }}">
                       </div>
-                      <h3><p class="bg-warning align-center"><?php echo $a->name; ?></p></h3>
                       <?php
                       $i = 0;
                       foreach($a->images as $img){
-                          if ($i % 12 == 0)
+                          if ($i % 6 == 0)
                           {
                               echo '<div class="row">';
                           }
 
-                          echo '<div class="col-md-1 album-images"><a href="'.URL::to('/').'/pictures/'.$a->id . '/'. $img->id .'.'.$img->extension.'" data-lightbox="album'.$a->id.'"><img style="border-radius: 3px; max-width: 100%" src="'.
-                              URL::to('/').'/pictures/'.$a->id . '/'. $img->id .'.'.$img->extension .'"></a></div>';
-                          if ($i % 12 == 11)
+                          echo '<div class="col-sm-2 col-xs-6 album-images"><div><a href="'.URL::to('/').'/pictures/'.$a->id . '/'. $img->id .'.'.$img->extension.'" data-lightbox="album'.$a->id.'"><img style="border-radius: 3px; max-width: 100%" src="'.
+                              URL::to('/').'/pictures/'.$a->id . '/'. $img->id .'.'.$img->extension .'"></a></div></div>';
+                          if ($i % 6 == 5)
                           {
                               echo '</div>';
                           }
@@ -322,7 +326,7 @@
                           $i++;
                       }
 
-                      if ($i % 12 != 0)
+                      if ($i % 6 != 0)
                       {
                           echo '</div>';
                       }

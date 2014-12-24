@@ -221,12 +221,10 @@ $(document).ready(function () {
                         $.each(result[$counter]['images']['path'], function (index) {
 
                             $path=result[$counter]['images']['path'][index];
-                            $('.albums-content').eq($counter).append('<div class="col-md-1 album-images"><a href="'+$path+'" data-lightbox="album'+$counter+'"><img style="border-radius: 3px; max-width: 100%" src="'+$path+'"></a></div>')
+                            $('.albums-content').eq($counter).append('<div class="col-sm-2 col-xs-6 album-images"><div><a href="'+$path+'" data-lightbox="album'+$counter+'"><img style="border-radius: 3px; max-width: 100%" src="'+$path+'"></a></div></div>')
                         })
                     } else {
-                        $('.albums-info').eq($counter).find('h3').text("");
-                        $('.albums-info').eq($counter).find('img').attr("src", "");
-                        $('.albums-info').eq($counter).find('p').text("");
+                        $('.albums-info').eq($counter).hide();
                     }
 
                     $counter++;
@@ -252,13 +250,13 @@ $(document).ready(function () {
                 $('.albums-content div.album-images').remove();
                 $counter = 0;
                 $('.albums-info').each(function () {
+                    $('.albums-info').eq($counter).show();
                     $('.albums-info').eq($counter).find('h3').text(result[$counter]['name']);
                     $('.albums-info').eq($counter).find('img').attr("src", result[$counter]['path']);
-                    $('.albums-info').eq($counter).find('p:last').text("vij vs pic");
                     $.each(result[$counter]['images']['path'], function (index) {
 
                         $path=result[$counter]['images']['path'][index];
-                        $('.albums-content').eq($counter).append('<div class="col-md-1 album-images"><a href="'+$path+'" data-lightbox="album'+$counter+'"><img style="border-radius: 3px; max-width: 100%" src="'+$path+'"></a></div>')
+                        $('.albums-content').eq($counter).append('<div class="col-sm-2 col-xs-6 album-images"><div><a href="'+$path+'" data-lightbox="album'+$counter+'"><img style="border-radius: 3px; max-width: 100%" src="'+$path+'"></a></div></div>')
                     })
 
                     $counter++;

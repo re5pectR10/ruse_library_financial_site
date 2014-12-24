@@ -589,6 +589,39 @@ h2 {
 #albums_right_page {
     right: 0;
 }
+
+.thumbnail {
+    height: 350px;
+}
+
+.thumbnail div {
+    width: 100%;
+    height: 100%;
+    line-height: 330px;
+}
+
+.thumbnail img{
+    max-height: 100%;
+    max-width: 100%;
+    vertical-align: middle;
+}
+
+.album-images {
+    height: 150px;
+}
+
+.album-images div {
+    width: 100%;
+    height: 100%;
+    line-height: 120px;
+    text-align: center;
+}
+
+.album-images div img{
+    max-height: 100%;
+    max-width: 100%;
+    vertical-align: middle;
+}
 /*************************
 *******About CSS**********
 **************************/
@@ -646,7 +679,7 @@ h2 {
 }
 
 .selected-album {
-    background: rgba(211, 231, 241, 0.5);
+    background: rgba(237, 241, 239, 0.80);
 }
 
 .album-images img:hover {
