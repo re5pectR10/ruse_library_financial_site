@@ -113,20 +113,19 @@
 <section id="explore">
     <div class="container">
         <div class="row ">
-            <div class="col-md-1 atelieta">
-                <p>Ателиета</p>
+            <div class="col-xs-12">
+                <h2 class="title">Ателиета</h2>
+                <div id="atelieta_left_page"><div class="btn btn-warning"><span class="glyphicon glyphicon-chevron-left"></span></div></div>
+                <div id="atelieta_right_page"><div class="btn btn-warning"><span class="glyphicon glyphicon-chevron-right"></span></div></div>
             </div>
-            <div class="toggle-slide toggle-slide-atelieta" id="atelietaDescription">
-                <div class="col-md-1">
-                    <div id="atelieta_left_page"><div class="btn btn-warning"><span class="glyphicon glyphicon-chevron-left"></span>Наляво</div></div>
-                    <div id="atelieta_right_page"><div class="btn btn-warning">Надясно<span class="glyphicon glyphicon-chevron-right"></span></div></div>
-                </div>
+        </div>
+            <div class="row ">
                 <?php
                 $counter = 1;
                 foreach ($atelieta as $atelie): ?>
-                    <div class="col-md-3 <?php if ($counter == 1) echo 'col-md-offset-1'; ?> atelieta-info">
+                    <div class="col-sm-4 atelieta-info">
                         <div class="panel panel-default">
-                            <div class="panel-body" style="background-color: #FFC266">
+                            <div class="panel-body">
                                 <h3><?php echo $atelie->title; ?></h3>
                                 <p><?php echo $atelie->description; ?></p>
                             </div>
@@ -141,22 +140,22 @@
             </div>
         </div>
 
-        <div class="row toggle-slide toggle-slide-atelieta">
+        <div class="row toggle-slide-atelieta">
             <?php
             $counter = 1;
             foreach ($atelieta as $atelie): ?>
-                <div class="col-md-offset-2 col-md-10 atelie<?php echo $counter ?>-info toggle-slide atelieta-content">
-                    <div class="close-button" style="margin-right:15px; margin-top: 10px;">
+                <div class="col-sm-12 atelie<?php echo $counter ?>-info toggle-slide atelieta-content">
+                    <div class="close-button">
                         <img src="{{ URL::asset('images/close_button.png'); }}">
                     </div>
-                    <div class="panel panel-default" style="margin-top:10px">
+                    <div class="panel panel-default">
                         <div class="panel-body" style="background-color: #FFC266">
                             <h3 class="align-center"><?php echo $atelie->title; ?></h3>
                             <p><?php echo $atelie->content; ?></p>
                         </div>
                     </div>
                     <div class="panel panel-default">
-                        <div class="panel-body" style="background-color: #FFC266">
+                        <div class="files panel-body" style="background-color: #FFC266">
                             <?php foreach($atelie->doc as $d)
                             {
                                 echo '<a href="'.URL::to('/').'/file?name='.$d->name.'&article_id='.$atelie->id.'">'.$d->name.'</a>';
@@ -247,7 +246,7 @@
 
                         echo '<div class="col-sm-4"><div class="single-event">';
                         echo '<iframe width="100%" height="100%" src="' . $v->path . '" frameborder="0" allowfullscreen></iframe>';
-                        echo '<h4 style="word-wrap: break-word"><mark>' . $v->name . '</mark></h4>';
+                        echo '<h4 class="videos-title">' . $v->name . '</h4>';
                         echo '</div></div>';
 
                         if ($i%3==2)

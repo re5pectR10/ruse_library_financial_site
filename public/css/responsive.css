@@ -181,9 +181,15 @@
 
 /* xs */
 @media (max-width: 767px) {
+
+    .atelieta-info{
+        border-bottom: 2px solid #000000;
+    }
+
     .atelieta p {
         font-size: 0.6em;
     }
+
     .main-nav .container {
         display: none;
     }

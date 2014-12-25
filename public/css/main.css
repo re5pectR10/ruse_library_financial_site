@@ -102,6 +102,10 @@ h2 {
   color: #ec5538
 }
 
+.fa-facebook {
+    color: #ffffff;
+}
+
 .navbar-brand {
   background-color: #C2C2E0;
   height: 90px;
@@ -263,6 +267,25 @@ h2 {
   border: 1px solid #fff;
 }
 
+.videos-title {
+    width: 95%;
+    margin: auto;
+    word-wrap: break-word;
+    background-color: rgba(255,255,255,0.8);
+    /* For IE 5.5 - 7*/
+    filter:progid:DXImageTransform.Microsoft.gradient(startColorstr=#99222222, endColorstr=#99222222);
+    /* For IE 8*/
+    -ms-filter:progid:DXImageTransform.Microsoft.gradient(startColorstr=#99222222, endColorstr=#99222222);
+    z-index:10;
+    padding:10px;
+    -moz-box-shadow:0px 0px 12px #FFFFFF;
+    -webkit-box-shadow:0px 0px 12px #FFFFFF;
+    box-shadow:0px 0px 12px #FFFFFF;
+    -webkit-border-radius: 4px;
+    -moz-border-radius: 4px;
+    border-radius: 4px;
+}
+
 /*************************
 *******Explore CSS******
 **************************/
@@ -289,6 +312,11 @@ h2 {
   font-size: 42px;
   text-transform: uppercase;
   text-align: center;
+}
+
+#explore .title {
+    text-align: left;
+    color: #ffffff;
 }
 
 #countdown {
@@ -404,8 +432,8 @@ h2 {
 
 .atelieta-info {
     position: relative;
-    border-left: 1px groove #fffafe;
-    padding: 0 2% 0 2%;
+    border-left: 1px groove #fffefd;
+    padding: 2%;
 }
 
 .atelieta-info p {
@@ -425,10 +453,18 @@ h2 {
     width: 3%;
     height: 3%;
     position: absolute;
-    top: 0;
-    right: 0;
     cursor: hand;
     cursor: pointer;
+}
+
+.close-button-album {
+    top: 0;
+    right: 0;
+}
+
+.close-button {
+    top: 10px;
+    right: 30px;
 }
 
 .close-button img, .close-button-album img {
@@ -514,6 +550,36 @@ h2 {
     transition: 0.5s;
 }
 
+#atelieta_left_page, #atelieta_right_page {
+    position: absolute;
+    top: 10px;
+}
+
+#atelieta_right_page {
+    right: 0;
+}
+
+#atelieta_left_page {
+    right: 70px;
+}
+
+.atelieta-content {
+    padding: 10px 30px 10px 30px;
+}
+
+.files a {
+    display: block;
+    color: #000000;
+}
+
+.files a:hover {
+    text-decoration: underline;
+}
+
+.files a:visited {
+    color: #CD3F3F;
+}
+
  /*************************
 *******Event CSS******
 **************************/
@@ -564,13 +630,14 @@ h2 {
 .even-control-left,
 .even-control-right {
   position: absolute;
-  font-size: 24px;
+  font-size: 40px;
   color: #fff;
   top: 0;
+
 }
 
 .even-control-left {
-  right: 3%
+  right: 5%
 }
 
 .even-control-right {

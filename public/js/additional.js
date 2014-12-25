@@ -14,10 +14,10 @@ $(document).ready(function () {
         $("#fbSidebar").toggle('slide');//animate({width:'toggle'}, 200);
     });
 
-    $(".atelieta").click(function () {
+    /*$(".atelieta").click(function () {
         $(this).toggleClass("is-clicked");
         $(".toggle-slide-atelieta").slideToggle();
-    });
+    });*/
 
     $(".clicklogin").click(function (e) {
         e.stopPropagation();
@@ -89,22 +89,34 @@ $(document).ready(function () {
     });
 
     $(".atelie1").click(function () {
+        $(this).prev().css({background: "#FFC266"});
+        $(".atelie2").prev().css({background: "#FFFFFF"});
+        $(".atelie3").prev().css({background: "#FFFFFF"});
         $(".atelie1-info").slideToggle();
         $(".atelie2-info").slideUp();
         $(".atelie3-info").slideUp();
     });
     $(".atelie2").click(function () {
+        $(this).prev().css({background: "#FFC266"});
+        $(".atelie1").prev().css({background: "#FFFFFF"});
+        $(".atelie3").prev().css({background: "#FFFFFF"});
         $(".atelie1-info").slideUp();
         $(".atelie2-info").slideToggle();
         $(".atelie3-info").slideUp();
     });
     $(".atelie3").click(function () {
+        $(this).prev().css({background: "#FFC266"});
+        $(".atelie1").prev().css({background: "#FFFFFF"});
+        $(".atelie2").prev().css({background: "#FFFFFF"});
         $(".atelie1-info").slideUp();
         $(".atelie2-info").slideUp();
         $(".atelie3-info").slideToggle();
     });
 
     $(".close-button").click(function () {
+        $(".atelie1").prev().css({background: "#FFFFFF"});
+        $(".atelie2").prev().css({background: "#FFFFFF"});
+        $(".atelie3").prev().css({background: "#FFFFFF"});
         $(".atelie1-info").slideUp();
         $(".atelie2-info").slideUp();
         $(".atelie3-info").slideUp();
@@ -145,7 +157,7 @@ $(document).ready(function () {
 
                             $path=result[$counter]['docs']['path'][index];
                             $name=result[$counter]['docs']['name'][index];
-                            $('.atelieta-content').eq($counter).append('<a href="'+$path+'">'+$name+'</a>')
+                            $('.atelieta-content').eq($counter).find('.files').append('<a href="'+$path+'">'+$name+'</a>')
 
 
                         })
@@ -191,7 +203,7 @@ $(document).ready(function () {
 
                             $path=result[$counter]['docs']['path'][index];
                             $name=result[$counter]['docs']['name'][index];
-                            $('.atelieta-content').eq($counter).append('<a href="'+$path+'">'+$name+'</a>')
+                            $('.atelieta-content').eq($counter).find('.files').append('<a href="'+$path+'">'+$name+'</a>')
 
 
                     })
