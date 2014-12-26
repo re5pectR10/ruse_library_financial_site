@@ -42,14 +42,15 @@ Route::get('/albums', function()
         $albumsToSend[$counter]['name'] = $a->name;
         if (isset($a->images[0]))
         {
-            $albumsToSend[$counter]['path'] = URL::to('/') . '/pictures/' . $a->id . '/' . $a->images[0]->id . '.' . $a->images[0]->extension;
+            $albumsToSend[$counter]['path'] = 'pictures/' . $a->id . '/' . $a->images[0]->id . '.' . $a->images[0]->extension;
         } else
         {
-            $albumsToSend[$counter]['path'] = URL::to('/') . '/images/does_not_exist.png';
-            $albumsToSend[$counter]['images']['path'][] = URL::to('/') . '/images/does_not_exist.png';
+            $albumsToSend[$counter]['path'] = 'images/does_not_exist.png';
+            $albumsToSend[$counter]['images']['path'][] = 'images/does_not_exist.png';
         }
         foreach ($a->images as $i) {
-            $albumsToSend[$counter]['images']['path'][] = URL::to('/').'/pictures/'.$a->id.'/'.$i->id . '.' . $i->extension;
+            $albumsToSend[$counter]['images']['path'][] = 'pictures/'.$a->id.'/'.$i->id . '.' . $i->extension;
+            $albumsToSend[$counter]['images']['desc'][] = $i->description;
             //$atelietaToSend[$counter]['docs']['name'][] = $d->name;
         }
 
@@ -100,4 +101,11 @@ Route::group(array('prefix' => 'admin', 'before' => 'admin'), function()
     Route::post('/videos/add', array('uses' => 'AdminController@addVideo'));
     Route::get('/slides', array('uses' => 'AdminController@getSlides'));
     Route::post('/slides/update', array('uses' => 'AdminController@updateSlide'));
+    Route::get('/media', array('uses' => 'AdminController@getMedias'));
+    Route::get('/media/edit', array('uses' => 'AdminController@getMedia'));
+    Route::post('/media/edit', array('uses' => 'AdminController@editMedia'));
+    Route::get('/media/add', array('uses' => 'AdminController@setMedia'));
+    Route::post('/media/add', array('uses' => 'AdminController@addMedia'));
+    Route::get('/media/delete', array('uses' => 'AdminController@deleteMedia'));
+    Route::get('/media/deletemediaimage', array('uses' => 'AdminController@deleteMediaImage'));
 });

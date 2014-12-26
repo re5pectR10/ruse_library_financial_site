@@ -272,7 +272,7 @@
         <h2>ГАЛЕРИЯ</h2>
         <div id="albums_left_page"><div class="btn btn-warning"><span class="glyphicon glyphicon-chevron-left"></span></div></div>
         <div id="albums_right_page"><div class="btn btn-warning"><span class="glyphicon glyphicon-chevron-right"></span></div></div>
-</div>
+    </div>
 </div>
           <div class="row">
                   <?php
@@ -315,8 +315,9 @@
                               echo '<div class="row">';
                           }
 
-                          echo '<div class="col-sm-2 col-xs-6 album-images"><div><a href="'.URL::to('/').'/pictures/'.$a->id . '/'. $img->id .'.'.$img->extension.'" data-lightbox="album'.$a->id.'"><img style="border-radius: 3px; max-width: 100%" src="'.
-                              URL::to('/').'/pictures/'.$a->id . '/'. $img->id .'.'.$img->extension .'"></a></div></div>';
+                          $path = 'pictures/' . $a->id . '/'. $img->id .'.'.$img->extension;
+                          echo '<div class="col-sm-2 col-xs-6 album-images"><div><a href="' . $path . '" data-lightbox="album'.$a->id.'" data-title="' . $img->description . '">'.
+                              HTML::image($path, $alt="image", $attributes = array('class' => 'images-per-album')) . ' </a></div></div>';
                           if ($i % 6 == 5)
                           {
                               echo '</div>';
@@ -342,32 +343,64 @@
 <!--/#about-->
 
 <section id="twitter">
-    <div id="twitter-feed" class="carousel slide" data-interval="false">
-        <div class="row">
-            <div class="col-sm-6 col-sm-offset-3">
-                <div class="text-center carousel-inner center-block">
-                    <div class="item active">
-                        <img src="../../../public/images/twitter/twitter1.png" alt="">
+    <div class="container">
+        <div id="twitter-feed" class="carousel slide" data-interval="false">
+            <div class="row">
+                <div class="col-xs-9">
+                    <h2 class="heading">Медии</h2>
+                    <a class="twitter-control-left" href="#twitter-feed" data-slide="prev"><i class="fa fa-angle-left"></i></a>
+                    <a class="twitter-control-right" href="#twitter-feed" data-slide="next"><i class="fa fa-angle-right"></i></a>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-sm-12">
+                    <div class="text-center carousel-inner center-block">
+                        <?php
+                        $i = 0;
+                        foreach ($media as $m)
+                        {
+                            if ($i%3==0)
+                            {
+                                if ($i==0)
+                                {
+                                    echo '<div class="item active">';
+                                } else
+                                {
+                                    echo '<div class="item">';
+                                }
 
-                        <p>Скоро</p>
-                        <a href="#">http://</a>
-                    </div>
-                    <div class="item">
-                        <img src="../../../public/images/twitter/twitter2.png" alt="">
+                                echo '<div class="row">';
+                            }
 
-                        <p>Скоро</p>
-                        <a href="#">http://</a>
-                    </div>
-                    <div class="item">
-                        <img src="../../../public/images/twitter/twitter3.png" alt="">
+                            echo '<div class="col-sm-3 media-hover">';
+                            if ($m->extension != '0')
+                            {
+                                $path = 'media/' . $m->id . '/media.' . $m->extension;
+                                echo '<a href="' . $path . '" data-lightbox="'.$m->id.'">';
+                                echo HTML::image($path, $alt="image");
+                                echo '</a>';
+                            }
 
-                        <p>Скоро</p>
-                        <a href="#">http://</a>
+                            echo '<h3>' . $m->title . '</h3>';
+                            echo '<p>' . $m->description . '</p>';
+                            echo '<p>' . $m->date . '</p>';
+                            if ($m->link != '')
+                            {
+                                echo '<a href="' . $m->link . '" target="_blank">Прочети повече</a>';
+                            }
+
+                            echo '</div>';
+
+                            if ($i%3==2)
+                            {
+                                echo '</div></div>';
+                            }
+
+                            $i++;
+                        }
+                        ?>
                     </div>
                 </div>
-                <a class="twitter-control-left" href="#twitter-feed" data-slide="prev"><i class="fa fa-angle-left"></i></a>
-                <a class="twitter-control-right" href="#twitter-feed" data-slide="next"><i
-                        class="fa fa-angle-right"></i></a>
             </div>
         </div>
     </div>
@@ -485,7 +518,7 @@
         echo '";';
 
         if (Session::has('msg'))
-        echo 'window.scrollTo(0,document.body.scrollHeight);';
+            echo 'window.scrollTo(0,document.body.scrollHeight);';
     ?>
 </script>
 {{ HTML::script('js/additional.js'); }}

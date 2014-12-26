@@ -182,6 +182,10 @@
 /* xs */
 @media (max-width: 767px) {
 
+    #explore .title {
+        font-size: 26px;
+    }
+
     .atelieta-info{
         border-bottom: 2px solid #000000;
     }
@@ -281,20 +285,6 @@
     #about h2,
     #sponsor h2 {
         font-size: 30px;
-    }
-
-    .twitter-control-left,
-    .twitter-control-right {
-        top: inherit;
-        bottom: -40px;
-    }
-
-    .twitter-control-left {
-        left: 46%;
-    }
-
-    .twitter-control-right {
-        right: 46%;
     }
 
     #sponsor {
@@ -498,20 +488,6 @@
     #twitter-feed .item a,
     #twitter-feed .item p {
         font-size: 15px;
-    }
-
-    .twitter-control-left,
-    .twitter-control-right {
-        top: inherit;
-        bottom: -40px;
-    }
-
-    .twitter-control-left {
-        left: 46%;
-    }
-
-    .twitter-control-right {
-        right: 46%;
     }
 
     #sponsor {

@@ -235,8 +235,16 @@ class AdminController extends BaseController{
 
         $album = Album::find($input['id']);
         $album->name = $input['name'];
-        $album->save();
 
+        $i = 0;
+        foreach ($album->images as $image)
+        {
+            $image->description = $input['description'][$i];
+            $image->save();
+            $i++;
+        }
+
+        $album->save();
         if (Input::hasFile('files'))
         {
             $this->saveImg(Input::file('files'), $album->id);
@@ -373,5 +381,120 @@ class AdminController extends BaseController{
         $slide->save();
 
         return Redirect::to('/');
+    }
+
+    public function getMedias() {
+
+        $media = Media::orderBy('id', 'DESC')->Paginate(15);
+        return View::make('admin_panel_medias',array('media' => $media));
+    }
+
+    public function getMedia() {
+
+        $media = Media::find(Input::get('id'));
+        if ($media->extension != '0')
+        {
+            $img = URL::to('/') . '/media/' . $media->id . '/media.' . $media->extension;
+        } else
+        {
+            $img = '0';
+        }
+
+        return View::make('admin_panel_media_form',array('media' => $media, 'image' => $img, 'action' => 'admin/media/edit'));
+    }
+
+    public function setMedia() {
+
+        return View::make('admin_panel_media_form',array('action' => 'admin/media/add'));
+    }
+
+    public function addMedia() {
+        $input = Input::all();
+        $rules = array('title' => 'max:200', 'desc' => 'max:500', 'link' => 'url | max:250', 'file' => 'image');
+        $validate = Validator::make($input, $rules);
+        if ($validate->fails()) {
+            return Redirect::back()->withErrors($validate)->withInput();
+        }
+
+        $media = new Media();
+        $media->title = $input['title'];
+        $media->description = $input['desc'];
+        $media->date = $input['date'];
+        $media->link = $input['link'];
+        $media->extension = '0';
+        $media->save();
+
+        if (Input::hasFile('file'))
+        {
+            $img = Input::file('file');
+
+            $media->extension = $img->getClientOriginalExtension();
+            $media->save();
+
+            $destinationPath = 'media' . DIRECTORY_SEPARATOR . $media->id;
+            $filePath = 'media.' . $img->getClientOriginalExtension();
+            //$extension =$file->getClientOriginalExtension(); //if you need extension of the file
+            $img->move($destinationPath, $filePath);
+        }
+
+        return Redirect::to('/admin/media');
+    }
+
+    public function editMedia() {
+        $input = Input::all();
+        $rules = array('title' => 'max:200', 'desc' => 'max:500', 'link' => 'url | max:250', 'file' => 'image');
+        $validate = Validator::make($input, $rules);
+        if ($validate->fails()) {
+            return Redirect::back()->withErrors($validate)->withInput();
+        }
+
+        $media = Media::find($input['id']);
+        $media->title = $input['title'];
+        $media->description = $input['desc'];
+        $media->date = $input['date'];
+        $media->link = $input['link'];
+        $media->save();
+
+        if (Input::hasFile('file'))
+        {
+            if (File::exists('media' . DIRECTORY_SEPARATOR . $media->id . DIRECTORY_SEPARATOR . 'media.'. $media->extension))
+            {
+                return Redirect::back()->withInput()->with('files_error', 'Already have image');
+            }
+
+            $img = Input::file('file');
+
+            $media->extension = $img->getClientOriginalExtension();
+            $media->save();
+
+            $destinationPath = 'media' . DIRECTORY_SEPARATOR . $media->id;
+            $filePath = 'media.' . $img->getClientOriginalExtension();
+            //$extension =$file->getClientOriginalExtension(); //if you need extension of the file
+            $img->move($destinationPath, $filePath);
+        }
+
+        return Redirect::to('/admin/media');
+    }
+
+    public function deleteMediaImage() {
+
+        $input = Input::all();
+
+        $media = Media::find($input['id']);
+        File::delete(public_path() . DIRECTORY_SEPARATOR . 'media' . DIRECTORY_SEPARATOR . $input['id'] . DIRECTORY_SEPARATOR . 'media.' . $media->extension);
+        $media->extension = '0';
+        $media->save();
+
+        return Redirect::back();
+    }
+
+    public function deleteMedia() {
+
+        $media = Media::find(Input::get('id'));
+        $media->delete();
+
+        File::deleteDirectory(public_path() . DIRECTORY_SEPARATOR . 'media' . DIRECTORY_SEPARATOR . Input::get('id'));
+
+        return Redirect::to('/admin/media');
     }
 }

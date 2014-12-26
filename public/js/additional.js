@@ -89,34 +89,34 @@ $(document).ready(function () {
     });
 
     $(".atelie1").click(function () {
-        $(this).prev().css({background: "#FFC266"});
-        $(".atelie2").prev().css({background: "#FFFFFF"});
-        $(".atelie3").prev().css({background: "#FFFFFF"});
+        $(this).prev().toggleClass('atelie-clicked');
+        $(".atelie2").prev().removeClass('atelie-clicked');
+        $(".atelie3").prev().removeClass('atelie-clicked');
         $(".atelie1-info").slideToggle();
         $(".atelie2-info").slideUp();
         $(".atelie3-info").slideUp();
     });
     $(".atelie2").click(function () {
-        $(this).prev().css({background: "#FFC266"});
-        $(".atelie1").prev().css({background: "#FFFFFF"});
-        $(".atelie3").prev().css({background: "#FFFFFF"});
+        $(this).prev().toggleClass('atelie-clicked');
+        $(".atelie1").prev().removeClass('atelie-clicked');
+        $(".atelie3").prev().removeClass('atelie-clicked');
         $(".atelie1-info").slideUp();
         $(".atelie2-info").slideToggle();
         $(".atelie3-info").slideUp();
     });
     $(".atelie3").click(function () {
-        $(this).prev().css({background: "#FFC266"});
-        $(".atelie1").prev().css({background: "#FFFFFF"});
-        $(".atelie2").prev().css({background: "#FFFFFF"});
+        $(this).prev().toggleClass('atelie-clicked');
+        $(".atelie1").prev().removeClass('atelie-clicked');
+        $(".atelie2").prev().removeClass('atelie-clicked');
         $(".atelie1-info").slideUp();
         $(".atelie2-info").slideUp();
         $(".atelie3-info").slideToggle();
     });
 
     $(".close-button").click(function () {
-        $(".atelie1").prev().css({background: "#FFFFFF"});
-        $(".atelie2").prev().css({background: "#FFFFFF"});
-        $(".atelie3").prev().css({background: "#FFFFFF"});
+        $(".atelie1").prev().removeClass('atelie-clicked');
+        $(".atelie2").prev().removeClass('atelie-clicked');
+        $(".atelie3").prev().removeClass('atelie-clicked');
         $(".atelie1-info").slideUp();
         $(".atelie2-info").slideUp();
         $(".atelie3-info").slideUp();
@@ -233,7 +233,8 @@ $(document).ready(function () {
                         $.each(result[$counter]['images']['path'], function (index) {
 
                             $path=result[$counter]['images']['path'][index];
-                            $('.albums-content').eq($counter).append('<div class="col-sm-2 col-xs-6 album-images"><div><a href="'+$path+'" data-lightbox="album'+$counter+'"><img style="border-radius: 3px; max-width: 100%" src="'+$path+'"></a></div></div>')
+                            $desc = result[$counter]['images']['desc'][index];
+                            $('.albums-content').eq($counter).append('<div class="col-sm-2 col-xs-6 album-images"><div><a href="'+$path+'" data-lightbox="album'+$counter+'" data-title="' + $desc + '"><img style="border-radius: 3px; max-width: 100%" src="'+$path+'"></a></div></div>')
                         })
                     } else {
                         $('.albums-info').eq($counter).hide();
@@ -267,8 +268,9 @@ $(document).ready(function () {
                     $('.albums-info').eq($counter).find('img').attr("src", result[$counter]['path']);
                     $.each(result[$counter]['images']['path'], function (index) {
 
-                        $path=result[$counter]['images']['path'][index];
-                        $('.albums-content').eq($counter).append('<div class="col-sm-2 col-xs-6 album-images"><div><a href="'+$path+'" data-lightbox="album'+$counter+'"><img style="border-radius: 3px; max-width: 100%" src="'+$path+'"></a></div></div>')
+                        $path = result[$counter]['images']['path'][index];
+                        $desc = result[$counter]['images']['desc'][index];
+                        $('.albums-content').eq($counter).append('<div class="col-sm-2 col-xs-6 album-images"><div><a href="'+$path+'" data-lightbox="album'+$counter+'" data-title="' + $desc + '"><img style="border-radius: 3px; max-width: 100%" src="'+$path+'"></a></div></div>')
                     })
 
                     $counter++;
