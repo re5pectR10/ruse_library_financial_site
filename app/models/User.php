@@ -30,7 +30,7 @@ class User extends Eloquent implements UserInterface, RemindableInterface {
 
     public  function signIn($input)
     {
-        $rules = array('username' => 'required | max:50 | min:3 | unique:users', 'email' => 'required | email | unique:users', 'password' => 'required');
+        $rules = array('username_signin' => 'required | max:50 | min:3 | unique:users,username', 'email' => 'required | email | unique:users', 'password' => 'required');
         $validate = Validator::make(array_map('trim', $input), $rules);
         if ($validate->fails()) {
             return $validate;
@@ -38,7 +38,7 @@ class User extends Eloquent implements UserInterface, RemindableInterface {
 
         $user = new User;
 
-        $user->username = $input['username'];
+        $user->username = $input['username_signin'];
         $user->password = Hash::make($input['password']);
         $user->email = $input['email'];
         $user->user_type = 2;

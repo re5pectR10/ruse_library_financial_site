@@ -6,6 +6,7 @@
 @section('content')
 <div class="container">
     <div class="row col-md-12 custyle">
+        <p class="admin-panel-title">Потребители</p>
         <table class="table table-striped custab">
         <?php echo $users->links(); ?>
             <thead>

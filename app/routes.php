@@ -32,7 +32,7 @@ Route::get('/atelieta', function()
 
     echo json_encode($atelietaToSend);
 });
-
+/*
 Route::get('/albums', function()
 {
     $albums = Album::orderBy('id', 'DESC')->Paginate(3);
@@ -59,7 +59,43 @@ Route::get('/albums', function()
 
     echo json_encode($albumsToSend);
 });
+*/
 
+Route::get('/albums', function()
+{
+    $albums = Album::orderBy('id', 'DESC')->Paginate(3);
+    $counter = 0;
+    foreach($albums as $a)
+    {
+        $albumsToSend[$counter]['name'] = $a->name;
+        $albumsToSend[$counter]['id'] = $a->id;
+        if (isset($a->images[0]))
+        {
+            $albumsToSend[$counter]['path'] = 'pictures/' . $a->id . '/' . $a->images[0]->id . '.' . $a->images[0]->extension;
+        } else
+        {
+            $albumsToSend[$counter]['path'] = 'images/does_not_exist.png';
+            $albumsToSend[$counter]['images']['path'][] = 'images/does_not_exist.png';
+        }
+
+        $counter++;
+    }
+
+    echo json_encode($albumsToSend);
+});
+Route::get('/pics', function()
+{
+    $albums = Album::find(Input::get('id'));
+
+
+        foreach ($albums->images as $i) {
+            $albumsToSend['images']['path'][] = 'pictures/'.Input::get('id').'/'.$i->id . '.' . $i->extension;
+            $albumsToSend['images']['desc'][] = $i->description;
+
+        }
+
+    echo json_encode($albumsToSend);
+});
 Route::get('/reminder', array('uses' => 'RemindersController@getRemind'));
 Route::post('/reminder', array('uses' => 'RemindersController@postRemind'));
 Route::post('/reset', array('uses' => 'RemindersController@postReset'));
@@ -70,7 +106,7 @@ Route::get('/logout', array('uses' => 'UserController@logOut'));
 Route::get('/file', array('uses' => 'FileController@getDoc'));
 Route::post('/sendmsg', array('before' => 'csrf', 'uses' => 'UserController@sendMessage'));
 Route::get('/user/profile', array('before' => 'auth', 'uses' => 'UserController@getProfile'));
-Route::post('/user/change', array('before' => 'auth', 'uses' => 'UserController@changeProfile'));
+Route::post('/user/change', array('before' => 'auth|csrf', 'uses' => 'UserController@changeProfile'));
 
 Route::group(array('prefix' => 'admin', 'before' => 'admin'), function()
 {
@@ -85,6 +121,7 @@ Route::group(array('prefix' => 'admin', 'before' => 'admin'), function()
     Route::get('/users/makeadmin', array('uses' => 'AdminController@makeAdmin'));
     Route::get('/users/removeadmin', array('uses' => 'AdminController@removeAdmin'));
     Route::get('/users/delete', array('uses' => 'AdminController@deleteUser'));
+    Route::get('/messages/delete', array('uses' => 'AdminController@deleteMessage'));
     Route::get('/messages', array('uses' => 'AdminController@getMessages'));
     Route::get('/albums', array('uses' => 'AdminController@getAlbums'));
     Route::get('/albums/delete', array('uses' => 'AdminController@deleteAlbum'));

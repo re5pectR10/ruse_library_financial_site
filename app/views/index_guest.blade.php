@@ -46,6 +46,11 @@
                     {{ Form::close(); }}
             </div>
         </div>
+        @if (Session::has('login_error'))
+        <div class="bg-danger">
+            <p>{{ Session::get('login_error') }}</p>
+        </div>
+        @endif
     </div>
 </div>
 </div>
@@ -61,10 +66,10 @@
                     {{ Form::open(array('url' => 'signin')); }}
                 <div style="margin-bottom: 10px" class="input-group">
                     <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
-                    {{ Form::text('username', Input::old('username'),  array('placeholder'=>'Потребителско име','class'=>'form-control')); }}
+                    {{ Form::text('username_signin', Input::old('username_signin'),  array('placeholder'=>'Потребителско име','class'=>'form-control')); }}
                 </div>
                 <div class="bg-danger">
-                    <p>{{ $errors->signin->first('username'); }}</p>
+                    <p>{{ $errors->signin->first('username_signin'); }}</p>
                 </div>
             </div>
             <div class="col-md-3">

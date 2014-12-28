@@ -34,7 +34,7 @@ class UserController extends BaseController{
         if (Auth::attempt(array('username' => $input['username'], 'password' => $input['password']), $rememberMe)) {
             return Redirect::to('/');
         } else {
-            return Redirect::to('/')->with('showForm', 'login')->withInput();
+            return Redirect::to('/')->with('showForm', 'login')->withInput()->with('login_error', 'Wrong username or password');
         }
         /*$user = new User();
         $validate = $user->logIn($input);
@@ -98,26 +98,31 @@ class UserController extends BaseController{
     public function changeProfile() {
 
         $input = Input::all();
-        $rules = array('email' => 'email | unique:users');
         $user = Auth::user();
 
-        if ($input['email'] != '')
+        $rules = array('email' => 'email | required | unique:users,email,'.$user->id, 'password' => 'confirmed', 'old_password' => 'required');
+
+        $validate = Validator::make(array_map('trim', $input), $rules);
+        if ($validate->fails()) {
+            return  Redirect::back()->withErrors($validate)->withInput();
+        }
+
+        if (Hash::check($input['old_password'], $user->password))
         {
-            $validate = Validator::make(array_map('trim', $input), $rules);
-            if ($validate->fails()) {
-                return  Redirect::back()->withErrors($validate)->withInput();;
+            $user->email = $input['email'];
+
+
+            if (isset($input['password']) && strlen($input['password']) != 0)
+            {
+                $user->password = Hash::make($input['password']);
             }
 
-            $user->email = $input['email'];
-        }
+            $user->save();
 
-        if (isset($input['password']))
+            return Redirect::to('/');
+        } else
         {
-            $user->password = Hash::make($input['password']);
+            return  Redirect::back()->with('pass_conf', 'The given old password do not match')->withInput();
         }
-
-        $user->save();
-
-        return Redirect::to('/');
     }
 } 

@@ -8,7 +8,7 @@
     <div class="row col-md-10">
 <div class="panel panel-default">
     <div class="panel-heading">
-        <h3 class="panel-title">Редакция на...</h3>
+        <h3 class="panel-title">Редакция на ателие</h3>
     </div>
         <div class="panel-body">
             {{ Form::open(array('url' => $action, 'files' => 'true')); }}

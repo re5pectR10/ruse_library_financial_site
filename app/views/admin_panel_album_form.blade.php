@@ -6,9 +6,12 @@
 @section('content')
 <div class="container">
     <div class="row col-md-10">
+        @if (Session::has('files_error'))
+        <p>{{ Session::get('files_error') }}</p>
+        @endif
         <div class="panel panel-default">
             <div class="panel-heading">
-                <h3 class="panel-title">Редакция на...</h3>
+                <h3 class="panel-title">Редакция на албум</h3>
             </div>
             <div class="panel-body">
                 {{ Form::open(array('url' => $action, 'files' => 'true', 'id' => 'form', 'onsubmit' => 'return confirmSize();')); }}
@@ -27,7 +30,6 @@
                         @foreach ($album->images as $i)
                         <div style="border: 2px solid #000000">
                             <div style="width: 20%">
-
                                     <?php $path = 'pictures/' . $album->id . '/' . $i->id . '.' . $i->extension ?>
                                 {{ HTML::image($path, $alt="image", array('class' => 'edit-album-images')); }}
                             </div>
@@ -45,14 +47,6 @@
         </div>
     </div>
 </div>
-
-
-
-@if (Session::has('files_error'))
-<p>{{ Session::get('files_error') }}</p>
-@endif
-
-
 <script>
     function confirmSize() {
         var elementsCount = document.forms['form']['description[]'].length;

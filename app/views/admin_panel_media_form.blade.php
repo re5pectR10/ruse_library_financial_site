@@ -8,7 +8,7 @@
     <div class="row col-md-10">
         <div class="panel panel-default">
             <div class="panel-heading">
-                <h3 class="panel-title">Редакция на...</h3>
+                <h3 class="panel-title">Редакция на медии</h3>
             </div>
             <div class="panel-body">
                 {{ Form::open(array('url' => $action, 'files' => 'true')); }}
@@ -29,7 +29,7 @@
                         @if (isset($image))
                             @if ($image != '0')
                             <div style="width: 20%">
-                                <img style="max-width: 100%; max-height: 100%" src=<?php echo '"' . $image . '"' ?>>
+                                {{ HTML::image($image, $alt="image", array('class' => 'edit-album-images')); }}
                             </div>
                             <?php echo '<a href="' . URL::to('/') . '/admin/media/deletemediaimage?id=' . $media->id . '">Изтрий картинката</a>' ?>
                             @endif

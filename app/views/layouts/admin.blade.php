@@ -54,18 +54,15 @@
                 </div>
                 <div class="collapse navbar-collapse" role="navigation">
                     <!--<ul class="nav navbar-nav navbar-right">-->
-                    <div >
                         <a class="btn btn-default" href=<?php echo URL::to('/'); ?>>Отиди в сайта</a>
-                    </div>
-
+                    @yield('acc_options')
                 </div>
             </div>
-            @yield('acc_options')
         </div>
     </div>
 </header>
 
-<section style="padding-top: 20%; background-color: #EBFFFF">
+<section style="padding-top: 15%; background-color: #EBFFFF">
     @yield('content')
 </section>
 

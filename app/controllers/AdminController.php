@@ -222,7 +222,7 @@ class AdminController extends BaseController{
             $this->saveImg(Input::file('files'), $album->id);
         }
 
-        return Redirect::to('/admin/albums');
+        return Redirect::back();
     }
 
     public function editAlbum() {
@@ -231,6 +231,12 @@ class AdminController extends BaseController{
         $validate = Validator::make($input, $rules);
         if ($validate->fails()) {
             return Redirect::back()->withErrors($validate)->withInput();
+        }
+
+        $postMax = ini_get('post_max_size');
+        if (!isset($input['id']))
+        {
+            return Redirect::back()->with('files_error', 'Може де се качват файлове не по-големи от ' . $postMax . ' на веднъж!!!');
         }
 
         $album = Album::find($input['id']);
@@ -250,7 +256,7 @@ class AdminController extends BaseController{
             $this->saveImg(Input::file('files'), $album->id);
         }
 
-        return Redirect::to('/admin/albums');
+        return Redirect::back();
     }
 
     private function saveImg($files, $albumID) {
@@ -295,13 +301,14 @@ class AdminController extends BaseController{
 
     public function getVideos() {
 
-        $videos = Video::paginate(15);
+        $videos = Video::orderBy('id', 'DESC')->Paginate(15);
         return View::make('admin_panel_videos',array('videos'=>$videos));
     }
 
     public function getVideo() {
 
         $video = Video::find(Input::get('id'));
+        $video->path = str_replace('embed/', 'watch?v=', $video->path);
 
         return View::make('admin_panel_video_form',array('video'=>$video, 'action' => 'admin/videos/edit'));
     }
@@ -394,7 +401,7 @@ class AdminController extends BaseController{
         $media = Media::find(Input::get('id'));
         if ($media->extension != '0')
         {
-            $img = URL::to('/') . '/media/' . $media->id . '/media.' . $media->extension;
+            $img = 'media/' . $media->id . '/media.' . $media->extension;
         } else
         {
             $img = '0';
@@ -496,5 +503,13 @@ class AdminController extends BaseController{
         File::deleteDirectory(public_path() . DIRECTORY_SEPARATOR . 'media' . DIRECTORY_SEPARATOR . Input::get('id'));
 
         return Redirect::to('/admin/media');
+    }
+
+    public function deleteMessage() {
+
+        $msg = Message::find(Input::get('id'));
+        $msg->delete();
+
+        return Redirect::back();
     }
 }

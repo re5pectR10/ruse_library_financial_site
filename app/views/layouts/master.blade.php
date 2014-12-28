@@ -290,6 +290,9 @@
                           </div> </div>
                           @endif
                           <h3><p class="bg-primary text-center"><?php echo $a->name; ?></p></h3>
+
+                          <p class="album-id" style="display: none"><?php echo $a->id; ?></p><!-- ajax -->
+
                           <div class="more-info-button album<?php echo $counter ?>">
                               <div class="btn btn-default">Покажи албума</div>
                           </div>
@@ -297,7 +300,7 @@
                       <?php
                       $counter++;
                   endforeach; ?>
-              </div>
+          </div>
 
           <div class="row toggle-slide-albums selected-album">
               <?php
@@ -307,7 +310,7 @@
                       <div class="close-button-album">
                           <img src="{{ URL::asset('images/close_button.png'); }}">
                       </div>
-                      <?php
+                      <?php /*
                       $i = 0;
                       foreach($a->images as $img){
                           if ($i % 6 == 0)
@@ -330,7 +333,7 @@
                       {
                           echo '</div>';
                       }
-                      ?>
+                      */ ?>
                       <!--<p>// echo '"' . URL::to('/') . '/pictures/' . $a->id . '/' . $a->images[0]->id . '.' . $a->images[0]->extension . '"'; </p>-->
                   </div>
                   <?php
@@ -511,12 +514,13 @@
         echo 'var allPagesImagesCount=' . ceil($albums->getTotal() / $albums->getPerPage()) . ';';
         echo 'var URLPath="' . URL::current() . '";';
         echo 'var showErrorForm="';
+
         if (Session::has('showForm'))
             echo '.toggle-slide-' . Session::get('showForm');
         else
             echo '0';
         echo '";';
-
+        echo 'var load="' . asset('images/loader.gif') . '";';
         if (Session::has('msg'))
             echo 'window.scrollTo(0,document.body.scrollHeight);';
     ?>

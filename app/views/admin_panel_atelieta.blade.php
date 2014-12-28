@@ -6,6 +6,7 @@
 @section('content')
 <div class="container">
     <div class="row col-md-12 custyle">
+        <p class="admin-panel-title">Ателиета</p>
         <table class="table table-striped custab">
         <div class="row text-center">
             <a href="atelieta/add"class="btn btn-primary pull-left"><b>+</b> Добави нови записи</a>
