@@ -62,25 +62,24 @@ $(document).ready(function () {
         if ($album1Empty)
         {
             $('.albums-content').eq(0).append('<img class="loader" src="'+load+'">');
-        $id = $(this).prev().text();
-        $.ajax({url: URLPath+'/pics', type: "GET",
-            data: { id: $id }, dataType: "json", success: function (result) {
+            $id = $(this).prev().text();
+            $.ajax({url: URLPath+'/pics', type: "GET",
+                data: { id: $id }, dataType: "json", success: function (result) {
 
-                $.each(result['images']['path'], function (index) {
+                    $.each(result['images']['path'], function (index) {
 
-                    $path=result['images']['path'][index];
-                    $desc = result['images']['desc'][index];
-                    $('.albums-content').eq(0).append('<div class="col-sm-2 col-xs-6 album-images"><div><a href="'+$path+'" data-lightbox="album1" data-title="' + $desc + '"><img style="border-radius: 3px; max-width: 100%" src="'+$path+'"></a></div></div>');
+                        $path=result['images']['path'][index];
+                        $desc = result['images']['desc'][index];
+                        $('.albums-content').eq(0).append('<div class="col-sm-2 col-xs-6 album-images"><div><a href="'+$path+'" data-lightbox="album1" data-title="' + $desc + '"><img style="border-radius: 3px; max-width: 100%" src="'+$path+'"></a></div></div>');
 
-                });
-                    $('.album-images').find('img').load(function() {
-                        $('.albums-content').eq(0).find('.loader').remove();
                     });
-
-
-
-
-
+                        /*$('.album-images').find('img').load(function() {
+                            $('.albums-content').eq(0).find('.loader').remove();
+                        });*/
+                    $('.album-images').imagesLoaded()
+                        .always(function() {
+                            $('.albums-content').eq(0).find('.loader').remove();
+                        });
         }});
             $album1Empty=false;
         }
@@ -98,18 +97,23 @@ $(document).ready(function () {
 
         if ($album2Empty)
         {
-        $id = $(this).prev().text();
-        $.ajax({url: URLPath+'/pics', type: "GET",
-            data: { id: $id }, dataType: "json", success: function (result) {
+            $('.albums-content').eq(1).append('<img class="loader" src="'+load+'">');
+            $id = $(this).prev().text();
+            $.ajax({url: URLPath+'/pics', type: "GET",
+                data: { id: $id }, dataType: "json", success: function (result) {
 
-                $.each(result['images']['path'], function (index) {
+                    $.each(result['images']['path'], function (index) {
 
-                    $path=result['images']['path'][index];
-                    $desc = result['images']['desc'][index];
-                    $('.albums-content').eq(1).append('<div class="col-sm-2 col-xs-6 album-images"><div><a href="'+$path+'" data-lightbox="album1" data-title="' + $desc + '"><img style="border-radius: 3px; max-width: 100%" src="'+$path+'"></a></div></div>');
+                        $path=result['images']['path'][index];
+                        $desc = result['images']['desc'][index];
+                        $('.albums-content').eq(1).append('<div class="col-sm-2 col-xs-6 album-images"><div><a href="'+$path+'" data-lightbox="album1" data-title="' + $desc + '"><img style="border-radius: 3px; max-width: 100%" src="'+$path+'"></a></div></div>');
 
-                });
-            }});
+                    });
+                    $('.album-images').imagesLoaded()
+                        .always(function() {
+                            $('.albums-content').eq(1).find('.loader').remove();
+                        });
+                }});
             $album2Empty = false;
         }
 
@@ -126,18 +130,23 @@ $(document).ready(function () {
 
         if ($album3Empty)
         {
-        $id = $(this).prev().text();
-        $.ajax({url: URLPath+'/pics', type: "GET",
-            data: { id: $id }, dataType: "json", success: function (result) {
+            $('.albums-content').eq(2).append('<img class="loader" src="'+load+'">');
+            $id = $(this).prev().text();
+            $.ajax({url: URLPath+'/pics', type: "GET",
+                data: { id: $id }, dataType: "json", success: function (result) {
 
-                $.each(result['images']['path'], function (index) {
+                    $.each(result['images']['path'], function (index) {
 
-                    $path=result['images']['path'][index];
-                    $desc = result['images']['desc'][index];
-                    $('.albums-content').eq(2).append('<div class="col-sm-2 col-xs-6 album-images"><div><a href="'+$path+'" data-lightbox="album1" data-title="' + $desc + '"><img style="border-radius: 3px; max-width: 100%" src="'+$path+'"></a></div></div>');
+                        $path=result['images']['path'][index];
+                        $desc = result['images']['desc'][index];
+                        $('.albums-content').eq(2).append('<div class="col-sm-2 col-xs-6 album-images"><div><a href="'+$path+'" data-lightbox="album1" data-title="' + $desc + '"><img style="border-radius: 3px; max-width: 100%" src="'+$path+'"></a></div></div>');
 
-                });
-            }});
+                    });
+                    $('.album-images').imagesLoaded()
+                        .always(function() {
+                            $('.albums-content').eq(2).find('.loader').remove();
+                        });
+                }});
             $album3Empty = false;
         }
 

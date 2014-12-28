@@ -507,6 +507,7 @@
 {{ HTML::script('js/main.js'); }}
 {{ HTML::script('js/jquery.nav.js'); }}
 {{ HTML::script('js/jquery.hoverIntent.js'); }}
+{{ HTML::script('js/imagesloaded.pkgd.min.js'); }}
 
 <script type="text/javascript">
     <?php
