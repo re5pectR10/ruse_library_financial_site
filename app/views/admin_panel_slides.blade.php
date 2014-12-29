@@ -22,10 +22,10 @@
                 <div class="panel panel-default">
                     <div class="panel-heading">
                         <h2 class="panel-title">Описание:</h2>
-                        {{ Form::textarea('content', isset($slide[0]->content) ? $slide[0]->content : Input::old('content'), array('placeholder' => 'content', 'rows' => '3')) }}<p>{{ $errors->first('content'); }}</p>
+                        {{ Form::textarea('content', isset($slide[0]->content) ? $slide[0]->content : Input::old('content'), array('placeholder' => 'Description', 'rows' => '3')) }}<p>{{ $errors->first('content'); }}</p>
                     </div>
                 </div>
-                {{ Form::submit('Редактирай', array('class'=>'btn btn-primary pull-right')); }}
+                {{ Form::submit('Запази', array('class'=>'btn btn-primary pull-right')); }}
             </div>
         </div>
     </div>

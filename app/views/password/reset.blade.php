@@ -53,7 +53,7 @@
                 <div class="collapse navbar-collapse" role="navigation">
                     <!--<ul class="nav navbar-nav navbar-right">-->
 
-                    <a class="no-scroll" href=<?php echo URL::to('/'); ?>>Отиди в сайта</a>
+                    <a class="no-scroll btn btn-default" href=<?php echo URL::to('/'); ?>>Отиди в сайта</a>
 
                 </div>
             </div>
@@ -63,8 +63,11 @@
 <div style="padding-top: 20%; margin-left: 20%">
     <form action=<?php echo '"' . URL::to('/') . '/reset"' ?> method="POST">
         <input type="hidden" name="token" value=<?php echo '"' . $token . '"' ?>>
+        <h2 class="panel-title" style="font-family: Arial">Напишете вашият e-mail:</h2>
         <input placeholder="email" type="email" name="email">
+        <h2 class="panel-title" style="font-family: Arial">Напишете новата си парола:</h2>
         <input placeholder="new password" type="password" name="password">
+        <h2 class="panel-title" style="font-family: Arial">Напишете новата си парола отново:</h2>
         <input placeholder="new password again" type="password" name="password_confirmation">
         <input type="submit" value="Reset Password">
 

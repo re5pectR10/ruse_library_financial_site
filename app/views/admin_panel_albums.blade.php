@@ -1,6 +1,6 @@
 @extends('layouts.admin')
 @section('acc_options')
-    @include('acc_admin_menu')
+@include('acc_admin_menu')
 @stop
 
 @section('content')

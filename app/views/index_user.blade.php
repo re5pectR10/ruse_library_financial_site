@@ -29,12 +29,5 @@
 @stop
 
 @section('acc_options')
-<ul class="nav">
-    <li class="dropdown"><button type="button" class="btn btn-info dropdown-toggle" data-toggle="dropdown">Добре дошли, {{ Auth::user()->username; }}<b class="caret"></b></button>
-        <ul class="dropdown-menu">
-            <li><a class="no-scroll" href="user/profile"><i class="glyphicon glyphicon-off"></i> Потребителски профил</a></li>
-            <li><a class="no-scroll" href="logout"><i class="glyphicon glyphicon-off"></i> Изход от админския профил</a></li>
-        </ul>
-    </li>
-</ul>
+@include('acc_user_menu')
 @stop

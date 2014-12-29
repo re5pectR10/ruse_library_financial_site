@@ -22,7 +22,12 @@
                         {{ Form::text('name', isset($album->name) ? $album->name : Input::old('name'),  array('placeholder'=>'Title',  'class'=>'form-control')); }}<p>{{ $errors->first('name'); }}</p>
                     </div>
                 </div>
-                {{ Form::textarea('album_description', isset($album->description) ? $album->description : Input::old('album_description'), array('placeholder' => 'description')) }}<p>{{ $errors->first('album_description'); }}</p>
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        <h2 class="panel-title">Описание:</h2>
+                        {{ Form::textarea('album_description', isset($album->description) ? $album->description : Input::old('album_description'), array('placeholder' => 'Description')) }}<p>{{ $errors->first('album_description'); }}</p>
+                    </div>
+                </div>
                 {{ Form::file('files[]', $attributes = array('multiple' => 'true')); }}<p>{{ $errors->first('files'); }}</p>
                 <div class="panel panel-default">
                     <div class="panel-heading">
@@ -43,7 +48,7 @@
                         @endif
                     </div>
                 </div>
-                {{ Form::submit('Редактирай', array('class'=>'btn btn-primary pull-right')); }}
+                {{ Form::submit('Запази', array('class'=>'btn btn-primary pull-right')); }}
                 {{ Form::close(); }}
             </div>
         </div>

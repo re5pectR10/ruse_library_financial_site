@@ -1,12 +1,6 @@
 @extends('layouts.admin')
 @section('acc_options')
-<ul class="nav">
-    <li class="dropdown"><button type="button" class="btn btn-info dropdown-toggle" data-toggle="dropdown">Добре дошли, {{ Auth::user()->username; }}<b class="caret"></b></button>
-        <ul class="dropdown-menu">
-            <li><a href=<?php echo '"' . URL::to('/') . '/logout"' ?>><i class="glyphicon glyphicon-off"></i> Изход от админския профил</a></li>
-        </ul>
-    </li>
-</ul>
+@include('acc_admin_menu')
 @stop
 
 @section('content')
@@ -27,14 +21,14 @@
                 </div>
                 <div class="panel panel-default">
                     <div class="panel-heading">
-                        <h2 class="panel-title">Описание:</h2>
+                        <h2 class="panel-title">Линк към видеото в YouTube:</h2>
                         {{ Form::text('path', isset($video->path) ? $video->path : Input::old('path'), array('placeholder' => 'URL to video ou YouTube')) }}<p>{{ $errors->first('path'); }}</p>
                     </div>
                     @if (Session::has('error'))
                     <p>{{ Session::get('error') }}</p>
                     @endif
                 </div>
-                {{ Form::submit('Редактирай', array('class'=>'btn btn-primary pull-right')); }}
+                {{ Form::submit('Запази', array('class'=>'btn btn-primary pull-right')); }}
             </div>
         </div>
     </div>

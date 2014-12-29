@@ -219,6 +219,12 @@ class AdminController extends BaseController{
             return Redirect::back()->withErrors($validate)->withInput();
         }
 
+        $postMax = ini_get('post_max_size');
+        if (!isset($input['id']))
+        {
+            return Redirect::back()->with('files_error', 'Може де се качват файлове не по-големи от ' . $postMax . ' на веднъж!!!');
+        }
+
         $album = new Album();
         $album->name = $input['name'];
         $album->description = $input['album_description'];

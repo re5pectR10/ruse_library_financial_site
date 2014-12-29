@@ -52,9 +52,7 @@
                 </div>
                 <div class="collapse navbar-collapse" role="navigation">
                     <!--<ul class="nav navbar-nav navbar-right">-->
-
-                        <a class="no-scroll" href=<?php echo URL::to('/'); ?>>Отиди в сайта</a>
-
+                        <a class="no-scroll btn btn-default" href=<?php echo URL::to('/'); ?>>Отиди в сайта</a>
                 </div>
             </div>
         </div>
@@ -62,6 +60,7 @@
 </header>
 <div style="padding-top: 20%; margin-left: 40%">
     <form action=<?php echo '"' . URL::to('/') . '/reminder"' ?> method="POST">
+    <h2 class="panel-title" style="font-family: Arial">Напишете вашият e-mail:</h2>
     <input type="email" name="email" placeholder="Write your e-mail here">
     <input type="submit" value="Send Reminder">
         <p><?php

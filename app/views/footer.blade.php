@@ -6,5 +6,5 @@
         echo "$mydate[year]";
         ?> Всички права запазени</p>
         <p><a href="mailto:libruse@libruse.bg">libruse@libruse.bg</a></p>
-        </div>
     </div>
+</div>

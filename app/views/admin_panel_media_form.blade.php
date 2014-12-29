@@ -18,9 +18,18 @@
                         <h2 class="panel-title">Заглавие:</h2>
                         {{ Form::text('title', isset($media->title) ? $media->title : Input::old('title'),  array('placeholder'=>'Title',  'class'=>'form-control')); }}<p>{{ $errors->first('title'); }}</p>
                     </div>
-                    {{ Form::text('date', isset($media->date) ? $media->date : Input::old('date'),  array('placeholder'=>'Date',  'class'=>'form-control')); }}<p>{{ $errors->first('date'); }}</p>
-                    {{ Form::text('desc', isset($media->description) ? $media->description : Input::old('desc'),  array('placeholder'=>'Description',  'class'=>'form-control')); }}<p>{{ $errors->first('desc'); }}</p>
-                    {{ Form::text('link', isset($media->link) ? $media->link : Input::old('link'),  array('placeholder'=>'URL to article',  'class'=>'form-control')); }}<p>{{ $errors->first('link'); }}</p>
+                    <div class="panel-heading">
+                        <h2 class="panel-title">Дата:</h2>
+                        {{ Form::text('date', isset($media->date) ? $media->date : Input::old('date'),  array('placeholder'=>'Date',  'class'=>'form-control')); }}<p>{{ $errors->first('date'); }}</p>
+                    </div>
+                    <div class="panel-heading">
+                        <h2 class="panel-title">Описание:</h2>
+                        {{ Form::text('desc', isset($media->description) ? $media->description : Input::old('desc'),  array('placeholder'=>'Description',  'class'=>'form-control')); }}<p>{{ $errors->first('desc'); }}</p>
+                    </div>
+                    <div class="panel-heading">
+                        <h2 class="panel-title">Линк към статията:</h2>
+                        {{ Form::text('link', isset($media->link) ? $media->link : Input::old('link'),  array('placeholder'=>'URL to article',  'class'=>'form-control')); }}<p>{{ $errors->first('link'); }}</p>
+                    </div>
                 </div>
                 {{ Form::file('file'); }}<p>{{ $errors->first('file'); }}</p>
                 <div class="panel panel-default">
@@ -36,7 +45,7 @@
                         @endif
                     </div>
                 </div>
-                {{ Form::submit('Редактирай', array('class'=>'btn btn-primary pull-right')); }}
+                {{ Form::submit('Запази', array('class'=>'btn btn-primary pull-right')); }}
                 {{ Form::close(); }}
                 @if (Session::has('files_error'))
                 <p>{{ Session::get('files_error') }}</p>
