@@ -73,9 +73,12 @@ $(document).ready(function () {
                         $('.albums-content').eq(0).append('<div class="col-sm-2 col-xs-6 album-images"><div><a href="'+$path+'" data-lightbox="album1" data-title="' + $desc + '"><img style="border-radius: 3px; max-width: 100%" src="'+$path+'"></a></div></div>');
 
                     });
-                        /*$('.album-images').find('img').load(function() {
-                            $('.albums-content').eq(0).find('.loader').remove();
-                        });*/
+
+                    $('.albums-content').eq(0).append('<div class="row album-info"><div class="col-xs-12"><p>'+result['description']+'</p></div></div>');
+
+                    /*$('.album-images').find('img').load(function() {
+                        $('.albums-content').eq(0).find('.loader').remove();
+                    });*/
                     $('.album-images').imagesLoaded()
                         .always(function() {
                             $('.albums-content').eq(0).find('.loader').remove();
@@ -109,6 +112,7 @@ $(document).ready(function () {
                         $('.albums-content').eq(1).append('<div class="col-sm-2 col-xs-6 album-images"><div><a href="'+$path+'" data-lightbox="album1" data-title="' + $desc + '"><img style="border-radius: 3px; max-width: 100%" src="'+$path+'"></a></div></div>');
 
                     });
+                    $('.albums-content').eq(1).append('<div class="row album-info"><div class="col-xs-12"><p>'+result['description']+'</p></div></div>');
                     $('.album-images').imagesLoaded()
                         .always(function() {
                             $('.albums-content').eq(1).find('.loader').remove();
@@ -142,6 +146,7 @@ $(document).ready(function () {
                         $('.albums-content').eq(2).append('<div class="col-sm-2 col-xs-6 album-images"><div><a href="'+$path+'" data-lightbox="album1" data-title="' + $desc + '"><img style="border-radius: 3px; max-width: 100%" src="'+$path+'"></a></div></div>');
 
                     });
+                    $('.albums-content').eq(2).append('<div class="row album-info"><div class="col-xs-12"><p>'+result['description']+'</p></div></div>');
                     $('.album-images').imagesLoaded()
                         .always(function() {
                             $('.albums-content').eq(2).find('.loader').remove();
@@ -301,6 +306,7 @@ $(document).ready(function () {
                 }
 
                 $('.albums-content div.album-images').remove();
+                $('.albums-content div.album-info').remove();
                 $album1Empty = true;
                 $album2Empty = true;
                 $album3Empty = true;
@@ -310,6 +316,8 @@ $(document).ready(function () {
                 $(".album3").parent().removeClass('selected-album');
                 $(".album1").parent().removeClass('selected-album');
                 $(".album2").parent().removeClass('selected-album');
+
+                $('#about').append('<img class="loader" src="'+load+'">');
                 $counter = 0;
                 $('.albums-info').each(function () {
                     if (result.length > $counter) {
@@ -328,6 +336,11 @@ $(document).ready(function () {
 
                     $counter++;
                 })
+
+                $('.albums-info').imagesLoaded()
+                    .always(function() {
+                        $('#about').find('.loader').remove();
+                    });
             }});
     })
 
@@ -347,6 +360,7 @@ $(document).ready(function () {
                 }
 
                 $('.albums-content div.album-images').remove();
+                $('.albums-content div.album-info').remove();
                 $album1Empty = true;
                 $album2Empty = true;
                 $album3Empty = true;
@@ -356,6 +370,8 @@ $(document).ready(function () {
                 $(".album3").parent().removeClass('selected-album');
                 $(".album1").parent().removeClass('selected-album');
                 $(".album2").parent().removeClass('selected-album');
+
+                $('#about').append('<img class="loader" src="'+load+'">');
                 $counter = 0;
                 $('.albums-info').each(function () {
                     $('.albums-info').eq($counter).show();
@@ -372,6 +388,11 @@ $(document).ready(function () {
 
                     $counter++;
                 })
+
+                $('.albums-info').imagesLoaded()
+                    .always(function() {
+                        $('#about').find('.loader').remove();
+                    });
             }});
     });
 });

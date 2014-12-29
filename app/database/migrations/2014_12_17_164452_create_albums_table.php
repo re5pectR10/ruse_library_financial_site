@@ -17,6 +17,7 @@ class CreateAlbumsTable extends Migration {
 
             $table->increments('id');
             $table->string('name', 200);
+            $table->text('description');
             $table->timestamps();
         });
     }

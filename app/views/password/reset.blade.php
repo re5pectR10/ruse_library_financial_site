@@ -60,12 +60,12 @@
         </div>
     </div>
 </header>
-<div style="padding-top: 30%">
+<div style="padding-top: 20%; margin-left: 20%">
     <form action=<?php echo '"' . URL::to('/') . '/reset"' ?> method="POST">
         <input type="hidden" name="token" value=<?php echo '"' . $token . '"' ?>>
         <input placeholder="email" type="email" name="email">
-        <input placeholder="password" type="password" name="password">
-        <input placeholder="again password" type="password" name="password_confirmation">
+        <input placeholder="new password" type="password" name="password">
+        <input placeholder="new password again" type="password" name="password_confirmation">
         <input type="submit" value="Reset Password">
 
         <p><?php

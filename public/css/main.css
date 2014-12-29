@@ -211,6 +211,10 @@ h2 {
     top: 150px;
 }
 
+.budget iframe {
+    display: block;
+    margin: auto;
+}
 /*************************
 *******Home CSS******
 **************************/
@@ -819,7 +823,16 @@ h2 {
   top:-42%;
 }
 
+.media-hover{
+    border-left: 1px ridge #000000;
+}
+
+.media-hover:first-child{
+     border-left: none;
+ }
+
 .media-hover:hover {
+    border: hidden;
     margin: auto;
     background-color: rgba(9,129,164,0.1);
     /* For IE 5.5 - 7*/

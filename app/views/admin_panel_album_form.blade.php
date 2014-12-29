@@ -22,6 +22,7 @@
                         {{ Form::text('name', isset($album->name) ? $album->name : Input::old('name'),  array('placeholder'=>'Title',  'class'=>'form-control')); }}<p>{{ $errors->first('name'); }}</p>
                     </div>
                 </div>
+                {{ Form::textarea('album_description', isset($album->description) ? $album->description : Input::old('album_description'), array('placeholder' => 'description')) }}<p>{{ $errors->first('album_description'); }}</p>
                 {{ Form::file('files[]', $attributes = array('multiple' => 'true')); }}<p>{{ $errors->first('files'); }}</p>
                 <div class="panel panel-default">
                     <div class="panel-heading">
@@ -35,6 +36,7 @@
                             </div>
                             <?php echo '<a href="' . URL::to('/') . '/admin/albums/deleteimage?id='.$i->id.'&album_id='.$album->id. '">Изтрий картинката</a>' ?>
                             <p class="input"></p>
+                            {{ Form::label('Описание на тази снимка'); }}
                             {{ Form::text('description[]', isset($i->description) ? $i->description : ''); }}
                         </div>
                         @endforeach

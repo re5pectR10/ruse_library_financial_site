@@ -34,6 +34,12 @@ class AdminController extends BaseController{
             return Redirect::back()->withErrors($validate)->withInput();
         }
 
+        $postMax = ini_get('post_max_size');
+        if (!isset($input['id']))
+        {
+            return Redirect::back()->with('files_error', 'Може де се качват файлове не по-големи от ' . $postMax . ' на веднъж!!!');
+        }
+
         $atelie = Atelieta::find(Input::get('id'));
         $atelie->title = $input['title'];
         $atelie->description = $input['description'];
@@ -215,6 +221,7 @@ class AdminController extends BaseController{
 
         $album = new Album();
         $album->name = $input['name'];
+        $album->description = $input['album_description'];
         $album->save();
 
         if (Input::hasFile('files'))
@@ -241,6 +248,7 @@ class AdminController extends BaseController{
 
         $album = Album::find($input['id']);
         $album->name = $input['name'];
+        $album->description = $input['album_description'];
 
         $i = 0;
         foreach ($album->images as $image)
@@ -284,9 +292,10 @@ class AdminController extends BaseController{
     public function deleteImage() {
 
         $img = Image::find(Input::get('id'));
+        $extension = $img->extension;
         $img->delete();
 
-        File::delete(public_path() . DIRECTORY_SEPARATOR . 'pictures'. DIRECTORY_SEPARATOR . Input::get('album_id') . DIRECTORY_SEPARATOR . Input::get('id'));
+        File::delete(public_path() . DIRECTORY_SEPARATOR . 'pictures'. DIRECTORY_SEPARATOR . Input::get('album_id') . DIRECTORY_SEPARATOR . Input::get('id') . '.' . $extension);
 
         return Redirect::back();
     }

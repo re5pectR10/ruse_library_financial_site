@@ -91,8 +91,15 @@ class UserController extends BaseController{
     public function getProfile() {
 
         $user = Auth::user();
+        if ($user->user_type == 1)
+        {
+            $userType = 1;
+        } else
+        {
+            $userType = 2;
+        }
 
-        return View::make('user_profile', array('user' => $user));
+        return View::make('user_profile', array('user' => $user, 'user_type' => $userType));
     }
 
     public function changeProfile() {
@@ -124,5 +131,18 @@ class UserController extends BaseController{
         {
             return  Redirect::back()->with('pass_conf', 'The given old password do not match')->withInput();
         }
+    }
+
+    public function getBudget() {
+
+        if (Auth::user()->user_type == 1)
+        {
+            $userType = 1;
+        } else
+        {
+            $userType = 2;
+        }
+
+        return View::make('user_family_budget', array('user_type' => $userType));
     }
 } 

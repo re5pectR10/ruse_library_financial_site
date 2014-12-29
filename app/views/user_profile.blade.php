@@ -1,14 +1,10 @@
 @extends('layouts.admin')
 @section('acc_options')
-<div class="dropdown pull-right">
-    <ul class="nav">
-        <li class="dropdown"><div class="btn btn-info dropdown-toggle" data-toggle="dropdown">Добре дошли, {{ Auth::user()->username; }}<b class="caret"></b></div>
-            <ul class="dropdown-menu">
-                <li><a class="no-scroll" href=<?php echo '"' . URL::to('/') . 'logout"'; ?>><i class="glyphicon glyphicon-off"></i> Изход</a></li>
-            </ul>
-        </li>
-    </ul>
-</div>
+@if ($user_type==1)
+    @include('acc_admin_menu')
+@else
+    @include('acc_user_menu')
+@endif
 @stop
 
 @section('content')

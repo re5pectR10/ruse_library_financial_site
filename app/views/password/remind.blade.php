@@ -60,9 +60,9 @@
         </div>
     </div>
 </header>
-<div style="padding-top: 30%">
+<div style="padding-top: 20%; margin-left: 40%">
     <form action=<?php echo '"' . URL::to('/') . '/reminder"' ?> method="POST">
-    <input type="email" name="email">
+    <input type="email" name="email" placeholder="Write your e-mail here">
     <input type="submit" value="Send Reminder">
         <p><?php
             if (Session::has('error'))

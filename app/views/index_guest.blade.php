@@ -45,6 +45,7 @@
                     {{ Form::submit('Влез', array('class'=>'btn-success pull-right')); }}
                     {{ Form::close(); }}
             </div>
+            <a href="reminder">Забравена парола</a>
         </div>
         @if (Session::has('login_error'))
         <div class="bg-danger">

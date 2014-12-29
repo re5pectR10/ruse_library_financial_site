@@ -87,12 +87,11 @@ Route::get('/pics', function()
 {
     $albums = Album::find(Input::get('id'));
 
-
-        foreach ($albums->images as $i) {
-            $albumsToSend['images']['path'][] = 'pictures/'.Input::get('id').'/'.$i->id . '.' . $i->extension;
-            $albumsToSend['images']['desc'][] = $i->description;
-
-        }
+    $albumsToSend['description'] = $albums->description;
+    foreach ($albums->images as $i) {
+        $albumsToSend['images']['path'][] = 'pictures/'.Input::get('id').'/'.$i->id . '.' . $i->extension;
+        $albumsToSend['images']['desc'][] = $i->description;
+    }
 
     echo json_encode($albumsToSend);
 });
@@ -107,6 +106,7 @@ Route::get('/file', array('uses' => 'FileController@getDoc'));
 Route::post('/sendmsg', array('before' => 'csrf', 'uses' => 'UserController@sendMessage'));
 Route::get('/user/profile', array('before' => 'auth', 'uses' => 'UserController@getProfile'));
 Route::post('/user/change', array('before' => 'auth|csrf', 'uses' => 'UserController@changeProfile'));
+Route::get('/user/budget', array('before' => 'auth', 'uses' => 'UserController@getBudget'));
 
 Route::group(array('prefix' => 'admin', 'before' => 'admin'), function()
 {
