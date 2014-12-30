@@ -169,39 +169,6 @@
         </div>
 </section>
 
-<!--<section id="explore">
-    <div class="container">
-        <div class="row">
-            <div class="watch">
-                <img class="img-responsive" src="images/watch.png" alt="">
-            </div>
-            <div class="col-md-4 col-md-offset-2 col-sm-5">
-                <h2>our next event in</h2>
-            </div>
-            <div class="col-sm-7 col-md-6">
-                <ul id="countdown">
-                    <li>
-                        <span class="days time-font">00</span>
-                        <p>days </p>
-                    </li>
-                    <li>
-                        <span class="hours time-font">00</span>
-                        <p class="">hours </p>
-                    </li>
-                    <li>
-                        <span class="minutes time-font">00</span>
-                        <p class="">minutes</p>
-                    </li>
-                    <li>
-                        <span class="seconds time-font">00</span>
-                        <p class="">seconds</p>
-                    </li>
-                </ul>
-            </div>
-        </div>
-    </div>
-</section>--><!--/#explore-->
-
 <!-- facebook sidebar -->
 <div class="cart hide">
     <i class="fa fa-facebook"></i>
@@ -254,6 +221,11 @@
                         }
 
                         $i++;
+                    }
+
+                    if ($i%3!=0)
+                    {
+                        echo '</div></div>';
                     }
                     ?>
                     </div>
@@ -450,6 +422,11 @@
 
                             $i++;
                         }
+
+                        if ($i%3!=0)
+                        {
+                            echo '</div></div>';
+                        }
                         ?>
                     </div>
                 </div>
@@ -535,6 +512,7 @@
                      </div>
                 </div>
              </div>
+        </div>
     </div>
  </section>
  <!--/#contact-->

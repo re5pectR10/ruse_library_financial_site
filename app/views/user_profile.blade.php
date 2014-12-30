@@ -9,8 +9,8 @@
 
 @section('content')
 <div class="container">
-    <div class="row col-md-12 custyle">
         {{ Form::open(array('url' => 'user/change')); }}
+    <div class="row col-md-12 custyle">
         {{ Form::label('email', 'Вашият E-Mail'); }}
         {{ Form::email('email', isset($user->email) ? $user->email : Input::old('email'),  array('placeholder'=>'и-мейл','class'=>'form-control')); }}
     </div>
