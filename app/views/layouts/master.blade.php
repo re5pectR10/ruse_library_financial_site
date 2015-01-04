@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="">
+    <meta name="description" content="Сайт на русенската библиотека Любен Каравелов по проект Забавна финансова грамотност за деца и младежи, финансиран от международната нестопанска организация EIFL по програма PLIP – Public Library Innovation Programme (Програма за иновации в библиотеките).">
     <meta name="author" content="">
     <title>Забавна финансова грамотност</title>
 
@@ -16,18 +16,9 @@
     {{ HTML::style('css/FeedEk.css'); }}
 
     <!--[if lt IE 9]>
-    {{ HTML::style('css/html5shiv.css'); }}
-    {{ HTML::style('css/respond.css'); }}
+    {{ HTML::script('js/html5shiv.js'); }}
+    {{ HTML::script('js/respond.min.js'); }}
     <![endif]-->
-
-    <link rel="shortcut icon" href="{{ URL::asset('images/ico/favicon.ico'); }}">
-    <link rel="apple-touch-icon-precomposed" sizes="144x144"
-          href="{{ URL::asset('images/ico/apple-touch-icon-144-precomposed.png'); }}">
-    <link rel="apple-touch-icon-precomposed" sizes="114x114"
-          href="{{ URL::asset('images/ico/apple-touch-icon-114-precomposed.png'); }}">
-    <link rel="apple-touch-icon-precomposed" sizes="72x72"
-          href="{{ URL::asset('images/ico/apple-touch-icon-72-precomposed.png'); }}">
-    <link rel="apple-touch-icon-precomposed" href="{{ URL::asset('images/ico/apple-touch-icon-57-precomposed.png'); }}">
 </head>
 
 <body>
@@ -148,7 +139,7 @@
             foreach ($atelieta as $atelie): ?>
                 <div class="col-sm-12 atelie<?php echo $counter ?>-info toggle-slide atelieta-content">
                     <div class="close-button">
-                        <img src="{{ URL::asset('images/close_button.png'); }}">
+                        <img src="{{ URL::asset('images/close_button.png'); }}" alt="close">
                     </div>
                     <div class="panel panel-default">
                         <div class="panel-body" style="background-color: #FFC266">
@@ -282,7 +273,7 @@
               foreach ($albums as $a): ?>
                   <div style="padding: 20px" class="col-sm-12 album<?php echo $counter ?>-info toggle-slide albums-content">
                       <div class="close-button-album">
-                          <img src="{{ URL::asset('images/close_button.png'); }}">
+                          <img src="{{ URL::asset('images/close_button.png'); }}" alt="close">
                       </div>
                   </div>
                   <?php
@@ -448,9 +439,6 @@
                     </div>
                 </div>
             </div>
-        </div>
-        <div class="light">
-            <img class="img-responsive" src="../../../public/images/light.png" alt="">
         </div>
     </div>
 </section>
