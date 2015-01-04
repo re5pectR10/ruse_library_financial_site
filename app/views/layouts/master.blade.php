@@ -13,6 +13,7 @@
     {{ HTML::style('css/animate.css'); }}
     {{ HTML::style('css/responsive.css'); }}
     {{ HTML::style('css/lightbox.css'); }}
+    {{ HTML::style('css/FeedEk.css'); }}
 
     <!--[if lt IE 9]>
     {{ HTML::style('css/html5shiv.css'); }}
@@ -354,7 +355,7 @@
                 </div>
             </div>
             <div class="row">
-                <div class="col-sm-12">
+                <div class="col-sm-9">
                     <div class="text-center carousel-inner center-block">
                         <?php
                         $i = 0;
@@ -407,6 +408,7 @@
                         ?>
                     </div>
                 </div>
+                <div class="col-xs-3" id="divRss"></div>
             </div>
         </div>
     </div>
@@ -501,6 +503,7 @@
 
 {{ HTML::script('js/jquery.js'); }}
 {{ HTML::script('js/lightbox.min.js'); }}
+{{ HTML::script('js/FeedEk.js'); }}
 {{ HTML::script('js/bootstrap.min.js'); }}
 {{ HTML::script('http://maps.google.com/maps/api/js?sensor=true'); }}
 {{ HTML::script('js/gmaps.js'); }}
