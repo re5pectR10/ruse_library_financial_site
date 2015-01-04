@@ -127,7 +127,7 @@
                         <div class="panel panel-default">
                             <div class="panel-body">
                                 <h3><?php echo $atelie->title; ?></h3>
-                                <p><?php echo $atelie->description; ?></p>
+                                <?php echo $atelie->description; ?>
                             </div>
                         </div>
                         <div class="more-info-button atelie<?php echo $counter ?>">

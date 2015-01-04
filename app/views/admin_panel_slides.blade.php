@@ -26,10 +26,10 @@
                     </div>
                 </div>
                 {{ Form::submit('Запази', array('class'=>'btn btn-primary pull-right')); }}
+                {{ Form::close(); }}
             </div>
         </div>
     </div>
 </div>
-{{ Form::close(); }}
 {{ $slide->links(); }}
 @stop

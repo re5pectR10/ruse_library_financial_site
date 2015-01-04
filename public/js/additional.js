@@ -76,7 +76,7 @@ $(document).ready(function () {
 
                     });
 
-                    $('.albums-content').eq(0).append('<div class="row album-info"><div class="col-xs-12"><p>'+result['description']+'</p></div></div>');
+                    $('.albums-content').eq(0).append('<div class="row album-info"><div class="col-xs-12">'+result['description']+'</div></div>');
 
                     /*$('.album-images').find('img').load(function() {
                         $('.albums-content').eq(0).find('.loader').remove();
@@ -114,7 +114,7 @@ $(document).ready(function () {
                         $('.albums-content').eq(1).append('<div class="col-sm-2 col-xs-6 album-images"><div><a href="'+$path+'" data-lightbox="album1" data-title="' + $desc + '"><img style="border-radius: 3px; max-width: 100%" src="'+$path+'"></a></div></div>');
 
                     });
-                    $('.albums-content').eq(1).append('<div class="row album-info"><div class="col-xs-12"><p>'+result['description']+'</p></div></div>');
+                    $('.albums-content').eq(1).append('<div class="row album-info"><div class="col-xs-12">'+result['description']+'</div></div>');
                     $('.album-images').imagesLoaded()
                         .always(function() {
                             $('.albums-content').eq(1).find('.loader').remove();
@@ -148,7 +148,7 @@ $(document).ready(function () {
                         $('.albums-content').eq(2).append('<div class="col-sm-2 col-xs-6 album-images"><div><a href="'+$path+'" data-lightbox="album1" data-title="' + $desc + '"><img style="border-radius: 3px; max-width: 100%" src="'+$path+'"></a></div></div>');
 
                     });
-                    $('.albums-content').eq(2).append('<div class="row album-info"><div class="col-xs-12"><p>'+result['description']+'</p></div></div>');
+                    $('.albums-content').eq(2).append('<div class="row album-info"><div class="col-xs-12">'+result['description']+'</div></div>');
                     $('.album-images').imagesLoaded()
                         .always(function() {
                             $('.albums-content').eq(2).find('.loader').remove();

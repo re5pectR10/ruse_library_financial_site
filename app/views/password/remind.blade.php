@@ -77,5 +77,8 @@
         </p>
 </form>
 </div>
+<footer id="footer">
+    @include('footer')
+</footer>
 </body>
 </html>

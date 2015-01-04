@@ -27,7 +27,7 @@
                     else
                         echo '<td class="text-center" style="border-right: thick double #ff0000;"><a class="btn-primary btn-sm" href="users/makeadmin?id=' .  $user->id . '"><span class="glyphicon glyphicon-edit"></span>Направи админ</a></td>';
                     ?>
-                    <td class="text-center"><a class="btn-danger btn-sm"<?php echo 'href="users/delete?id=' .  $user->id . '"'; ?>><span class="glyphicon glyphicon-remove"></span>Изтрий потребителя</a></td>
+                    <td class="text-center"><a class="btn-danger btn-sm" <?php echo 'href="users/delete?id=' .  $user->id . '"'; ?>><span class="glyphicon glyphicon-remove"></span>Изтрий потребителя</a></td>
                 </tr>
             <?php
             endforeach; ?>
