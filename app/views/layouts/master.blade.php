@@ -449,9 +449,6 @@
                 </div>
             </div>
         </div>
-        <div class="light">
-            <img class="img-responsive" src="../../../public/images/light.png" alt="">
-        </div>
     </div>
 </section>
 <!--/#sponsor-->
