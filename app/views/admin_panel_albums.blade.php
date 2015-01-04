@@ -9,7 +9,7 @@
         <p class="admin-panel-title">Албуми</p>
         <table class="table table-striped custab">
             <div class="row text-center">
-                <a href="albums/add"class="btn btn-primary pull-left"><b>+</b> Добави нови записи</a>
+                <a href="albums/add" class="btn btn-primary pull-left"><b>+</b> Добави нови записи</a>
                 <?php echo $albums->links(); ?>
             </div>
             <thead>
@@ -24,7 +24,7 @@
                 <tr>
                     <td style="border-right: thick double #ff0000;"><?php echo $a->name; ?></td>
                     <td class="text-center" style="border-right: thick double #ff0000;"><a class="btn-info btn-xs" <?php echo 'href="albums/edit?id=' .  $a->id . '"'; ?>><span class="glyphicon glyphicon-edit"></span>редактирай</a></td>
-                    <td class="text-center" style=""><a class="btn-danger btn-xs"<?php echo 'href="albums/delete?id=' .  $a->id . '"'; ?>><span class="glyphicon glyphicon-remove"></span>изтрий</a></td>
+                    <td class="text-center"><a class="btn-danger btn-xs" <?php echo 'href="albums/delete?id=' .  $a->id . '"'; ?>><span class="glyphicon glyphicon-remove"></span>изтрий</a></td>
                 </tr>
             <?php
             endforeach; ?>

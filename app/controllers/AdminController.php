@@ -146,7 +146,7 @@ class AdminController extends BaseController{
 
     public function getUsers() {
 
-        $users = User::paginate(30);
+        $users = User::orderBy('id', 'DESC')->Paginate(30);
         return View::make('admin_panel_users',array('users'=>$users));
     }
 

@@ -128,7 +128,7 @@
                         <div class="panel panel-default">
                             <div class="panel-body">
                                 <h3><?php echo $atelie->title; ?></h3>
-                                <p><?php echo $atelie->description; ?></p>
+                                <?php echo $atelie->description; ?>
                             </div>
                         </div>
                         <div class="more-info-button atelie<?php echo $counter ?>">
@@ -374,7 +374,7 @@
                                 echo '<div class="row">';
                             }
 
-                            echo '<div class="col-sm-3 media-hover">';
+                            echo '<div class="col-sm-4 media-hover">';
                             if ($m->extension != '0')
                             {
                                 $path = 'media/' . $m->id . '/media.' . $m->extension;
