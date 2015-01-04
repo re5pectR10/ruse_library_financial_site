@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Сайт на русенската библиотека Любен Каравелов по проект Забавна финансова грамотност за деца и младежи, финансиран от международната нестопанска организация EIFL по програма PLIP – Public Library Innovation Programme (Програма за иновации в библиотеките).">
+    <meta name="description" content="Сайт на русенската библиотека Л.Каравелов по проект Забавна финансова грамотност за деца и младежи от EIFL по програма PLIP(Програма за иновации в библиотеките)">
     <meta name="author" content="">
     <title>Забавна финансова грамотност</title>
 
