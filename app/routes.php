@@ -145,4 +145,11 @@ Route::group(array('prefix' => 'admin', 'before' => 'admin'), function()
     Route::post('/media/add', array('uses' => 'AdminController@addMedia'));
     Route::get('/media/delete', array('uses' => 'AdminController@deleteMedia'));
     Route::get('/media/deletemediaimage', array('uses' => 'AdminController@deleteMediaImage'));
+    Route::get('/markmsg', array('uses' => 'AdminController@markMessageAsSeen'));
+});
+
+View::composer('acc_admin_menu', function($view)
+{
+    $unseenMessagesCount = Message::where('is_seen', '=', '0')->count();
+    $view->with('unseenMessagesCount', $unseenMessagesCount);
 });

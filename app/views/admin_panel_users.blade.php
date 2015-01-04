@@ -20,8 +20,8 @@
             <?php
             foreach ($users as $user): ?>
                 <tr>
-                    <td style="border-right: thick double #ff0000;"><?php echo $user->username; ?></td>
-                    <td style="border-right: thick double #ff0000;"><?php echo $user->email; ?></td>
+                    <td style="border-right: thick double #ff0000;">{{{ $user->username }}}</td>
+                    <td style="border-right: thick double #ff0000;">{{{ $user->email }}}</td>
                     <?php if ($user->user_type == 1)
                         echo '<td class="text-center" style="border-right: thick double #ff0000;"><a class="btn-info btn-sm" href="users/removeadmin?id=' .  $user->id . '"><span class="glyphicon glyphicon-edit"></span>Премахни администраторските права</a></td>';
                     else

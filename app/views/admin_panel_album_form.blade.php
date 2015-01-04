@@ -26,6 +26,27 @@
                     <div class="panel-heading">
                         <h2 class="panel-title">Описание:</h2>
                         {{ Form::textarea('album_description', isset($album->description) ? $album->description : Input::old('album_description'), array('placeholder' => 'Description')) }}<p>{{ $errors->first('album_description'); }}</p>
+                        <script>
+                            // Replace the <textarea id="editor1"> with a CKEditor
+                            // instance, using default configuration.
+                            CKEDITOR.replace( 'album_description' );
+                            CKEDITOR.on('dialogDefinition', function (ev) {
+                                // Take the dialog name and its definition from the event data.
+                                var dialogName = ev.data.name;
+                                var dialogDefinition = ev.data.definition;
+                                // Check if the definition is from the dialog we're
+                                // interested in (the 'image' dialog).
+                                if (dialogName == 'image') {
+                                    // Get a reference to the 'Image Info' tab.
+                                    var infoTab = dialogDefinition.getContents('info');
+                                    // Remove unnecessary widgets/elements from the 'Image Info' tab.
+                                    infoTab.remove('txtHSpace');
+                                    infoTab.remove('txtVSpace');
+                                    infoTab.remove('txtBorder');
+                                }
+                            });
+                            CKEDITOR.replace('album_description');
+                        </script>
                     </div>
                 </div>
                 {{ Form::file('files[]', $attributes = array('multiple' => 'true')); }}<p>{{ $errors->first('files'); }}</p>

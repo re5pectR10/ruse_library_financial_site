@@ -3,11 +3,11 @@
 <div class="container">
 <!-- START -> Log in and Sign in link buttons -->
 <div class="row">
-        <div class="col-xs-offset-7 col-xs-2">
-        <div id="btn-login" class="btn btn-success clicklogin">Влез</div>
+        <div class="col-md-offset-8 col-md-2 col-sm-offset-7 col-sm-2 col-xs-offset-6 col-xs-2 col-xs-pull-1">
+            <div id="btn-login" class="btn btn-success clicklogin">Влез</div>
         </div>
-        <div class="col-xs-2">
-        <div id="btn-signin" class="btn btn-primary clicksignin">Регистрирай се</div>
+        <div class="col-md-2 col-sm-offset-0 col-sm-2 col-xs-offset-1 col-xs-3 col-xs-pull-1">
+            <div id="btn-signin" class="btn btn-primary clicksignin">Регистрирай се</div>
         </div>
 </div>
 <!-- END <- Log in and Sign in link buttons -->
@@ -20,8 +20,18 @@
 <div class="toggle-slide toggle-slide-login">
     <div class="panel panel-default" style="margin-bottom: 0px; margin-top: 5px; background-color: #FFFFD6">
         <div class="panel-body">
+            {{ Form::open(array('url' => 'login')); }}
+            <div class="user_content_wrap col-md-4">
+                <div style="margin-bottom: 10px" class="input-group">
+                    <span class="input-group-addon"><i class="glyphicon glyphicon-lock"></i></span>
+                    {{ Form::honeypot('user_content', 'date') }}
+                </div>
+                <div class="bg-danger">
+                    <p>{{ $errors->login->first('user_content'); }}</p>
+                    <p>{{ $errors->login->first('date'); }}</p>
+                </div>
+            </div>
             <div class="col-md-4">
-                {{ Form::open(array('url' => 'login')); }}
                 <div style="margin-bottom: 10px" class="input-group">
                     <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
                     {{ Form::text('username', Input::old('username'),  array('placeholder'=>'Потребителско име','class'=>'form-control')); }}
@@ -43,8 +53,8 @@
                     {{ Form::label('remember', 'Запомни ме', array('class'=>'text-primary', 'style'=>'font-size: 20px;')); }}
                     {{ Form::checkbox('remember', 'true'); }}
                     {{ Form::submit('Влез', array('class'=>'btn-success pull-right')); }}
-                    {{ Form::close(); }}
             </div>
+            {{ Form::close(); }}
             <a href="reminder">Забравена парола</a>
         </div>
         @if (Session::has('login_error'))
@@ -63,8 +73,8 @@
 <div class="toggle-slide toggle-slide-signin">
     <div class="panel panel-default"  style="margin-bottom: 0px; margin-top: 5px; background-color: #FFFFD6">
         <div class="panel-body">
+            {{ Form::open(array('url' => 'signin')); }}
             <div class="col-md-3">
-                    {{ Form::open(array('url' => 'signin')); }}
                 <div style="margin-bottom: 10px" class="input-group">
                     <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
                     {{ Form::text('username_signin', Input::old('username_signin'),  array('placeholder'=>'Потребителско име','class'=>'form-control')); }}
@@ -82,6 +92,16 @@
                     <p>{{ $errors->signin->first('email'); }}</p>
                 </div>
             </div>
+            <div class="user_content_wrap col-md-3">
+                <div style="margin-bottom: 10px" class="input-group">
+                    <span class="input-group-addon"><i class="glyphicon glyphicon-envelope"></i></span>
+                    {{ Form::honeypot('user_content', 'date') }}
+                </div>
+                <div class="bg-danger">
+                    <p>{{ $errors->signin->first('user_content'); }}</p>
+                    <p>{{ $errors->signin->first('date'); }}</p>
+                </div>
+            </div>
             <div class="col-md-3">
                 <div style="margin-bottom: 10px" class="input-group">
                      <span class="input-group-addon"><i class="glyphicon glyphicon-lock"></i></span>
@@ -94,9 +114,9 @@
             <div class="col-md-3">
                 <div class="form-group" style="margin-top: 3px">
                     {{ Form::submit('Регистрирай се', array('class'=>'btn-success pull-right')); }}
-                    {{ Form::close(); }}
                 </div>
             </div>
+            {{ Form::close(); }}
         </div>
     </div>
 </div>
@@ -112,6 +132,13 @@
         <div class="status alert alert-success" style="display: none"></div>
 
         {{ Form::open(array('url' => 'sendmsg','id'=>'main-contact-form')); }}
+        <div class="user_content_wrap form-group">
+            {{ Form::honeypot('user_content', 'date') }}
+            <div class="bg-danger">
+                <p>{{ $errors->message->first('user_content'); }}</p>
+                <p>{{ $errors->message->first('date'); }}</p>
+            </div>
+        </div>
         <div class="form-group">
             {{ Form::text('name', Input::old('name'),  array('placeholder'=>'Име', 'class'=>'form-control')); }}
             <div class="bg-danger">

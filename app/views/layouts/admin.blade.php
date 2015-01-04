@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="">
     <meta name="author" content="">
-    <title>Регионална библиотека "Любен Каравелов" - Русе - Проект</title>
+    <title>Забавна финансова грамотност</title>
 
     {{ HTML::style('css/bootstrap.min.css'); }}
     {{ HTML::style('css/font-awesome.min.css'); }}
@@ -18,7 +18,7 @@
     {{ HTML::style('css/html5shiv.css'); }}
     {{ HTML::style('css/respond.css'); }}
     <![endif]-->
-
+    {{ HTML::script('js/ckeditor/ckeditor.js'); }}
     <link rel="shortcut icon" href="{{ URL::asset('images/ico/favicon.ico'); }}">
     <link rel="apple-touch-icon-precomposed" sizes="144x144"
           href="{{ URL::asset('images/ico/apple-touch-icon-144-precomposed.png'); }}">
@@ -70,7 +70,12 @@
     @include('footer')
 </footer>
 <!--/#footer-->
-
+<script>
+    <?php
+    echo 'var load="' . asset('images/loader.gif') . '";';
+    echo 'var URLPath="' . URL::to('/') . '";';
+    ?>
+</script>
 {{ HTML::script('js/jquery.js'); }}
 {{ HTML::script('js/bootstrap.min.js'); }}
 {{ HTML::script('http://maps.google.com/maps/api/js?sensor=true'); }}
@@ -82,6 +87,8 @@
 {{ HTML::script('js/main.js'); }}
 {{ HTML::script('js/jquery.nav.js'); }}
 {{ HTML::script('js/lightbox.min.js'); }}
+{{ HTML::script('js/jquery.hoverIntent.js'); }}
 {{ HTML::script('js/additional.js'); }}
+
 </body>
 </html>

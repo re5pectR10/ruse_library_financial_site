@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="">
     <meta name="author" content="">
-    <title>Регионална библиотека "Любен Каравелов" - Русе - Проект</title>
+    <title>Забавна финансова грамотност</title>
 
     {{ HTML::style('css/bootstrap.min.css'); }}
     {{ HTML::style('css/font-awesome.min.css'); }}
@@ -143,6 +143,7 @@
         <div class="row toggle-slide-atelieta">
             <?php
             $counter = 1;
+            unset($atelie);
             foreach ($atelieta as $atelie): ?>
                 <div class="col-sm-12 atelie<?php echo $counter ?>-info toggle-slide atelieta-content">
                     <div class="close-button">
@@ -260,7 +261,7 @@
                               {{ HTML::image('images/does_not_exist.png', $alt="image", $attributes = array('max-width' => '100%')) }}
                           </div> </div>
                           @endif
-                          <h3><p class="bg-primary text-center"><?php echo $a->name; ?></p></h3>
+                          <h3><p class="text-center"><?php echo $a->name; ?></p></h3>
 
                           <p class="album-id" style="display: none"><?php echo $a->id; ?></p><!-- ajax -->
 
@@ -276,36 +277,12 @@
           <div class="row toggle-slide-albums selected-album">
               <?php
               $counter = 1;
+              unset($a);
               foreach ($albums as $a): ?>
                   <div style="padding: 20px" class="col-sm-12 album<?php echo $counter ?>-info toggle-slide albums-content">
                       <div class="close-button-album">
                           <img src="{{ URL::asset('images/close_button.png'); }}">
                       </div>
-                      <?php /*
-                      $i = 0;
-                      foreach($a->images as $img){
-                          if ($i % 6 == 0)
-                          {
-                              echo '<div class="row">';
-                          }
-
-                          $path = 'pictures/' . $a->id . '/'. $img->id .'.'.$img->extension;
-                          echo '<div class="col-sm-2 col-xs-6 album-images"><div><a href="' . $path . '" data-lightbox="album'.$a->id.'" data-title="' . $img->description . '">'.
-                              HTML::image($path, $alt="image", $attributes = array('class' => 'images-per-album')) . ' </a></div></div>';
-                          if ($i % 6 == 5)
-                          {
-                              echo '</div>';
-                          }
-
-                          $i++;
-                      }
-
-                      if ($i % 6 != 0)
-                      {
-                          echo '</div>';
-                      }
-                      */ ?>
-                      <!--<p>// echo '"' . URL::to('/') . '/pictures/' . $a->id . '/' . $a->images[0]->id . '.' . $a->images[0]->extension . '"'; </p>-->
                   </div>
                   <?php
                   $counter++;

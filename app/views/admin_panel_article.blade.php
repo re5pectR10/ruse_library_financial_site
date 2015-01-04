@@ -28,7 +28,26 @@
             <div class="panel panel-default">
                 <div class="panel-heading">
                     <h2 class="panel-title">Съдържание:</h2>
-            {{ Form::textarea('content', isset($atelie->content) ? $atelie->content : Input::old('content'), array('placeholder' => 'Content')) }}<p>{{ $errors->first('content'); }}</p>
+            {{ Form::textarea('content', isset($atelie->content) ? $atelie->content : Input::old('content'), array('placeholder' => 'Content', 'id' => 'content')) }}<p>{{ $errors->first('content'); }}</p>
+                    <script>
+                        CKEDITOR.replace( 'content' );
+                        CKEDITOR.on('dialogDefinition', function (ev) {
+                            // Take the dialog name and its definition from the event data.
+                            var dialogName = ev.data.name;
+                            var dialogDefinition = ev.data.definition;
+                            // Check if the definition is from the dialog we're
+                            // interested in (the 'image' dialog).
+                            if (dialogName == 'image') {
+                                // Get a reference to the 'Image Info' tab.
+                                var infoTab = dialogDefinition.getContents('info');
+                                // Remove unnecessary widgets/elements from the 'Image Info' tab.
+                                infoTab.remove('txtHSpace');
+                                infoTab.remove('txtVSpace');
+                                infoTab.remove('txtBorder');
+                            }
+                        });
+                        CKEDITOR.replace('content');
+                    </script>
                 </div>
             </div>
             {{ Form::file('files[]', $attributes = array('multiple' => 'true')); }}
@@ -38,13 +57,14 @@
                     @if (isset($atelie->id))
                     @foreach ($atelie->doc as $d)
                         <table class="table table-striped custab">
-                        <?php echo '<tr><td style="border-right: thick double #ff0000;"><a href="'.URL::to('/').'/file?name='.$d->name.'&article_id='.$atelie->id.'">'.$d->name.'</a></td><td style="border-right: thick double #ff0000;"><a href="' . URL::to('/') . '/admin/atelieta/deletefile?id='.$d->id.'&name=' . $d->name.'&article_id='.$atelie->id. '">Изтрий картинката</a></td></tr>'; ?>
+                        <?php echo '<tr><td style="border-right: thick double #ff0000;"><a href="'.URL::to('/').'/file?name='.$d->name.'&article_id='.$atelie->id.'">'.$d->name.'</a></td><td style="border-right: thick double #ff0000;"><a href="' . URL::to('/') . '/admin/atelieta/deletefile?id='.$d->id.'&name=' . $d->name.'&article_id='.$atelie->id. '">Изтрий Файла</a></td></tr>'; ?>
                         </table>
                     @endforeach
                     @endif
                 </div>
             </div>
             {{ Form::submit('Запази', array('class'=>'btn btn-primary pull-right')); }}
+            {{ Form::close(); }}
         </div>
     @if (Session::has('files_error'))
     <p>{{ Session::get('files_error') }}</p>
@@ -52,5 +72,4 @@
 </div>
 </div>
 </div>
-{{ Form::close(); }}
 @stop

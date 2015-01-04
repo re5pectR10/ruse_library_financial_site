@@ -184,9 +184,30 @@ class AdminController extends BaseController{
 
     public function getMessages() {
 
-        $messages = Message::orderBy('id', 'DESC')->Paginate(15);
+        $messages = Message::orderBy('id', 'DESC')->Paginate(10);
+        //$msgToUpdate=new ReflectionClass($messages);
+        //$msgToUpdate = clone($messages);
+        //Message::orderBy('id', 'DESC')->take(Input::get('page')*2)->update(array('is_seen'=>'1'));
 
+        /*foreach($messages as $msg)
+        {
+            $seenMsgs[]=$msg->is_seen;
+            $msg->is_seen = 1;
+            $msg->save();
+        }*///
+
+        //Message::orderBy('id', 'DESC')->take(Input::get('page')*2)->update(array('is_seen' => '1'));//return DB::getQueryLog();
+//update messages set is_seen=1 where is_seen in (select is_seen from (select is_seen from messages order by id desc limit 0,2) tmp)
         return View::make('admin_panel_messages', array('messages' => $messages));
+    }
+
+    public function markMessageAsSeen() {
+
+        $message = Message::find(Input::get('id'));
+        $message->is_seen = 1;
+        $message->save();
+
+        return Response::json();
     }
 
     public function getAlbums() {

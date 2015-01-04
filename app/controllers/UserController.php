@@ -5,7 +5,7 @@
  * Date: 14-11-27
  * Time: 20:43
  */
-
+use Mews\Purifier\Purifier;
 class UserController extends BaseController{
 
     public  function signIn()
@@ -24,7 +24,7 @@ class UserController extends BaseController{
     public function logIn()
     {
         $input = Input::all();
-        $rules = array('username' => 'required | max:50 | min:3', 'password' => 'required');
+        $rules = array('username' => 'required | max:50 | min:3', 'password' => 'required', 'user_content' => 'honeypot', 'date' => 'required|honeytime:3');
         $validate = Validator::make(array_map('trim', $input), $rules);
         if ($validate->fails()) {
             return Redirect::to('/')->withErrors($validate, 'login')->withInput()->with('showForm', "login");
@@ -55,9 +55,11 @@ class UserController extends BaseController{
     public function sendMessage()
     {
         $input = Input::all();
+        //var_dump(Purifier::clean($input));return;
+        //$input=Purifier::clean($input);
         if (isset($input['name']))
         {
-            $rules = array('name' => 'required | max:50 | min:3', 'email' => 'required | email');
+            $rules = array('name' => 'required | max:50 | min:3', 'email' => 'required | email', 'user_content' => 'honeypot', 'date' => 'required|honeytime:3');
             $validate = Validator::make(array_map('trim', $input), $rules);
             if ($validate->fails()) {
                 return Redirect::to('/')->withErrors($validate, 'message')->withInput()->with('msg', '0');

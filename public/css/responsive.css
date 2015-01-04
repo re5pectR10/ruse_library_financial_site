@@ -154,7 +154,7 @@
     }
 
     .auth-forms div {
-        font-size: 0.95em;
+        font-size: 0.9em;
         right: 0;
     }
 
@@ -339,7 +339,7 @@
     }
 
     .auth-forms-fixed div {
-        font-size: 0.95em;
+        font-size: 0.91em;
     }
 
     .auth-forms-fixed .container {
@@ -373,14 +373,13 @@
     .auth-forms-fixed {
         z-index: 99;
         position: fixed;
-        top: 45px;
+        top: 55px;
         right: 0;
     }
 
     .auth-forms-fixed div {
         font-size: 0.9em;
-        padding: 5px;
-        margin-right: 10px;
+
     }
 
     .auth-forms-fixed li a {

@@ -1,5 +1,7 @@
 <?php
 
+use Mews\Purifier\Purifier;
+
 /*
 |--------------------------------------------------------------------------
 | Application & Route Filters
@@ -13,7 +15,12 @@
 
 App::before(function($request)
 {
-	//
+    $input = Input::except(array('password', '_token'));
+    if (!$input==[])
+    {
+        $input = Purifier::clean($input);
+        Input::merge($input);
+    }
 });
 
 
