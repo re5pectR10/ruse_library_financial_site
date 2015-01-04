@@ -374,7 +374,7 @@
                                 echo '<div class="row">';
                             }
 
-                            echo '<div class="col-sm-3 media-hover">';
+                            echo '<div class="col-sm-4 media-hover">';
                             if ($m->extension != '0')
                             {
                                 $path = 'media/' . $m->id . '/media.' . $m->extension;
