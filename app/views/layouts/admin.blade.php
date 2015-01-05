@@ -79,6 +79,7 @@
 {{ HTML::script('js/jquery.js'); }}
 {{ HTML::script('js/bootstrap.min.js'); }}
 {{ HTML::script('http://maps.google.com/maps/api/js?sensor=true'); }}
+{{ HTML::script('js/FeedEk.js'); }}
 {{ HTML::script('js/gmaps.js'); }}
 {{ HTML::script('js/smoothscroll.js'); }}
 {{ HTML::script('js/jquery.parallax.js'); }}

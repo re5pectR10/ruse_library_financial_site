@@ -69,15 +69,15 @@ class UserController extends BaseController{
             $email = $input['email'];
         } else
         {
-            $email = Auth::get('email');
-            $name = Auth::get('first_name') . ' ' . Auth::get('family_name');
-            if ($name != ' ')
-            {
-                $name .= ' (' . Auth::get('username') . ')';
-            } else
-            {
-                $name = Auth::get('username');
-            }
+            $email = Auth::user()->email;
+           // $name = Auth::get('first_name') . ' ' . Auth::get('family_name');
+            //if ($name != ' ')
+            //{
+            //    $name .= ' (' . Auth::get('username') . ')';
+            //} else
+            //{
+                $name = Auth::user()->username;
+            //}
         }
 
         $msg = new Message();

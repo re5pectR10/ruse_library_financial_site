@@ -4,16 +4,11 @@
 <div class="status alert alert-success" style="display: none"></div>
 
 {{ Form::open(array('url' => 'sendmsg','id'=>'main-contact-form')); }}
-<div class="form-group">
-    {{ Form::text('name', Input::old('name'),  array('placeholder'=>'Име', 'class'=>'form-control')); }}
+<div class="user_content_wrap form-group">
+    {{ Form::honeypot('user_content', 'date') }}
     <div class="bg-danger">
-        <p>{{ $errors->message->first('name'); }}</p>
-    </div>
-</div>
-<div class="form-group">
-    {{ Form::email('email', Input::old('email'),  array('placeholder'=>'и-мейл', 'class'=>'form-control')); }}
-    <div class="bg-danger">
-        <p>{{ $errors->message->first('email'); }}</p>
+        <p>{{ $errors->message->first('user_content'); }}</p>
+        <p>{{ $errors->message->first('date'); }}</p>
     </div>
 </div>
 <div class="form-group">
