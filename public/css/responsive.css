@@ -82,8 +82,8 @@
     }
 
     .navbar-brand img{
-        padding-top: 60px;
-        height: 140px;
+      /*  padding-top: 60px;
+        height: 140px; */
     }
 
     .fixed-menu .navbar-brand img{
