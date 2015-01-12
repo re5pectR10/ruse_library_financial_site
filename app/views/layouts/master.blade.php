@@ -29,6 +29,18 @@
         <div class="container">
             <div class="header-top">
                 <div class="pull-right social-icons">
+                    <!-- Microsoft Translator -->
+                    <div id='MicrosoftTranslatorWidget' class='Light' style='margin-top: -25px;color:white;background-color:#555555'></div>
+                    <script type='text/javascript'>
+                        setTimeout(function(){
+                            {
+                                var s=document.createElement('script');
+                                s.type='text/javascript';s.charset='UTF-8';
+                                s.src=((location && location.href && location.href.indexOf('https') == 0)?'https://ssl.microsofttranslator.com':'http://www.microsofttranslator.com')+'/ajax/v3/WidgetV3.ashx?siteData=ueOIGRSKkd965FeEGM5JtQ**&ctf=False&ui=true&settings=Manual&from=bg';
+                                var p=document.getElementsByTagName('head')[0]||document.documentElement;p.insertBefore(s,p.firstChild);
+                            }
+                        },0);
+                    </script>
                     <a href="https://www.facebook.com/Library.Ruse" target="_blank"><i class="fa fa-facebook"></i></a>
                     <a href="http://www.youtube.com/user/libruse" target="_blank"><i class="fa fa-youtube"></i></a>
                 </div>
