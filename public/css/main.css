@@ -17,6 +17,13 @@ body {
   padding: 9px 23px;
 }
 
+.img-responsive-inline {
+    display: inline;
+    width: 100% \9;
+    max-width: 100%;
+    height: auto;
+}
+
 a {
   -webkit-transition: 300ms;
   -moz-transition: 300ms;
@@ -135,12 +142,12 @@ h2 {
   height: 90px;
   margin-bottom: 20px;
   position: relative;
-  width: 194px;
+  width: 275px;
 }
 
 .navbar-brand img {
-  position: absolute;
-  top: -77px;
+  position: relative;
+    bottom: 40px;
 }
 
 .navbar-right {
@@ -195,7 +202,7 @@ h2 {
   margin-top: 0;
   padding: 0;
   margin-bottom: 0;
-  width: 125px;
+  width: 181px;
 }
 
 .fixed-menu .navbar-brand img {

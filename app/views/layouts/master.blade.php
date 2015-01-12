@@ -54,7 +54,8 @@
                         <span class="icon-bar"></span>
                     </button>
                     <a class="navbar-brand">
-                        <img class="img-responsive" src="{{ URL::asset('images/logo.png'); }}" alt="logo">
+                        <img class="img-responsive-inline" src="{{ URL::asset('images/logo.png'); }}" alt="logo">
+                        <img class="img-responsive-inline" src="{{ URL::asset('images/logo2.png'); }}" alt="logo2">
                     </a>
                 </div>
                 <div class="collapse navbar-collapse" role="navigation">
