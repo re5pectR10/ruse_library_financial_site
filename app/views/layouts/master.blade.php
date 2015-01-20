@@ -54,7 +54,11 @@
                         <span class="icon-bar"></span>
                     </button>
                     <a class="navbar-brand">
-                        <img class="img-responsive" src="{{ URL::asset('images/logo.png'); }}" alt="logo">
+                        <img class="img-responsive" src="{{ URL::asset('images/logo.png'); }}" usemap="#logos" alt="logo">
+                        <map name="logos">
+                        <area shape="circle" coords="48,45,47" href="http://www.libruse.bg/" title="Регионална библиотека Любен Каравелов - Русе" alt="libruse">
+                        <area shape="rect" coords="100,30,195,80" href="http://www.eifl.net/" title="EIFL" alt="eifl">
+                        </map>
                     </a>
                 </div>
                 <div class="collapse navbar-collapse" role="navigation">
@@ -504,6 +508,7 @@
 {{ HTML::script('js/jquery.js'); }}
 {{ HTML::script('js/lightbox.min.js'); }}
 {{ HTML::script('js/FeedEk.js'); }}
+{{ HTML::script('js/jQuery-rwdImageMaps/jquery.rwdImageMaps.min.js'); }}
 {{ HTML::script('js/bootstrap.min.js'); }}
 {{ HTML::script('http://maps.google.com/maps/api/js?sensor=true'); }}
 {{ HTML::script('js/gmaps.js'); }}

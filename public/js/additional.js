@@ -16,6 +16,8 @@ $(document).ready(function () {
         $("#fbSidebar").toggle('slide');//animate({width:'toggle'}, 200);
     });
 
+    $('img[usemap]').rwdImageMaps();
+
     /*$(".atelieta").click(function () {
         $(this).toggleClass("is-clicked");
         $(".toggle-slide-atelieta").slideToggle();
