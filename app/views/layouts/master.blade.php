@@ -122,7 +122,7 @@
     <div class="container">
         <div class="row ">
             <div class="col-xs-12">
-                <h2 class="title">Ателиета</h2>
+                <h2 class="title title-box">Ателиета</h2>
                 <div id="atelieta_left_page"><div class="btn btn-warning"><span class="glyphicon glyphicon-chevron-left"></span></div></div>
                 <div id="atelieta_right_page"><div class="btn btn-warning"><span class="glyphicon glyphicon-chevron-right"></span></div></div>
             </div>
@@ -196,7 +196,7 @@
         <div class="row">
             <div class="col-sm-12 col-md-10">
                 <div id="event-carousel" class="carousel slide" data-interval="false">
-                    <h2 class="heading">ВИДЕО</h2>
+                    <h2 class="heading video-box">ВИДЕО</h2>
                     <a class="even-control-left" href="#event-carousel" data-slide="prev"><i
                             class="fa fa-angle-left"></i></a>
                     <a class="even-control-right" href="#event-carousel" data-slide="next"><i
@@ -249,7 +249,7 @@
     <div class="container">
 <div class="row">
     <div class="col-xs-12">
-        <h2>ГАЛЕРИЯ</h2>
+        <h2 class="galery-title-box">ГАЛЕРИЯ</h2>
         <div id="albums_left_page"><div class="btn btn-warning"><span class="glyphicon glyphicon-chevron-left"></span></div></div>
         <div id="albums_right_page"><div class="btn btn-warning"><span class="glyphicon glyphicon-chevron-right"></span></div></div>
     </div>
@@ -356,7 +356,7 @@
             </div>
             <div class="row">
                 <div class="col-xs-9">
-                    <h2 class="heading">Медии</h2>
+                    <h2 class="heading news-box">Медии</h2>
                     <a class="twitter-control-left" href="#twitter-feed" data-slide="prev"><i class="fa fa-angle-left"></i></a>
                     <a class="twitter-control-right" href="#twitter-feed" data-slide="next"><i class="fa fa-angle-right"></i></a>
                 </div>

@@ -186,6 +186,10 @@
         font-size: 26px;
     }
 
+    #explore .title-box {
+        width: 750px;
+    }
+
     .atelieta-info{
         border-bottom: 2px solid #000000;
     }
@@ -279,7 +283,6 @@
     .single-event {
         margin-bottom: 40px;
     }
-
 
     #event h2,
     #about h2,
