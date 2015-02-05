@@ -239,14 +239,16 @@ $(document).ready(function () {
                     }
 
                     $counter++;
-                })
+                });
 
                 $('.atelieta-content a').remove();
                 $counter = 0;
                 $('.atelieta-content').each(function () {
                     if (result.length > $counter) {
                         $('.atelieta-content').eq($counter).find('h3').text(result[$counter]['title']);
-                        $('.atelieta-content').eq($counter).find('p:first').text(result[$counter]['content']);
+                        $('.atelieta-content').eq($counter).find('.atelie-content').empty();
+                        $('.atelieta-content').eq($counter).find('.atelie-content').append(result[$counter]['content']);
+
                         $.each(result[$counter]['docs']['path'], function (index) {
 
                             $path=result[$counter]['docs']['path'][index];
@@ -292,7 +294,8 @@ $(document).ready(function () {
                 $counter = 0;
                 $('.atelieta-content').each(function () {
                     $('.atelieta-content').eq($counter).find('h3').text(result[$counter]['title']);
-                    $('.atelieta-content').eq($counter).find('p:first').text(result[$counter]['content']);
+                    $('.atelieta-content').eq($counter).find('.atelie-content').empty();
+                    $('.atelieta-content').eq($counter).find('.atelie-content').append(result[$counter]['content']);
                     $.each(result[$counter]['docs']['path'], function (index) {
 
                             $path=result[$counter]['docs']['path'][index];

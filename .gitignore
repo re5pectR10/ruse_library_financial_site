@@ -9,3 +9,6 @@ composer.lock
 .DS_Store
 Thumbs.db
 .idea/workspace.xml
+/public/pictures
+/public/media
+/public/files

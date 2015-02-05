@@ -135,7 +135,7 @@
                         <div class="panel panel-default">
                             <div class="panel-body">
                                 <h3><?php echo $atelie->title; ?></h3>
-                                <?php echo $atelie->description; ?>
+                                <p><?php echo $atelie->description; ?></p>
                             </div>
                         </div>
                         <div class="more-info-button atelie<?php echo $counter ?>">
@@ -160,7 +160,9 @@
                     <div class="panel panel-default">
                         <div class="panel-body" style="background-color: #FFC266">
                             <h3 class="align-center"><?php echo $atelie->title; ?></h3>
-                            <p><?php echo $atelie->content; ?></p>
+                            <div class="atelie-content">
+                                <?php echo $atelie->content; ?>
+                            </div>
                         </div>
                     </div>
                     <div class="panel panel-default">
