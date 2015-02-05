@@ -155,7 +155,7 @@
             foreach ($atelieta as $atelie): ?>
                 <div class="col-sm-12 atelie<?php echo $counter ?>-info toggle-slide atelieta-content">
                     <div class="close-button">
-                        <img src="{{ URL::asset('images/close_button.png'); }}" alt="close">
+                        <button class="close">Close</button>
                     </div>
                     <div class="panel panel-default">
                         <div class="panel-body" style="background-color: #FFC266">
@@ -271,12 +271,12 @@
                               {{ HTML::image('images/does_not_exist.png', $alt="image", $attributes = array('max-width' => '100%')) }}
                           </div> </div>
                           @endif
-                          <h3><p class="text-center"><?php echo $a->name; ?></p></h3>
+                          <h3  class="videos-title"><p><?php echo $a->name; ?></p></h3>
 
                           <p class="album-id" style="display: none"><?php echo $a->id; ?></p><!-- ajax -->
 
                           <div class="more-info-button album<?php echo $counter ?>">
-                              <div class="btn btn-default">Покажи албума</div>
+                              <p>Покажи албума</p>
                           </div>
                       </div>
                       <?php
@@ -291,7 +291,7 @@
               foreach ($albums as $a): ?>
                   <div style="padding: 20px" class="col-sm-12 album<?php echo $counter ?>-info toggle-slide albums-content">
                       <div class="close-button-album">
-                          <img src="{{ URL::asset('images/close_button.png'); }}" alt="close">
+                          <button class="close">Close</button>
                       </div>
                   </div>
                   <?php
@@ -473,10 +473,10 @@
     <div class="contact-section">
         <div class="container">
             <div class="row">
-                <div class="col-sm-3 col-sm-offset-4">
+                <div class="col-sm-3 col-sm-offset-3 elegant-aero">
                     <div class="contact-text">
                         <h3>Контакти</h3>
-                        <address>
+                        <address class="letterpress">
                             И-мейл: libruse@libruse.bg<br>
                             Телефон: (+ 359 82) 820 126<br>
                             Факс: (+ 359 82) 820 134
@@ -484,14 +484,14 @@
                     </div>
                     <div class="contact-address">
                         <h3>Адрес</h3>
-                        <address>
+                        <address class="letterpress">
                             гр. Русе 7000,<br>
                             ул. "Дондуков-Корсаков" 1,<br>
                             РБ "Любен Каравелов"<br>
                         </address>
                     </div>
                 </div>
-                <div class="col-sm-5">
+                <div class="col-sm-5 col-sm-offset-1">
                     <div id="contact-section">
                         @yield('send_message')
                      </div>
