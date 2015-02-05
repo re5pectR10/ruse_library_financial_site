@@ -249,17 +249,19 @@ $(document).ready(function () {
                         $('.atelieta-content').eq($counter).find('.atelie-content').empty();
                         $('.atelieta-content').eq($counter).find('.atelie-content').append(result[$counter]['content']);
 
-                        $.each(result[$counter]['docs']['path'], function (index) {
+                        if (typeof (result[$counter]['docs']) != "undefined"){
+                            $.each(result[$counter]['docs']['path'], function (index) {
 
-                            $path=result[$counter]['docs']['path'][index];
-                            $name=result[$counter]['docs']['name'][index];
-                            $('.atelieta-content').eq($counter).find('.files').append('<a href="'+$path+'">'+$name+'</a>')
+                                $path=result[$counter]['docs']['path'][index];
+                                $name=result[$counter]['docs']['name'][index];
+                                $('.atelieta-content').eq($counter).find('.files').append('<a href="'+$path+'">'+$name+'</a>')
 
 
-                        })
+                            })
+                        }
                     } else {
                         $('.atelieta-content').eq($counter).find('h3').text("");
-                        $('.atelieta-content').eq($counter).find('p').text("");
+                        $('.atelie-content').eq($counter).empty();
                     }
 
                     $counter++;
@@ -289,25 +291,28 @@ $(document).ready(function () {
                     $('.atelieta-info').eq($counter).find('p:first').text(result[$counter]['description']);
                     $('.atelieta-info').eq($counter).find('p:last').text("Прочети повече...");
                     $counter++;
-                })
+                });
 
                 $counter = 0;
                 $('.atelieta-content').each(function () {
                     $('.atelieta-content').eq($counter).find('h3').text(result[$counter]['title']);
                     $('.atelieta-content').eq($counter).find('.atelie-content').empty();
                     $('.atelieta-content').eq($counter).find('.atelie-content').append(result[$counter]['content']);
-                    $.each(result[$counter]['docs']['path'], function (index) {
 
-                            $path=result[$counter]['docs']['path'][index];
-                            $name=result[$counter]['docs']['name'][index];
-                            $('.atelieta-content').eq($counter).find('.files').append('<a href="'+$path+'">'+$name+'</a>')
+                    if (typeof (result[$counter]['docs']) != "undefined"){
+                        $.each(result[$counter]['docs']['path'], function (index) {
+
+                                $path=result[$counter]['docs']['path'][index];
+                                $name=result[$counter]['docs']['name'][index];
+                                $('.atelieta-content').eq($counter).find('.files').append('<a href="'+$path+'">'+$name+'</a>')
 
 
-                    })
+                        });
+                    }
                     $counter++;
                 })
             }});
-    })
+    });
 
     var currentImagesPage = 1;
     $('#albums_right_page').click(function () {
@@ -351,14 +356,14 @@ $(document).ready(function () {
                     }
 
                     $counter++;
-                })
+                });
 
                 $('.albums-info').imagesLoaded()
                     .always(function() {
                         $('#about').find('.loader').remove();
                     });
             }});
-    })
+    });
 
     $('#albums_left_page').click(function () {
         if (currentImagesPage == 1) {
