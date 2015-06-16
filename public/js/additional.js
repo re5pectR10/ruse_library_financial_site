@@ -32,6 +32,11 @@ $(document).ready(function () {
         TitleLinkTarget:'_blank'
     });
 
+    $('#logo').mapster({
+        fillColor: 'E6E6E6',
+        fillOpacity: 0.3
+    });
+
     $(".clicklogin").click(function (e) {
         e.stopPropagation();
         $(this).toggleClass("is-clicked");
@@ -249,19 +254,19 @@ $(document).ready(function () {
                         $('.atelieta-content').eq($counter).find('.atelie-content').empty();
                         $('.atelieta-content').eq($counter).find('.atelie-content').append(result[$counter]['content']);
 
-                        if (typeof (result[$counter]['docs']) != "undefined"){
+                        if (typeof (result[$counter]['docs']) != "undefined") {
                             $.each(result[$counter]['docs']['path'], function (index) {
 
-                                $path=result[$counter]['docs']['path'][index];
-                                $name=result[$counter]['docs']['name'][index];
-                                $('.atelieta-content').eq($counter).find('.files').append('<a href="'+$path+'">'+$name+'</a>')
+                                $path = result[$counter]['docs']['path'][index];
+                                $name = result[$counter]['docs']['name'][index];
+                                $('.atelieta-content').eq($counter).find('.files').append('<a href="' + $path + '">' + $name + '</a>')
 
 
                             })
                         }
                     } else {
                         $('.atelieta-content').eq($counter).find('h3').text("");
-                        $('.atelie-content').eq($counter).empty();
+                            $('.atelie-content').eq($counter).empty();
                     }
 
                     $counter++;
@@ -299,16 +304,16 @@ $(document).ready(function () {
                     $('.atelieta-content').eq($counter).find('.atelie-content').empty();
                     $('.atelieta-content').eq($counter).find('.atelie-content').append(result[$counter]['content']);
 
+
                     if (typeof (result[$counter]['docs']) != "undefined"){
                         $.each(result[$counter]['docs']['path'], function (index) {
 
-                                $path=result[$counter]['docs']['path'][index];
-                                $name=result[$counter]['docs']['name'][index];
-                                $('.atelieta-content').eq($counter).find('.files').append('<a href="'+$path+'">'+$name+'</a>')
-
-
-                        });
+                            $path=result[$counter]['docs']['path'][index];
+                            $name=result[$counter]['docs']['name'][index];
+                            $('.atelieta-content').eq($counter).find('.files').append('<a href="'+$path+'">'+$name+'</a>')
+                            });
                     }
+
                     $counter++;
                 })
             }});
@@ -356,7 +361,7 @@ $(document).ready(function () {
                     }
 
                     $counter++;
-                });
+                })
 
                 $('.albums-info').imagesLoaded()
                     .always(function() {

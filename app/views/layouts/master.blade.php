@@ -54,10 +54,10 @@
                         <span class="icon-bar"></span>
                     </button>
                     <a class="navbar-brand">
-                        <img class="img-responsive" src="{{ URL::asset('images/logo.png'); }}" usemap="#logos" alt="logo">
+                        <img id="" class="img-responsive" src="{{ URL::asset('images/logo.png'); }}" usemap="#logos" alt="logo">
                         <map name="logos">
-                        <area shape="circle" coords="48,45,47" href="http://www.libruse.bg/" title="Регионална библиотека Любен Каравелов - Русе" alt="libruse">
-                        <area shape="rect" coords="100,30,195,80" href="http://www.eifl.net/" title="EIFL" alt="eifl">
+                        <area shape="circle" coords="48,45,49" href="http://www.libruse.bg/" title="Регионална библиотека Любен Каравелов - Русе" alt="libruse">
+                        <area shape="rect" coords="100,20,195,80" href="http://www.eifl.net/" title="EIFL" alt="eifl">
                         </map>
                     </a>
                 </div>
@@ -160,9 +160,9 @@
                     <div class="panel panel-default">
                         <div class="panel-body" style="background-color: #FFC266">
                             <h3 class="align-center"><?php echo $atelie->title; ?></h3>
-                            <div class="atelie-content">
-                                <?php echo $atelie->content; ?>
-                            </div>
+                        <div class="atelie-content">
+                          <?php echo $atelie->content; ?>
+                        </div>
                         </div>
                     </div>
                     <div class="panel panel-default">
@@ -429,7 +429,7 @@
         <div class="container">
             <div class="row">
                 <div class="col-sm-10">
-                    <h2>Спонсори</h2>
+                    <h2>Партньори</h2>
                     <a class="sponsor-control-left" href="#sponsor-carousel" data-slide="prev"><i
                             class="fa fa-angle-left"></i></a>
                     <a class="sponsor-control-right" href="#sponsor-carousel" data-slide="next"><i
@@ -438,20 +438,20 @@
                     <div class="carousel-inner">
                         <div class="item active">
                             <ul>
-                                <li><a href="#"><img class="img-responsive" src="{{ URL::asset('images/sponsor/sponsor1.jpg'); }}" alt="sponsor1"></a></li>
-                                <li><a href="#"><img class="img-responsive" src="{{ URL::asset('images/sponsor/sponsor2.jpg'); }}" alt="sponsor2"></a></li>
-                                <li><a href="#"><img class="img-responsive" src="{{ URL::asset('images/sponsor/sponsor3.jpg'); }}" alt="sponsor3"></a></li>
-                                <li><a href="#"><img class="img-responsive" src="{{ URL::asset('images/sponsor/sponsor4.png'); }}" alt="sponsor4"></a></li>
-                                <li><a href="#"><img class="img-responsive" src="{{ URL::asset('images/sponsor/sponsor5.jpg'); }}" alt="sponsor5"></a></li>
-                                <li><a href="#"><img class="img-responsive" src="{{ URL::asset('images/sponsor/sponsor6.jpg'); }}" alt="sponsor6"></a></li>
+                                <li><a href="http://www.unicreditbulbank.bg/bg/index.htm" target="_blank"><img class="img-responsive" src="{{ URL::asset('images/sponsor/sponsor1.jpg'); }}" height="200" width="200" alt="sponsor1"></a></li>
+                                <li><a href="http://www.ruse-bg.eu/index.php" target="_blank"><img class="img-responsive" src="{{ URL::asset('images/sponsor/sponsor2.jpg'); }}" height="200" width="200" alt="sponsor2"></a></li>
+                                <li><a href="http://obs.ruse-bg.eu/" target="_blank"><img class="img-responsive" src="{{ URL::asset('images/sponsor/sponsor3.jpg'); }}" height="200" width="200" alt="sponsor3"></a></li>
+                                <li><a href="http://networx.bg/" target="_blank"><img class="img-responsive" src="{{ URL::asset('images/sponsor/sponsor4.png'); }}" height="200" width="200" alt="sponsor4"></a></li>
+                                <li><a href="http://www.bgfound.org/bg/" target="_blank"><img class="img-responsive" src="{{ URL::asset('images/sponsor/sponsor5.jpg'); }}" height="200" width="200" alt="sponsor5"></a></li>
+                                <li><a href="http://www.eifl.net/" target="_blank"><img class="img-responsive" src="{{ URL::asset('images/sponsor/sponsor6.png'); }}" height="200" width="200" alt="sponsor6"></a></li>
                             </ul>
                         </div>
                         <div class="item">
                             <ul>
-                                <li><a href="#"><img class="img-responsive" src="{{ URL::asset('images/sponsor/sponsor7.jpg'); }}" alt="sponsor7"></a></li>
-                                <li><a href="#"><img class="img-responsive" src="{{ URL::asset('images/sponsor/sponsor8.jpg'); }}" alt="sponsor8"></a></li>
-                                <li><a href="#"><img class="img-responsive" src="{{ URL::asset('images/sponsor/sponsor9.jpg'); }}" alt="sponsor9"></a></li>
-                                <li><a href="#"><img class="img-responsive" src="{{ URL::asset('images/sponsor/sponsor10.jpg'); }}" alt="sponsor10"></a></li>
+                                <li><a href="http://sever.bg/" target="_blank"><img class="img-responsive" src="{{ URL::asset('images/sponsor/sponsor7.jpg'); }}" height="200" width="200" alt="sponsor7"></a></li>
+                                <li><a href="http://ruseplus.com/" target="_blank"><img class="img-responsive" src="{{ URL::asset('images/sponsor/sponsor8.jpg'); }}" height="200" width="200" alt="sponsor8"></a></li>
+                                <li><a href="http://jooble.org/" target="_blank"><img class="img-responsive" src="{{ URL::asset('images/sponsor/sponsor9.jpg'); }}" height="200" width="200" alt="sponsor9"></a></li>
+                                <li><a href="http://www.nalis.bg/" target="_blank"><img class="img-responsive" src="{{ URL::asset('images/sponsor/sponsor10.jpg'); }}" height="250" width="300" alt="sponsor10"></a></li>
                             </ul>
                         </div>
                     </div>
@@ -508,6 +508,7 @@
 <!--/#footer-->
 
 {{ HTML::script('js/jquery.js'); }}
+{{ HTML::script('js/jquery.imagemapster.js'); }}
 {{ HTML::script('js/lightbox.min.js'); }}
 {{ HTML::script('js/FeedEk.js'); }}
 {{ HTML::script('js/jQuery-rwdImageMaps/jquery.rwdImageMaps.min.js'); }}
